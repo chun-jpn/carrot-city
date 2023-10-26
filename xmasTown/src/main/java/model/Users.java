@@ -1,6 +1,6 @@
 package model;
 
-public class UserAccount {
+public class Users {
 	private String userName;
 	private String address;
 	private int tel;
@@ -8,8 +8,8 @@ public class UserAccount {
 	private String password;
 	
 	
-	public UserAccount(){}
-	public UserAccount(String userName, String address, int tel, String mail, String password) {
+	public Users(){}
+	public Users(String userName, String address, int tel, String mail, String password) {
 		this.userName = userName;
 		this.address = address;
 		this.tel = tel;
