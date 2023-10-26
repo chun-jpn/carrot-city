@@ -11,7 +11,7 @@ import java.util.List;
 import model.UserAccount;
 
 public class UsersDAO {
-	private final String JDBC_url = "jdbc:mysql://localhost:3306/dokotsubu?charaxterEncoding=UTF-8&serverTimezone=JST";
+	private final String JDBC_url = "jdbc:mysql://localhost:3306/xmas_town?charaxterEncoding=UTF-8&serverTimezone=JST";
 	private final String DB_user = "root";
 	private final String DB_pass = "";
 	
@@ -27,7 +27,7 @@ public class UsersDAO {
 //		データベースに接続
 		try(Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)){
 //			select文の準備(IDを大きい順に並べる
-			String sql = "select * from MUTTERS order by ID desc";
+			String sql = "select * from users order by user_id ask";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 //			結果表を取得
 			ResultSet rs = pStmt.executeQuery();

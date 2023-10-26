@@ -10,9 +10,9 @@ public class UserAccount {
 	
 	
 	public UserAccount(){}
-	public UserAccount(int id, String name, String address, int tel, String mail, String password) {
-		this.userId = id;
-		this.userName = name;
+	public UserAccount(int userId, String userName, String address, int tel, String mail, String password) {
+		this.userId = userId;
+		this.userName = userName;
 		this.address = address;
 		this.tel = tel;
 		this.mail = mail;
