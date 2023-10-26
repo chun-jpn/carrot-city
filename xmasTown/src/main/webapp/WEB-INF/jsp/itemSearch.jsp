@@ -7,11 +7,9 @@
 <title>Xmas Town</title>
 </head>
 <body>
-<h1>マイページ</h1>
-
-
-<p><a href="ChangeAccountServlet">登録情報変更</a></p>
-<p><a href="DeleteAccountServlet">退会</a></p>
+<h1>検索結果一覧</h1>
+<p>商品一覧</p>
+<p>商品詳細</p>
 <p><a href="WelcomServlet">TOPへ</a></p>
 </body>
 </html>

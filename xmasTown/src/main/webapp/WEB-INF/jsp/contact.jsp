@@ -7,11 +7,14 @@
 <title>Xmas Town</title>
 </head>
 <body>
-<h1>マイページ</h1>
+<h1>CONTACT</h1>
+<form action="Login" method="post">
+name:<input type="text" name="name"><br>
+email:<input type="text" name="email"><br>
+message:<input type="text" name="message"><br>
+<input type="submit" value="send">
+</form>
 
-
-<p><a href="ChangeAccountServlet">登録情報変更</a></p>
-<p><a href="DeleteAccountServlet">退会</a></p>
 <p><a href="WelcomServlet">TOPへ</a></p>
 </body>
 </html>
