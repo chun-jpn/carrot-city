@@ -36,11 +36,11 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		String userId = request.getParameter("userId");
+		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 		
 		// ログイン処理の実行
-		Login login = new Login (userId,  password);
+		Login login = new Login (mail,  password);
 		LoginLogic bo = new LoginLogic();
 		boolean result = bo.execute(login);
 		
@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 		if  (result)  {  //ログイン成功時
 			// セッションスコープにユーザーIDを保存
 			HttpSession session = request.getSession();
-			session.setAttribute("userId", userId);
+			session.setAttribute("mail", mail);
 		
 		
 		// フォワード
