@@ -24,6 +24,13 @@ public class ItemSearchServlet extends HttpServlet {
 				"WEB-INF/jsp/itemSearch.jsp");
 		dispatcher.forward(request, response);
 	}
-
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response)
+			throws ServletException, IOException{
+		RequestDispatcher dispatcher = request.getRequestDispatcher(
+				"WEB-INF/jsp/itemSearch.jsp");
+		dispatcher.forward(request, response);
+				
+	}
 
 }
