@@ -1,7 +1,6 @@
 package model;
 
-public class UserAccount {
-	private int userId;
+public class Users {
 	private String userName;
 	private String address;
 	private int tel;
@@ -9,19 +8,15 @@ public class UserAccount {
 	private String password;
 	
 	
-	public UserAccount(){}
-	public UserAccount(int id, String name, String address, int tel, String mail, String password) {
-		this.userId = id;
-		this.userName = name;
+	public Users(){}
+	public Users(String userName, String address, int tel, String mail, String password) {
+		this.userName = userName;
 		this.address = address;
 		this.tel = tel;
 		this.mail = mail;
 		this.password = password;
 	}
 	
-	public int getUserId() {
-		return userId;
-	}
 	public String getUserName() {
 		return userName;
 	}
