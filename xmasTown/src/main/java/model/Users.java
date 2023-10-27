@@ -3,13 +3,13 @@ package model;
 public class Users {
 	private String userName;
 	private String address;
-	private int tel;
+	private String tel;
 	private String mail ;
 	private String password;
 	
 	
 	public Users(){}
-	public Users(String userName, String address, int tel, String mail, String password) {
+	public Users(String userName, String address, String tel, String mail, String password) {
 		this.userName = userName;
 		this.address = address;
 		this.tel = tel;
@@ -23,7 +23,7 @@ public class Users {
 	public String getAddress() {
 		return address;
 	}
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 	public String getMail() {

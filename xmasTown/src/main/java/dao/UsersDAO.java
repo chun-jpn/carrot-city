@@ -37,7 +37,7 @@ public class UsersDAO {
 //			そのユーザーが表すAccountインスタンスを生成
 			String userName = rs.getString("user_name");
 			String address = rs.getString("address");
-			int tel = rs.getInt("tel");
+			String tel = rs.getString("tel");
 			String mail = rs.getString("mail");
 			String password = rs.getString("password");
 			
