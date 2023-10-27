@@ -2,7 +2,7 @@ package test;
 
 import dao.UsersDAO;
 import model.Login;
-import model.UserAccount;
+import model.Users;
 
 public class UsersDAOTest {
 
@@ -14,7 +14,7 @@ public class UsersDAOTest {
 	public static void testFindByLoginOK()  {
 		Login login = new Login("sawa@miyabilink.jp", "1234");
 		UsersDAO dao = new UsersDAO();
-		UserAccount result = dao.findByLogin(login);
+		Users result = dao.findByLogin(login);
 		
 		if  (result != null &&
 			result.getUserName().equals("sawa") &&
@@ -32,7 +32,7 @@ public class UsersDAOTest {
 	public static void testFindByLoginNG()  {
 		Login login = new Login("sawa@miyabilink.jp", "12345");
 		UsersDAO dao = new UsersDAO();
-		UserAccount result = dao.findByLogin(login);
+		Users result = dao.findByLogin(login);
 		
 		if  (result == null)  {
 			System.out.println("testFindByLoginNG:成功しました");		

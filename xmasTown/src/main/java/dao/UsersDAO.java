@@ -7,15 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Login;
-import model.UserAccount;
+import model.Users;
 
 public class UsersDAO {
 	private final String JDBC_url = "jdbc:mysql://localhost:3306/xmas_town?charaxterEncoding=UTF-8&serverTimezone=JST";
 	private final String DB_user = "root";
 	private final String DB_pass = "";
 	
-	public UserAccount findByLogin(Login login) {
-		UserAccount account = null;
+	public Users findByLogin(Login login) {
+		Users account = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		}catch(ClassNotFoundException e) {
@@ -41,7 +41,7 @@ public class UsersDAO {
 			String mail = rs.getString("mail");
 			String password = rs.getString("password");
 			
-			account = new UserAccount(userName, address,tel, mail, password);
+			account = new Users(userName, address,tel, mail, password);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
