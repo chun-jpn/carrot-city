@@ -8,6 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.Login;
+import model.LoginLogic;
+import model.Users;
 
 /**
  * Servlet implementation class MypageServlet
@@ -22,6 +27,20 @@ public class MypageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response)
 			throws ServletException, IOException {
+		Users user = new Users(); // JavaBeans Usersを生成し、登録済みの各情報を抜き出す
+		String name = user.getUserName(); // 名前を取得(jspに出力するため)
+		String mail = user.getMail(); // メールを取得(ログイン状態を確認するため)
+		String password = user.getPassword(); // パスワードを取得(ログイン状態を確認するため)
+		
+		Login login = new Login(mail, password); // Loginを生成し、メールとパスワードを登録
+		LoginLogic bo = new LoginLogic(); //ビジネスオブジェクト。LoginLogicを生成
+		boolean result = bo.execute(login); // 戻り値の「ture」「false」を受け取る
+		
+		if(result) { //ログイン成功時
+			HttpSession session = request.getSession();
+			session.setAttribute("name", name);
+		}
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
