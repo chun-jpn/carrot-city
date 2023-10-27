@@ -16,8 +16,8 @@ public class ItemsDAO{
 	  private final String DB_USER = "root";
 	  private final String DB_PASS = "";
 	  
-	  public List<Items> getAll() {
-		    List<Items> itemList = new ArrayList<Items>();
+	  public List<Items> findAll() {
+		    List<Items> itemsList = new ArrayList<Items>();
 		    // JDBCドライバを読み込む
 		    try {String drivername = "com.mysql.jdbc.Driver";
 		        Class.forName(drivername);
@@ -28,7 +28,7 @@ public class ItemsDAO{
 		    try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 
 		      // SELECT文の準備
-		      String sql = "select * from";
+		      String sql = "select * from items";
 		      PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		      // SELECTを実行
@@ -36,46 +36,23 @@ public class ItemsDAO{
 
 		      // SELECT文の結果をArrayListに格納
 		      while (rs.next()) {
-		        int id = rs.getInt("ID");
-		        String userName = rs.getString("NAME");
-		        String text = rs.getString("TEXT");
-		        Mutter mutter = new Mutter(id, userName, text);
-		        mutterList.add(mutter);
+		        int itemId = rs.getInt("item_id");
+		        String category = rs.getString("category");
+		        String itemName = rs.getString("item_name");
+		        int price = rs.getInt("price");
+		        String comment = rs.getString("comment");
+		        int releaseFlag = rs.getInt("release_flag");
+		        String addDate = rs.getString("add_date");
+		        String rewriteDate = rs.getString("rewrite_date");
+		        String picture = rs.getString("picture");
+		        Items items = new Items(itemId,category,itemName,price,comment,releaseFlag,addDate,rewriteDate,picture);
+		        itemsList.add(items);
 		      }
 		    } catch (SQLException e) {
 		      e.printStackTrace();
 		      return null;
 		    }
-		    return mutterList;
+		    return itemsList;
 		  }
-		  public boolean create(Mutter mutter) {
-			  // JDBCドライバを読み込む
-			  try {String drivername = "com.mysql.jdbc.Driver";
-				  Class.forName(drivername);
-			  } catch(ClassNotFoundException e) {
-			      throw new IllegalStateException("JDBCドライバを読み込めませんでした");
-			  }
-		    // データベース接続
-		    try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
-
-		      // INSERT文の準備(idは自動連番なので指定しなくてよい）
-		      String sql = "INSERT INTO MUTTERS(NAME, TEXT) VALUES(?, ?)";
-		      PreparedStatement pStmt = conn.prepareStatement(sql);
-		      
-		      // INSERT文中の「?」に使用する値を設定しSQLを完成
-		      pStmt.setString(1, mutter.getUserName());
-		      pStmt.setString(2, mutter.getText());
-
-		      // INSERT文を実行（resultには追加された行数が代入される）
-		      int result = pStmt.executeUpdate();
-		      if (result != 1) {
-		        return false;
-		      }
-		    } catch (SQLException e) {
-		      e.printStackTrace();
-		      return false;
-		    }
-		    return true;
-		  }
-
+		 
 }
