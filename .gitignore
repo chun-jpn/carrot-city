@@ -93,7 +93,7 @@ local.properties
 hs_err_pid*
 replay_pid*
 
-# Tomcatのサーバー設定ファイルを除外
+# Tomcatのサーバー設定フォルダを除外
 Servers/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse
