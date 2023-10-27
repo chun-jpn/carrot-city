@@ -31,20 +31,20 @@ public class MypageServlet extends HttpServlet {
 		String name = user.getUserName(); // 名前を取得(jspに出力するため)
 		String mail = user.getMail(); // メールを取得(ログイン状態を確認するため)
 		String password = user.getPassword(); // パスワードを取得(ログイン状態を確認するため)
-		
+		System.out.println(name);
 		Login login = new Login(mail, password); // Loginを生成し、メールとパスワードを登録
 		LoginLogic bo = new LoginLogic(); //ビジネスオブジェクト。LoginLogicを生成
 		boolean result = bo.execute(login); // 戻り値の「ture」「false」を受け取る
 		
 		if(result) { //ログイン成功時
-			HttpSession session = request.getSession();
+			HttpSession session = request.getSession(); // セッションスコープに名前の情報を登録
 			session.setAttribute("name", name);
+//			フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher(
+					"WEB-INF/jsp/mypage.jsp");
+			dispatcher.forward(request, response);
+		}else { //ログイン失敗時 リダイレクトでログインサーブレットへ
+			response.sendRedirect("LoginServlet");
 		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"WEB-INF/jsp/mypage.jsp");
-		dispatcher.forward(request, response);
-		
 	}
-
 }
