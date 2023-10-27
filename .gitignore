@@ -90,7 +90,7 @@ local.properties
 *.rar
 
 # Tomcatのサーバー設定フォルダを除外
-.Servers/
+Servers/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
