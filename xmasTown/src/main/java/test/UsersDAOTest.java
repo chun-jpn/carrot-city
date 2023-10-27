@@ -30,7 +30,7 @@ public class UsersDAOTest {
 	}
 	
 	public static void testFindByLoginNG()  {
-		Login login = new Login("sawa", "12345");
+		Login login = new Login("sawa@miyabilink.jp", "12345");
 		UsersDAO dao = new UsersDAO();
 		UserAccount result = dao.findByLogin(login);
 		

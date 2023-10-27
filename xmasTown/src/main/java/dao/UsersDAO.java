@@ -25,7 +25,7 @@ public class UsersDAO {
 //		データベースに接続
 		try(Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)){
 //			select文の準備
-			String sql = "select * from accounts where mail=? and password=?";
+			String sql = "select * from users where mail=? and password=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, login.getMail());
 			pStmt.setString(2, login.getPassword());

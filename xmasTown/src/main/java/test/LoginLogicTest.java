@@ -9,7 +9,7 @@ public class LoginLogicTest {
 		testExecuteNG();
 	}
 	public static void testExecuteOK()  {
-		Login login = new Login ("sawa", "1234");
+		Login login = new Login ("sawa@miyabilink.jp", "1234");
 		LoginLogic bo = new LoginLogic();
 		boolean result = bo.execute(login);
 		if  (result)  {
@@ -20,7 +20,7 @@ public class LoginLogicTest {
 	}
 	
 	public static void testExecuteNG()  {
-		Login login = new Login ("sawa", "12345");
+		Login login = new Login ("sawa@miyabilink.jp", "12345");
 		LoginLogic bo = new LoginLogic();
 		boolean result = bo.execute(login);
 		if  (!result)  {
