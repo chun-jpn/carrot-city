@@ -8,7 +8,7 @@
 <title>Xmas Town</title>
 </head>
 <body>
-<p>ようこそ<c:out value="${userName}" />さん</p>
+<h3>ようこそ<c:out value="${users.userName}" />さん</h3>
 <a href="WelcomeServlet">トップへ</a>
 </body>
 </html>
