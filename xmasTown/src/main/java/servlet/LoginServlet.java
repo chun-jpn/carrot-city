@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 			// セッションスコープにユーザーIDを保存
 			HttpSession session = request.getSession();
 			session.setAttribute("mail", mail);
-		
+			session.setAttribute("password", password);
 		
 		// フォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/loginOK.jsp");
