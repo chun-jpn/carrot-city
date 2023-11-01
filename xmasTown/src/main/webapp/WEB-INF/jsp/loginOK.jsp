@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Xmas Town</title>
+<title>CHRISTMAS TOWN</title>
 </head>
 <body>
 <h2>ようこそ</h2>
