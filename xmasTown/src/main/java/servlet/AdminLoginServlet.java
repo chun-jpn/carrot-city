@@ -53,7 +53,7 @@ public class AdminLoginServlet extends HttpServlet {
 			session.setAttribute("ownerPass", ownerPass);
 		
 		// フォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/AdminMain.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("AdminLoginOKServlet");
 				dispatcher.forward(request, response);
 			} else  {  // ログイン失敗時
 			// リダイレクト
