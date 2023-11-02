@@ -15,6 +15,6 @@
 </form>
 <p><a href="AddItemServlet">商品新規登録</a></p>
 <p><a href="AdminAccountServlet">アカウント管理</a></p>
-<p><a href="AdminLogountServlet">ログアウト</a></p>
+<p><a href="AdminLogoutServlet">ログアウト</a></p>
 </body>
 </html>
