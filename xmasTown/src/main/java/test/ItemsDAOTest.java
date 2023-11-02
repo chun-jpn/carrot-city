@@ -20,7 +20,7 @@ public class ItemsDAOTest {
 			System.out.println("商品名:" + items.getItem_name());
 			System.out.println("価格:" + items.getPrice());
 			System.out.println("コメント:" + items.getComment());
-			System.out.println("仕入先:" + items.getRelease_flag());
+			System.out.println("公開・非公開:" + items.getRelease_flag());
 			System.out.println("登録日:" + items.getAdd_date());
 			System.out.println("更新日:" + items.getRewrite_date());
 			System.out.println("画像:" + items.getPicture());
