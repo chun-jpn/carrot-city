@@ -1,10 +1,11 @@
 package test;
 
-import dao.UsersDAO;
-import model.Login;
-import model.Users;
+import dao.AdminsDAO;
+import model.Admin;
+import model.AdminLogin;
 
-public class UsersDAOTest {
+
+public class AdminsDAOTest {
 
 	public static void main(String[] args)  {
 		testFindByLoginOK();  //ユーザーが見つかる場合のテスト
@@ -12,16 +13,14 @@ public class UsersDAOTest {
 	}
 	
 	public static void testFindByLoginOK()  {
-		Login login = new Login("sawa@miyabilink.jp", "1234");
-		UsersDAO dao = new UsersDAO();
-		Users result = dao.findByLogin(login);
+		AdminLogin adminLogin = new AdminLogin("owner001", "1234");
+		AdminsDAO dao = new AdminsDAO();
+		Admin result = dao.findByLogin(adminLogin);
 		
 		if  (result != null &&
-			result.getUserName().equals("sawa") &&
-			result.getAddress().equals("岐阜県岐阜市")&&
-			result.getTel().equals("0581234567") &&
-			result.getMail().equals("sawa@miyabilink.jp") &&
-			result.getPassword().equals("1234") )  {
+			result.getOwnerId().equals("owner001") &&
+			result.getOwnerName().equals("ユーザー名")&&
+			result.getOwnerPass().equals("1234" ) ) {
 			
 			System.out.println("testFindByLoginOK:成功しました");			
 		} else {
@@ -30,9 +29,9 @@ public class UsersDAOTest {
 	}
 	
 	public static void testFindByLoginNG()  {
-		Login login = new Login("sawa@miyabilink.jp", "12345");
-		UsersDAO dao = new UsersDAO();
-		Users result = dao.findByLogin(login);
+		AdminLogin adminLogin = new AdminLogin("owner001", "12345");
+		AdminsDAO dao = new AdminsDAO();
+		Admin result = dao.findByLogin(adminLogin);
 		
 		if  (result == null)  {
 			System.out.println("testFindByLoginNG:成功しました");		

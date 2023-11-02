@@ -4,15 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Xmas Town</title>
+<title>CHRISTMAS TOWN</title>
 </head>
 <body>
 <h1>ログイン</h1>
 <form action="LoginServlet" method="post">
-ユーザーID:<input type="text" name="mail"><br>
+メールアドレス:<input type="text" name="mail"><br>
 パスワード:<input type="password" name="password"><br>
 <input type="submit" value="ログイン"><br>
-<input type="submit" value="新規会員登録">
+<a href ="RegisterServlet" class="button">新規会員登録</a><br>
+<br>
+<p><a href="WelcomeServlet">TOPへ</a></p>
 </form>
 </body>
 </html>
