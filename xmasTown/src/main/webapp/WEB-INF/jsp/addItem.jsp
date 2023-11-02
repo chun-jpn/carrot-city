@@ -9,7 +9,7 @@
 <body>
 <h1>商品新規登録</h1>
 <h2>商品情報</h2>
-<form action="AddItemServlet" method="post">
+<form action="AddItemServlet" method="post" enctype="multipart/form-data">
 	<p>カテゴリ:
 		<select name="category">
 			<option value="ツリー">ツリー</option>
