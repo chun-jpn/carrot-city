@@ -25,11 +25,23 @@ public class AdminLoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String confirmLogout = request.getParameter("confirm");
+		if ("いいえ".equals(confirmLogout)) {
+	        // ユーザがログアウト確認をキャンセルした場合の処理フォワード
+			//
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/adminMain.jsp");
+	    	dispatcher.forward(request, response);
+	    	
+	    	// ログアウトをキャンセルするメッセージを表示
+	    	System.out.println("管理者ログアウトをキャンセルしました");
+		} else {
+		
 		// フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/adminLogin.jsp");
 		dispatcher.forward(request, response);
 		}
-
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
