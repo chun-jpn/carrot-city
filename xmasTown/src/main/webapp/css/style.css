@@ -13,9 +13,13 @@ body{
     margin: 0;
     background-color: #fff;
 }
+.sp_br {
+  display: none; 
+}
+
 /*header*/
 .header {
-	margin: 30px 20px 20px 50px;
+	margin: 30px 20px 50px 20px;
 	
     display: flex; 
     justify-content:space-between;
@@ -23,6 +27,12 @@ body{
 .header-right{
 	display: flex; 
 	gap:20px;	
+}
+#mail{
+	margin:5px 0 0 0;
+}
+#login,#entry{
+	margin:5px 0 0 0;
 }
 .logo img{
 	width: 200px;
@@ -45,7 +55,22 @@ body{
 .nav a:hover .word {
   display: inline;
 }
-
+#login ,#login a:link ,#login a:visited,#login a:hover,#login a:active{
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	margin: auto;
+	padding: 0.3rem 1rem;
+	font-weight: bold;
+	background: #000;
+	color: #fff;
+	border-radius: 30vh;
+	transition: 0.5s;
+}
+#entry{
+	text-decoration:underline;
+}
 .word {
   position   : absolute;
   display: none;
@@ -107,24 +132,87 @@ body{
 /*TOP*/
 .top{
   position: relative;
+  padding:50px 0 0 0;
 }
 .logo-top {
   position: absolute;
-  top: 10%;
+  top: 6%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.logo-top img{
+	width:1200px;
+	height:auto;
+}
+/*スクロール矢印*/
+/*スクロールダウン全体の場所*/
+.scrolldown4{
+    /*描画位置※位置は適宜調整してください*/
+	position:absolute;
+	bottom:1%;
+	right:50%;
+    /*矢印の動き1秒かけて永遠にループ*/
+	animation: arrowmove 1s ease-in-out infinite;
+}
+
+/*下からの距離が変化して全体が下→上→下に動く*/
+@keyframes arrowmove{
+      0%{bottom:1%;}
+      50%{bottom:3%;}
+     100%{bottom:1%;}
+ }
+
+/*Scrollテキストの描写*/
+.scrolldown4 span{
+    /*描画位置*/
+	position: absolute;
+	left:-20px;
+	bottom:10px;
+    /*テキストの形状*/
+	color: #000;
+	font-size: 0.7rem;
+	letter-spacing: 0.05em;
+	/*縦書き設定*/
+	-ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+/* 矢印の描写 */
+.scrolldown4:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 0;
+    right: -6px;
+    /*矢印の形状*/
+    width: 1px;
+    height: 20px;
+    background: #000;
+    transform: skewX(-31deg);
+}
+
+.scrolldown4:after{
+	content:"";
+    /*描画位置*/
+	position: absolute;
+	bottom:0;
+	right:0;
+    /*矢印の形状*/
+	width:1px;
+	height: 50px;
+	background:#000;
+}
+
 /*grid*/
 .grid img {
   width: 100%; /* ADD */
   height:100%; /* ADD */
-  object-fit: scale-down;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 0px;
 }
 #gi1 {
   grid-column: 1 / 3;
@@ -136,7 +224,53 @@ main{
     margin: 50px 100px 90px 100px;
 }
 
+.maincopy{
+	text-align: center;
+	margin:70px 0;
+}
+h1{
+	font-family: 'Noto Sans JP', sans-serif;
+	letter-spacing:0.2em;
+	margin:0 0 40px 0;
+	font-size: 2.5rem;
+}
+.maincopy p{
+	font-size: 1.1em;
+	letter-spacing:0.05em;
+	line-height: 1.8em;
+}
 /*ランキングとおすすめ*/
+h2{
+	text-align: center;
+	margin:70px 0 0 0 ;
+}	
+h2 span{
+	font-size: 4.0rem;
+	font-family: 'Sawarabi Mincho', serif;
+	
+	display: inline-block;
+	  background: linear-gradient(135deg, #fed878 0%, #fa505e 100%);
+  	background: -webkit-linear-gradient(-45deg, #fed878 0%, #fa505e 100%);
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+}
+.ranking-sub,.recommend-sub,.category-sub{
+	text-align: center;
+	font-size: 1.0rem;
+	color:#767d83;
+	margin:-10px 0 30px 0 ;
+}
+
+.item-price{
+	font-size: 0.9rem;;
+}
+.ranking-list li{
+	position: relative;
+}
+
+
+
+/*画像のズーム*/
 .zoom img{
   transform: scale(1);
   transition: .3s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
@@ -156,7 +290,7 @@ main{
 	margin:10px 0 0 0;
 }
 /*ランキング*/
-.ranking{
+/*.ranking{
 	margin:30px 0;
 }
 .ranking-list{
@@ -165,19 +299,245 @@ main{
 	
 	display: flex;
 	justify-content:space-between;
+	gap:30px;
 }
 .ranking img{
-	width: 200px;
+	width: 300px;
+
+}
+.rank1{
+	position:relative;
+}*/
+
+/*スライダー*/
+.ranking-list {/*横幅94%で左右に余白を持たせて中央寄せ*/
+   width:100%;
+   margin: 0;
+   
+   padding-inline-start: 0px;   
+   margin-block-start:0;
+   margin-block-end:0;
+}
+
+/*.slider-sub{
+    width: 100vw;
+    margin: 90px 0;
+    overflow: visible;
+    position: relative;
+    left: 50%;
+transform: translateX(-50%); 
+*/
+
+.ranking-list img {
+    width:100%;/*スライダー内の画像を横幅100%に*/
+    height:auto;
+}
+
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.ranking-list .slick-slide {
+    margin:0 20px;
+}
+
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+    top: -10%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #666;/*矢印の色*/
+    border-right: 2px solid #666;/*矢印の色*/
+    height: 15px;
+    width: 15px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+    right: 5%;
+    top:-10%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+    right: 3%;
+    top:-10%;
+    transform: rotate(45deg);
+}
+/*ランキングのマル*/
+.maru {
+  width: 40px;
+  height: 40px;
+  padding-top: 10px;  
+  border-radius: 50%;
+  text-align: center;
+  box-sizing: border-box;
+  color:#fff;
+  font-weight: bold;
+  
+  position:absolute;
+ 
+  top: 10px;
+  left: 10px;
+}
+#maru1{
+	background-color: #543f32;
+}
+#maru2{
+	background-color: #595455;
 }
 
 /*おすすめ*/
-.recommend{
-	list-style: none;
-	padding:0;
+.recommend img {
+  width: 100%; /* ADD */
+  height:100%; /* ADD */
+}
+
+.recommend {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  
+  list-style-type:none;
+  grid-gap:20px;
+}
+#re-grid1 {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+/*画像にマウスオーバーするとテキストがでる*/
+.recommend-item {
+	position: relative;
+	overflow: hidden;
+	
+	position: relative;
+}
+.recommend-item:hover .item-info {
+	opacity: 1;
+	transition:all 0.6s ease;
+}
+
+.item-info{
+	width:100%;
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,0.5);
+	opacity: 0;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	padding: 20px;
+	transition: all 0.6s ease;
 	
 	display: flex;
-	justify-content:space-between;
+	flex-direction: column;
+	align-items: center;
+
 }
-.recommend img{
-	width: 200px;
+.item-name{
+	position: absolute;
+	  top: 40%;
+	  left: 50%;
+	  transform: translate(-50%,-50%);
 }
+.item-price{
+	position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%,-50%);
+	  margin:30px 0;
+}
+
+/*カテゴリ*/
+.category ul{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:center;
+	gap:30px;
+	
+	list-style-type:none;
+}
+.category img{
+	width:40px;
+
+}
+#cate1{
+	background-color:#dddcd6 ;
+}
+#cate2{
+	background-color:#ede4cd;
+}
+.category li{	
+	width:300px;
+	height:80px;
+	padding:10px 20px;
+	border-radius:10px;	
+	
+	display: flex;
+	justify-content: center;
+	gap:10px;
+}
+.category-text{
+	display: flex;
+	flex-flow: column;
+	
+	padding:10px 0 0 0;
+	text-align: center;
+}
+.category-text p{
+	margin:0;
+}
+.category-item{
+	font-size:1.3rem;
+}
+.category a{
+	text-decoration: none;
+	color: #000;
+}
+.category a:visited,.category a:hover,.category a:active {
+    filter: opacity(70%);
+}
+
+/*フッター*/
+footer{
+	background-color:#a58f86;
+	color: #fff;
+	text-align: center;
+	
+	padding: 20px 0;
+	position: relative;	
+}
+footer img{
+	width:70px;	
+	
+	position: absolute;
+  	top: -60px;
+  	right:30px;
+}
+.nav-footer li{
+	list-style-type:none;	
+}
+footer a{
+	text-decoration: none;
+	color: #fff;
+}
+footer a:visited,footer a:hover,.footer a:active {
+    filter: opacity(70%);
+}
+.nav-footer{
+	display: flex;
+	justify-content:center;
+	gap:20px;
+	padding: 0;
+}
+.info span{
+	font-size: 1.5rem;
+	font-family: 'Sawarabi Mincho', serif;
+}
+
+
