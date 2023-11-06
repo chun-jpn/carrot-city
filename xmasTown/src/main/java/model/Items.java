@@ -30,16 +30,13 @@ public class Items {
 	
 //	アイテム追加用
 	public Items(String category, String item_name,
-	int price, String comment,int quantity,int release_flag,String add_date,
-	String rewrite_date,String picture) {
+	int price, String comment,int quantity,int release_flag,String picture) {
 		this.category = category;
 		this.item_name = item_name;
 		this.price = price;
 		this.comment = comment;
 		this.quantity = quantity;
 		this.release_flag = release_flag;
-		this.add_date = add_date;
-		this.rewrite_date = rewrite_date;
 		this.picture = picture;
 	}
 	

@@ -9,18 +9,18 @@
 <body>
 <h1>商品新規登録</h1>
 <h2>商品情報</h2>
-<form action="AddItemConfirmServlet" method="post">
+<form action="AddItemServlet" method="post" enctype="multipart/form-data">
 	<p>カテゴリ:
 		<select name="category">
-			<option value="0">ツリー</option>
-			<option value="1">オーナメント</option>
-			<option value="2">オブジェ</option>
-			<option value="3">リース</option>
-			<option value="4">オルゴール</option>
-			<option value="5">リボン</option>
-			<option value="6">カード</option>
-			<option value="7">アドベントカレンダー</option>
-			<option value="8">ガーランド</option>
+			<option value="ツリー">ツリー</option>
+			<option value="オーナメント">オーナメント</option>
+			<option value="オブジェ">オブジェ</option>
+			<option value="リース">リース</option>
+			<option value="オルゴール">オルゴール</option>
+			<option value="リボン">リボン</option>
+			<option value="カード">カード</option>
+			<option value="アドベントカレンダー">アドベントカレンダー</option>
+			<option value="ガーランド">ガーランド</option>
 		</select>
 	</p>
 	<p>商品名:<input type="text" name="itemName"></p>
