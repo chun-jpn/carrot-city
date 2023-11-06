@@ -11,12 +11,12 @@ import java.util.List;
 import model.Items;
 
 
-public class ItemsDAO{
+public class ItemsDAO3{
 	  private final String JDBC_URL = "jdbc:mysql://localhost:3306/xmas_town?charaxterEncoding=UTF-8&serverTimezone=JST";
 	  private final String DB_USER = "root";
 	  private final String DB_PASS = "";
 	  
-	  public List<Items> findAll() {
+	  public List<Items> search(String item_name) {//findAll() {
 		    List<Items> itemsList = new ArrayList<Items>();
 		    // JDBCドライバを読み込む
 		    try {String drivername = "com.mysql.jdbc.Driver";
@@ -28,8 +28,9 @@ public class ItemsDAO{
 		    try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 
 		      // SELECT文の準備
-		    
-		      String sql = "select * from items";
+		     String sql = "SELECT * FROM items WHERE item_name LIKE '%プレゼント%'";
+		     //LIKE '%プレゼント%'"　→　LIKE '%" + item_name + "%'"; へ変更する
+
 		      PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		      // SELECTを実行
