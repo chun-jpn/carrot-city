@@ -38,6 +38,8 @@ body{
 	width: 200px;
 }
 
+
+
 /*nav*/
 .nav ul{
     margin: 0 0 0 0;
@@ -70,19 +72,6 @@ body{
 }
 #entry{
 	text-decoration:underline;
-}
-.word {
-  position   : absolute;
-  display: none;
-  padding: 2px;
-  color: aliceblue;
-  border-radius: 5px;
-  background-color:purple;
-  width:100px;
-  top: 50px;
-  left: 0px;
-  font-size: 12px;
-  text-align: center;
 }
 
 /*検索*/
@@ -144,6 +133,10 @@ body{
 	width:1200px;
 	height:auto;
 }
+.logo-top-sp{
+	display:none;
+}
+
 /*スクロール矢印*/
 /*スクロールダウン全体の場所*/
 .scrolldown4{
@@ -204,7 +197,7 @@ body{
 	background:#000;
 }
 
-/*grid*/
+/*TOPgrid*/
 .grid img {
   width: 100%; /* ADD */
   height:100%; /* ADD */
@@ -289,25 +282,6 @@ h2 span{
 .item-name{
 	margin:10px 0 0 0;
 }
-/*ランキング*/
-/*.ranking{
-	margin:30px 0;
-}
-.ranking-list{
-	list-style: none;
-	padding:0;
-	
-	display: flex;
-	justify-content:space-between;
-	gap:30px;
-}
-.ranking img{
-	width: 300px;
-
-}
-.rank1{
-	position:relative;
-}*/
 
 /*スライダー*/
 .ranking-list {/*横幅94%で左右に余白を持たせて中央寄せ*/
@@ -319,28 +293,17 @@ h2 span{
    margin-block-end:0;
 }
 
-/*.slider-sub{
-    width: 100vw;
-    margin: 90px 0;
-    overflow: visible;
-    position: relative;
-    left: 50%;
-transform: translateX(-50%); 
-*/
-
 .ranking-list img {
     width:100%;/*スライダー内の画像を横幅100%に*/
     height:auto;
 }
 
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
-
 .ranking-list .slick-slide {
     margin:0 20px;
 }
 
-/*矢印の設定*/
-
+/*ランキング矢印の設定*/
 /*戻る、次へ矢印の位置*/
 .slick-prev, 
 .slick-next {
@@ -401,17 +364,15 @@ transform: translateX(-50%);
   list-style-type:none;
   grid-gap:20px;
 }
-#re-grid1 {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-}
 
 /*画像にマウスオーバーするとテキストがでる*/
+.recommend{
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
 .recommend-item {
 	position: relative;
 	overflow: hidden;
-	
-	position: relative;
 }
 .recommend-item:hover .item-info {
 	opacity: 1;
@@ -433,10 +394,6 @@ transform: translateX(-50%);
 	text-align: center;
 	padding: 20px;
 	transition: all 0.6s ease;
-	
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 
 }
 .item-name{
@@ -444,6 +401,7 @@ transform: translateX(-50%);
 	  top: 40%;
 	  left: 50%;
 	  transform: translate(-50%,-50%);
+	  width:200px;
 }
 .item-price{
 	position: absolute;
@@ -464,12 +422,11 @@ transform: translateX(-50%);
 }
 .category img{
 	width:40px;
-
 }
-#cate1{
+#cate1,#cate3,#cate5,#cate7,#cate9{
 	background-color:#dddcd6 ;
 }
-#cate2{
+#cate2,#cate4,#cate6,#cate8{
 	background-color:#ede4cd;
 }
 .category li{	
@@ -507,11 +464,10 @@ transform: translateX(-50%);
 footer{
 	background-color:#a58f86;
 	color: #fff;
-	text-align: center;
-	
+	text-align: center;	
 	padding: 20px 0;
-	position: relative;	
 }
+
 footer img{
 	width:70px;	
 	
@@ -539,5 +495,4 @@ footer a:visited,footer a:hover,.footer a:active {
 	font-size: 1.5rem;
 	font-family: 'Sawarabi Mincho', serif;
 }
-
 
