@@ -24,11 +24,12 @@ public class ItemSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+		throws ServletException, IOException {
+		String category = request.getParameter("category");
 		
 		ItemsDAO dao = new ItemsDAO();
-		List<Items> itemsList = dao.findAll();
+//		List<Items> itemsList = dao.findAll();
+		List<Items> itemsList = dao.findByCategory(category);
 		request.setAttribute("itemsList", itemsList);
 		System.out.println(itemsList.get(0));
 
