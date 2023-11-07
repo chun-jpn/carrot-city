@@ -78,7 +78,8 @@ public class ItemsDAO{
 			}
 	  }
 	  
-	  public List<Items> findAll() {
+//	  public List<Items> findAll() {
+	  public List<Items> findByCategory(String cSearch) {
 		    List<Items> itemsList = new ArrayList<Items>();
 		    // JDBCドライバを読み込む
 		    try {String drivername = "com.mysql.jdbc.Driver";
@@ -91,9 +92,10 @@ public class ItemsDAO{
 
 		      // SELECT文の準備
 		    
-		      String sql = "select * from items";
+//		      String sql = "select * from items";
+		      String sql = "select * from items where category = ?";
 		      PreparedStatement pStmt = conn.prepareStatement(sql);
-
+		      pStmt.setString(1, cSearch);
 		      // SELECTを実行
 		      ResultSet rs = pStmt.executeQuery();
 
@@ -119,5 +121,4 @@ public class ItemsDAO{
 		    return itemsList;
 	  }
 	  
-
 }
