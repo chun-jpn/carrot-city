@@ -18,7 +18,7 @@
 	      <a href="index.html"><img src="image/ロゴ.svg" alt="CHRISTMAS TOWN"></a>
 	    </div>
 	    <div class="header-right">
-		    <form action="#" class="search-form">
+		    <form action="ItemSearchServlet" class="search-form">
 			    <label>
 			        <input type="text" placeholder="商品名">
 			    </label>
@@ -34,6 +34,7 @@
 		    </nav>
 	    </div>  
 	 </header>
+	 
 <!-- TOP -->
 
 	<div class="top">
@@ -46,12 +47,13 @@
 		</div>
 		<div class="scrolldown4"><span>Scroll</span></div>
 		<div class="logo-top"><img src="image/ロゴ.svg" alt="Christmas Town"></div>
+		<div class="logo-top-sp"><img src="image/ロゴ_sp.svg" alt="Christmas Town"></div>
 	</div>
 	
 <main>
 	<div class="maincopy">
 		<h1>CHRISTMAS TOWNは<br>クリスマスグッズが<br class="sp_br">一年中買えるお店です</h1>
-		<p>毎年欧米のトレンドを反映したおしゃれなクリスマスグッズを、<br>
+		<p>毎年欧米のトレンドを反映した<br class="sp_br">おしゃれなクリスマスグッズを、<br>
 			世界中のブランドやメーカーから直輸入しています。<br><br>
 			ヨーロッパならではの、クラシカルで高級感のある<br class="sp_br">クリスマスオーナメントやオブジェ、<br>
 			米国ならではのスタイリッシュなクリスマスツリーや<br class="sp_br">独創的なデコレーションアイテム。<br>
@@ -132,15 +134,7 @@
 				  	<div class="item-price">\1,045[税込]</div>
 			  	</div>
 		  	</div>
-		  </li>
-		  <li id="re-grid5">
-		  	<div class="recommend-item"><a href="#"><img src="image/010625_ct.jpg"></a>
-			  	<div class="item-info">
-				  	<div class="item-name">ベアー＆ホースオーナメント</div>
-				  	<div class="item-price">\1,045[税込]</div>
-			  	</div>
-		  	</div>
-		  </li>		  
+		  </li>  
 	</ul>
 	<!-- カテゴリ -->
 	<h2><span>Category</span></h2>
@@ -151,37 +145,39 @@
 				<div class="category-text"><div class="category-item">ツリー</div><p>Tree</p></div></li>
 			<a href="#"><li id="cate2"><img src="image/ornament.svg">
 				<div class="category-text"><div class="category-item">オーナメント</div><p>Ornament</p></div></li>
-			<a href="#"><li id="cate1"><img src="image/object.svg">
+			<a href="#"><li id="cate3"><img src="image/object.svg">
 				<div class="category-text"><div class="category-item">オブジェ</div><p>Object</p></div></li>
-			<a href="#"><li id="cate2"><img src="image/wreath.svg">
+			<a href="#"><li id="cate4"><img src="image/wreath.svg">
 				<div class="category-text"><div class="category-item">リース</div><p>Wreath</p></div></li>
-			<a href="#"><li id="cate1"><img src="image/musicbox.svg">
+			<a href="#"><li id="cate5"><img src="image/musicbox.svg">
 				<div class="category-text"><div class="category-item">オルゴール</div><p>Music box</p></div></li>
-			<a href="#"><li id="cate2"><img src="image/ribbon.svg">
+			<a href="#"><li id="cate6"><img src="image/ribbon.svg">
 				<div class="category-text"><div class="category-item">リボン</div><p>Ribbon</p></div></li>
-			<a href="#"><li id="cate1"><img src="image/card.svg">
+			<a href="#"><li id="cate7"><img src="image/card.svg">
 				<div class="category-text"><div class="category-item">カード</div><p>Card</p></div></li>
-			<a href="#"><li id="cate2"><img src="image/calendar.svg">
+			<a href="#"><li id="cate8"><img src="image/calendar.svg">
 				<div class="category-text"><div class="category-item">アドベント<br class="sp_br">カレンダー</div><p>Advent calendar</p></div></li>
-			<a href="#"><li id="cate1"><img src="image/garland.svg">
+			<a href="#"><li id="cate9"><img src="image/garland.svg">
 				<div class="category-text"><div class="category-item">ガーランド</div><p>Garland</p></div></li>
 				
 		</ul>
 	</div>
+	
 </main>	
 <!--フッター-->
     <footer>
-    <img src="image/town.svg">
-        <div class="info">
-           <a href="index.html"><span>CHRISTMAS TOWN</span></a>
-            <ul class="nav-footer"> 
-               <li><a href="MypageServlet">マイページ</a></li>
-               <li><a href="ContactServlet">お問い合わせ</a></li>
-             </ul>
-          
-            <p>&copy;CHRISTMAS TOWN</p>
-        </div>        
+	    <img src="image/town.svg">
+	        <div class="info">
+	           <a href="index.html"><span>CHRISTMAS TOWN</span></a>
+	            <ul class="nav-footer"> 
+	               <li><a href="MypageServlet">マイページ</a></li>
+	               <li><a href="ContactServlet">お問い合わせ</a></li>
+	             </ul>
+	          
+	            <p>&copy;CHRISTMAS TOWN</p>
+	        </div>        
     </footer>
+    
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="css/js.js"></script>
