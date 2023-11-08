@@ -39,7 +39,9 @@ public class AddItemOKServlet extends HttpServlet {
             String errorMessage = "アイテムの登録中にエラーが発生しました。";
             request.setAttribute("errorMessage", errorMessage);
         }
-
+        // セッションからデータをクリア
+        session.removeAttribute("item");
+        
         // フォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/addItemOK.jsp");
         dispatcher.forward(request, response);
