@@ -3,23 +3,27 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Users;
 
 
 public class RegisterDAO {
-	 // データベース接続に使用する情報
-	private final String JDBC_url = "jdbc:mysql://localhost:3306/xmas_town";
-	private final String DB_user = "root";
-	private final String DB_pass = "";
+	// データベース接続に使用する情報
+	private final static String JDBC_url = "jdbc:mysql://localhost:3306/xmas_town";
+	private final static String DB_user = "root";
+	private final static String DB_pass = "";
+	
+	
+	private static final String CHECK_EMAIL_QUERY = "SELECT COUNT(*) FROM users WHERE mail = ?";
 	
 	// インスタンスオブジェクトを返却してコード簡略化
 		public static RegisterDAO getInstance() {
 			return new RegisterDAO();
 		}
 
-public void InsertUser(Users input_user) {
+public boolean InsertUser(Users input_user) {
 	// 初期値をセット
 			Connection db_con = null;
 			String name = input_user.getUserName();
@@ -73,5 +77,23 @@ public void InsertUser(Users input_user) {
 						}
 				}
 			}
+			return false;			
 		}
+public boolean isMailAlreadyRegistered(String mail) {
+	//メールアドレスが登録済みかどうかチェックする
+    try (Connection connection =DriverManager.getConnection(JDBC_url, DB_user, DB_pass);
+        PreparedStatement ps = connection.prepareStatement(CHECK_EMAIL_QUERY)) {
+    	ps.setString(1, mail);
+        ResultSet resultSet = ps.executeQuery();
+
+        if (resultSet.next()) {
+            int count = resultSet.getInt(1);
+            return count > 0; // メールアドレスが既に登録済みの場合、trueを返す
+            
+        }
+    	} catch (SQLException e) {
+        e.printStackTrace();
+    	}
+    return false; // エラーの場合や該当するレコードが見つからない場合はfalseを返す
+	}
 }
