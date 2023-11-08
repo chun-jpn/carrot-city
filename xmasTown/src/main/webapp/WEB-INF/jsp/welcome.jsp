@@ -141,26 +141,55 @@
 	<p class="category-sub">カテゴリ</p>
 	<div class="category">
 		<ul>
-			<a href="#"><li id="cate1"><img src="image/tree.svg">
-				<div class="category-text"><div class="category-item">ツリー</div><p>Tree</p></div></li>
-			<a href="#"><li id="cate2"><img src="image/ornament.svg">
-				<div class="category-text"><div class="category-item">オーナメント</div><p>Ornament</p></div></li>
-			<a href="#"><li id="cate3"><img src="image/object.svg">
-				<div class="category-text"><div class="category-item">オブジェ</div><p>Object</p></div></li>
-			<a href="#"><li id="cate4"><img src="image/wreath.svg">
-				<div class="category-text"><div class="category-item">リース</div><p>Wreath</p></div></li>
-			<a href="#"><li id="cate5"><img src="image/musicbox.svg">
-				<div class="category-text"><div class="category-item">オルゴール</div><p>Music box</p></div></li>
-			<a href="#"><li id="cate6"><img src="image/ribbon.svg">
-				<div class="category-text"><div class="category-item">リボン</div><p>Ribbon</p></div></li>
-			<a href="#"><li id="cate7"><img src="image/card.svg">
-				<div class="category-text"><div class="category-item">カード</div><p>Card</p></div></li>
-			<a href="#"><li id="cate8"><img src="image/calendar.svg">
-				<div class="category-text"><div class="category-item">アドベント<br class="sp_br">カレンダー</div><p>Advent calendar</p></div></li>
-			<a href="#"><li id="cate9"><img src="image/garland.svg">
-				<div class="category-text"><div class="category-item">ガーランド</div><p>Garland</p></div></li>
-				
-		</ul>
+				<a href="ItemSearchServlet?category=ツリー"><li id="cate1"><img
+						src="image/tree.svg">
+						<div class="category-text">
+							<div class="category-item">ツリー</div>
+							<p>Tree</p>
+						</div></li> <a href="ItemSearchServlet?category=オーナメント"><li id="cate2"><img
+							src="image/ornament.svg">
+							<div class="category-text">
+								<div class="category-item">オーナメント</div>
+								<p>Ornament</p>
+							</div></li> <a href="ItemSearchServlet?category=オブジェ"><li id="cate1"><img
+								src="image/object.svg">
+								<div class="category-text">
+									<div class="category-item">オブジェ</div>
+									<p>Object</p>
+								</div></li> <a href="ItemSearchServlet?category=リース"><li id="cate2"><img
+									src="image/wreath.svg">
+									<div class="category-text">
+										<div class="category-item">リース</div>
+										<p>Wreath</p>
+									</div></li> <a href="ItemSearchServlet?category=オルゴール"><li id="cate1"><img
+										src="image/musicbox.svg">
+										<div class="category-text">
+											<div class="category-item">オルゴール</div>
+											<p>Music box</p>
+										</div></li> <a href="ItemSearchServlet?category=リボン"><li id="cate2"><img
+											src="image/ribbon.svg">
+											<div class="category-text">
+												<div class="category-item">リボン</div>
+												<p>Ribbon</p>
+											</div></li> <a href="ItemSearchServlet?category=カード"><li id="cate1"><img
+												src="image/card.svg">
+												<div class="category-text">
+													<div class="category-item">カード</div>
+													<p>Card</p>
+												</div></li> <a href="ItemSearchServlet?category=アドベントカレンダー"><li
+												id="cate2"><img src="image/calendar.svg">
+													<div class="category-text">
+														<div class="category-item">
+															アドベント<br class="sp_br">カレンダー
+														</div>
+														<p>Advent calendar</p>
+													</div></li> <a href="ItemSearchServlet?category=ガーランド"><li
+													id="cate1"><img src="image/garland.svg">
+														<div class="category-text">
+															<div class="category-item">ガーランド</div>
+															<p>Garland</p>
+														</div></li>
+			</ul>
 	</div>
 	
 </main>	
