@@ -14,6 +14,7 @@ public class UsersDAO {
 	private final String DB_user = "root";
 	private final String DB_pass = "";
 	
+//	ユーザーアカウント取得
 	public Users findByLogin(Login login) {
 		Users account = null;
 		try {
@@ -49,4 +50,63 @@ public class UsersDAO {
 		}
 		return account;
 	}
+	
+//	ユーザーアカウント削除
+	public void deleteAccount(Login login) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+		}
+		
+		try(Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)){
+			String sql = "DELETE FROM users WHERE mail=? and password=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+	        pStmt.setString(1, login.getMail());
+	        pStmt.setString(2, login.getPassword());
+
+	        // DELETE文を実行
+	        int affectedRows = pStmt.executeUpdate();
+
+	        if (affectedRows > 0) {
+	            // 削除が成功した場合の処理
+	            System.out.println("アカウントを削除しました");
+	        } else {
+	            // 削除が失敗した場合の処理
+	            System.out.println("アカウントの削除に失敗しました");
+	        }
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
+//	ユーザーアカウント変更
+	public void ChangeAccount(Users user, String old_mail) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+		}
+		
+		try(Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)){
+			String sql = "update users set user_name=?, address=?, tel=?, mail=?, password=? where mail=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, user.getUserName());
+			pStmt.setString(2, user.getAddress());
+			pStmt.setString(3, user.getTel());
+			pStmt.setString(4, user.getMail());
+			pStmt.setString(5, user.getPassword());
+			pStmt.setString(6, old_mail);
+
+//			update文を実行
+			pStmt.executeUpdate();
+	        
+//			トランザクションをコミット
+			conn.commit();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
 }

@@ -134,6 +134,7 @@ public class AddItemServlet extends HttpServlet {
 //	    return "";
 //	}
 	
+//	拡張子取得メソッド
 	private String getExtension(Part filePart) {
 	    String header = filePart.getHeader("content-disposition");
 	    String[] headerParts = header.split(";");

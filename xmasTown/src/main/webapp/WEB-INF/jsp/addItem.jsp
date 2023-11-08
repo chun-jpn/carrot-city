@@ -37,7 +37,7 @@
 	
 	<p>公開/非公開:</p>
 	<p>
-		<input type="radio" name="releaseFlag" value="0">公開
+		<input type="radio" name="releaseFlag" value="0" checked>公開
 		<input type="radio" name="releaseFlag" value="1">非公開
 	</p>
 	<input type="submit" value="商品登録">
