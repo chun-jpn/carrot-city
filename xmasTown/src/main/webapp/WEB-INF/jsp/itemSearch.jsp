@@ -14,11 +14,11 @@
 <body>
 	<h1>検索結果一覧</h1>
 	<p>商品一覧</p>
-<%-- 	
+	<%-- 	
 	<% for (String item_name : request.getAttribute("itemsList")) { %>
 	<%= item_name %>
 	<% } %>	
---%>	
+--%>
 
 	<%
 	List<Items> itemsList = (List<Items>) request.getAttribute("itemsList");
@@ -27,7 +27,7 @@
 	for (Items items : itemsList) {
 	%>
 
-	<%=items.getPicture()%><br>
+	<img src = "itemImage/<%=items.getPicture()%>" alt="商品画像" width="300" height="200"><br>
 	<%=items.getItem_name()%><br>
 	<%=items.getPrice()%><br>
 
@@ -38,7 +38,7 @@
 
 
 	<p>
-		<a href="WelcomServlet">TOPへ</a>
+		<a href="WelcomeServlet">TOPへ</a>
 	</p>
 </body>
 </html>

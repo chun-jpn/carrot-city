@@ -32,9 +32,9 @@ public class ItemsDAO3 {
 //			String sql = "SELECT * FROM items WHERE item_name LIKE '%" + item_name + "%'";
 			//LIKE '%プレゼント%'"　→　LIKE '%" + item_name + "%'"; へ変更する
 			//		    String sql = "SELECT * FROM items WHERE item_name = ?";
-		    String sql = "SELECT * FROM items WHERE item_name LIKE '%?%'";
+		    String sql = "SELECT * FROM items WHERE item_name LIKE ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-		    pStmt.setString(1, item_name);
+		    pStmt.setString(1, "%" + item_name + "%");
 
 			//			con = getConnection();
 			//			smt = con.createStatement();
