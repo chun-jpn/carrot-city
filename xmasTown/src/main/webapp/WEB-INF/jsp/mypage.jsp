@@ -4,15 +4,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>CHRISTMAS TOWN</title>
+	<meta charset="UTF-8">
+	<title>CHRISTMAS TOWN</title>
 </head>
 <body>
+	<%@ include file = "header.jsp" %>
+	<main>
 <h1>マイページ</h1>
 <p>ようこそ、<%= name %>さん！</p>
 
 <p><a href="ChangeAccountServlet">登録情報変更</a></p>
 <p><a href="DeleteAccountServlet">退会</a></p>
 <p><a href="WelcomeServlet">TOPへ</a></p>
+	</main>
+	<%@ include file = "footer.jsp" %>
 </body>
 </html>

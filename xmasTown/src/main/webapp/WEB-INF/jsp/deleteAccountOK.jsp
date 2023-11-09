@@ -7,8 +7,12 @@
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+<%@ include file = "header.jsp" %>
+<main>
 <h2>退会が完了しました</h2>
 <p>ご利用、ありがとうございました</p>
 <p><a href="WelcomeServlet">TOPへ</a></p>
+</main>
+<%@ include file = "footer.jsp" %>
 </body>
 </html>

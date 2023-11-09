@@ -7,6 +7,8 @@
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+<%@ include file = "header.jsp" %>
+<main>
 <h2>退会確認</h2>
 <p>退会する場合、メールアドレスとパスワードを入力して「退会する」ボタンを押してください</p>
 <form action="DeleteAccountOKServlet" method="post">
@@ -15,5 +17,7 @@
 <input type="submit" value="退会する">
 <p><a href="MypageServlet">マイページに戻る</a></p>
 </form>
+</main>
+<%@ include file = "footer.jsp" %>
 </body>
 </html>

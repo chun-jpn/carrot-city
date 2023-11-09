@@ -8,10 +8,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8">	
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+	<%@ include file = "header.jsp" %>
+	<main>
 	<h1>検索結果一覧</h1>
 	<p>商品一覧</p>
 	<%-- 	
@@ -42,5 +44,7 @@
 	<p>
 		<a href="WelcomeServlet">TOPへ</a>
 	</p>
+	</main>
+	<%@ include file = "footer.jsp" %>
 </body>
 </html>
