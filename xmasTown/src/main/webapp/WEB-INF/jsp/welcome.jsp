@@ -18,9 +18,9 @@
 	      <a href="index.html"><img src="image/ロゴ.svg" alt="CHRISTMAS TOWN"></a>
 	    </div>
 	    <div class="header-right">
-		    <form action="ItemSearchServlet" class="search-form">
+		    <form action="<%=~\ request.getContextPath() %>/ItemSearchServlet3" method="get" class="search-form">
 			    <label>
-			        <input type="text" placeholder="商品名">
+			        <input type="text" name="item_name" placeholder="商品名">
 			    </label>
 			    <button type="submit" aria-label="検索"></button>
 			</form>
