@@ -49,4 +49,33 @@ public class AdminsDAO {
 		}
 		return account;
 	}
+	
+public void UpdateAdmin(Admin admin, String old_ownerId) {
+	try {
+			Class.forName("com.mysql.jdbc.Driver");
+				}catch(ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+				}
+			//  DB接続
+		
+		try(Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)){		
+			// 実行するSQL文をセット（空文字）
+			String sql = "UPDATE owners SET owner_id  =?, owner_name = ?, owner_pass =? WHERE owner_id =?";								
+			// DBで実行するSQL文を「prepareStatement」インスタンスに格納する
+			PreparedStatement ps = conn.prepareStatement(sql);
+			// 登録するIDと名前とパスワードをセットする
+			ps.setString(1,  admin.getOwnerId());
+			ps.setString(2, admin.getOwnerName());
+			ps.setString(3, admin.getOwnerPass());
+			ps.setString(4, old_ownerId);
+					
+			// SQL実行
+			ps.executeUpdate();
+			//トランザクションをコミット
+			conn.commit();
+					
+			}catch(SQLException e){
+				e.printStackTrace();
+		}
+	}
 }
