@@ -121,49 +121,7 @@ public class ItemsDAO{
 		    return itemsList;
 	  }
 	  
-	  //商品詳細
-//	  public ItemInfo selectById(String id) {
-//		    ItemInfo iteminfo = new ItemInfo();
-//		    // JDBCドライバを読み込む
-//		    try {String drivername = "com.mysql.jdbc.Driver";
-//		        Class.forName(drivername);
-//		    } catch (ClassNotFoundException e) {
-//		        throw new IllegalStateException("JDBCドライバを読み込めませんでした");
-//		    }
-//		    // データベース接続
-//		    try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
-//
-//		      // SELECT文の準備
-//		    
-////		      String sql = "select * from items";
-//		      String sql = "select * from items where item_id = ?";
-//		      PreparedStatement pStmt = conn.prepareStatement(sql);
-//			  pStmt.setString(1, "%" + item_id + "%");
-//		      // SELECTを実行
-//		      ResultSet rs = pStmt.executeQuery();
-//
-//		      // SELECT文の結果をItemInfoに格納
-//		      while (rs.next()) {
-//		        int itemId = rs.getInt("item_id");
-//		        String category = rs.getString("category");
-//		        String itemName = rs.getString("item_name");
-//		        int price = rs.getInt("price");
-//		        String comment = rs.getString("comment");
-//		        int quantity = rs.getInt("quantity");
-//		        int releaseFlag = rs.getInt("release_flag");
-//		        String addDate = rs.getString("add_date");
-//		        String rewriteDate = rs.getString("rewrite_date");
-//		        String picture = rs.getString("picture");
-////		        Items items = new Items(itemId,category,itemName,price,comment,quantity,releaseFlag,addDate,rewriteDate,picture);
-//		        
-//		      }
-//		    } catch (SQLException e) {
-//		      e.printStackTrace();
-//		      return null;
-//		    }
-//		    return iteminfo;
-//	  }
-//	  
+	 
 	  
 	  
 }

@@ -1,12 +1,17 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.ItemsDAO2;
+import model.Items;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -32,19 +37,19 @@ public class ItemDetailServlet extends HttpServlet {
 		 
  		try{
  			//パラメータの取得
- 			String id = request.getParameter("id");
+ 			String item_id = request.getParameter("item_id");
  
  			//DTOオブジェクト宣言
- 			ItemInfo account = new ItemInfo();
+ 			List<Items> itemsList = new ArrayList<Items>();
  
  			//DAOオブジェクト宣言
- 			ItemsDao objDao = new ItemsDao();
+ 			ItemsDAO2 itemsDAO2 = new ItemsDAO2();
  
  			//1件検索メソッドを呼び出し
- 			account = objDao.selectById(id);
+ 			itemsList = itemsDAO2.selectById(item_id);
  
- 			//検索結果を持ってlist3.jspにフォワード
- 			request.setAttribute("account", account);
+ 			//検索結果を持ってjspにフォワード
+ 			request.setAttribute("item_id", item_id);
  
  		}catch (IllegalStateException e) {
  			error ="DB接続エラーの為、一覧表示はできませんでした。";
@@ -54,7 +59,7 @@ public class ItemDetailServlet extends HttpServlet {
  
  		}finally{
  			request.setAttribute("error", error);
- 			request.getRequestDispatcher("/view/ch13/list3.jsp").forward(request, response);
+ 			request.getRequestDispatcher("WEB-INF/jsp/itemDetail.jsp").forward(request, response);
  		}
  	}
 		

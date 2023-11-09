@@ -26,9 +26,11 @@
 	<%
 	for (Items items : itemsList) {
 	%>
+	<a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=items.getItem_id()%>">
+	<img src = "itemImage/<%=items.getPicture()%>" alt="商品画像" width="300" height="200"></a><br>
+ 	
+ 	<%=items.getItem_name()%><br>
 
-	<img src = "itemImage/<%=items.getPicture()%>" alt="商品画像" width="300" height="200"><br>
-	<%=items.getItem_name()%><br>
 	<%=items.getPrice()%><br>
 
 	<%
