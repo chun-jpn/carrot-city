@@ -24,8 +24,11 @@ public class ItemSearchServlet3 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+			throws ServletException, IOException {		
+		
+	//	request.setCharacterEncoding("UTF-8");
+		
+		
 		String error = "";
 		 
  		try{
@@ -40,9 +43,9 @@ public class ItemSearchServlet3 extends HttpServlet {
  
  			//全検索メソッドを呼び出し
  			itemsList = objDao3.search(item_name);
- 			System.out.println(itemsList);
+ 		
  
- 			//検索結果を持ってlist2.jspにフォワード
+ 			//検索結果を持ってItemSearch.jspにフォワード
  			request.setAttribute("itemsList",itemsList );
  
  		}catch (IllegalStateException e) {
@@ -56,4 +59,13 @@ public class ItemSearchServlet3 extends HttpServlet {
  			request.getRequestDispatcher("WEB-INF/jsp/itemSearch.jsp").forward(request, response);
  		}
  	}
+	
+	protected void doPost(HttpServletRequest request,
+	HttpServletResponse response)
+	throws ServletException, IOException {
+
+		//リクエストパラメータの取得
+		request.setCharacterEncoding("UTF-8");
+		
+	}
  }

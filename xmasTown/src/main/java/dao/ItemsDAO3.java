@@ -10,52 +10,58 @@ import java.util.List;
 
 import model.Items;
 
+public class ItemsDAO3 {
+	private final String JDBC_URL = "jdbc:mysql://localhost:3306/xmas_town?charaxterEncoding=UTF-8&serverTimezone=JST";
+	private final String DB_USER = "root";
+	private final String DB_PASS = "";
 
-public class ItemsDAO3{
-	  private final String JDBC_URL = "jdbc:mysql://localhost:3306/xmas_town?charaxterEncoding=UTF-8&serverTimezone=JST";
-	  private final String DB_USER = "root";
-	  private final String DB_PASS = "";
-	  
-	  public List<Items> search(String item_name) {//findAll() {
-		    List<Items> itemsList = new ArrayList<Items>();
-		    // JDBCドライバを読み込む
-		    try {String drivername = "com.mysql.jdbc.Driver";
-		        Class.forName(drivername);
-		    } catch (ClassNotFoundException e) {
-		        throw new IllegalStateException("JDBCドライバを読み込めませんでした");
-		    }
-		    // データベース接続
-		    try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+	public List<Items> search(String item_name) {//findAll() {
+		List<Items> itemsList = new ArrayList<Items>();
 
-		      // SELECT文の準備
-		     String sql = "SELECT * FROM items WHERE item_name LIKE '%プレゼント%'";
-		     //LIKE '%プレゼント%'"　→　LIKE '%" + item_name + "%'"; へ変更する
+		// JDBCドライバを読み込む
+		try {
+			String drivername = "com.mysql.jdbc.Driver";
+			Class.forName(drivername);
+		} catch (ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+		}
+		// データベース接続
+		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 
-		      PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SELECT文の準備
+//			String sql = "SELECT * FROM items WHERE item_name LIKE '%" + item_name + "%'";
+			//LIKE '%プレゼント%'"　→　LIKE '%" + item_name + "%'"; へ変更する
+			//		    String sql = "SELECT * FROM items WHERE item_name = ?";
+		    String sql = "SELECT * FROM items WHERE item_name LIKE ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+		    pStmt.setString(1, "%" + item_name + "%");
 
-		      // SELECTを実行
-		      ResultSet rs = pStmt.executeQuery();
+			//			con = getConnection();
+			//			smt = con.createStatement();
+			// SELECTを実行
+			ResultSet rs = pStmt.executeQuery();
 
-		      // SELECT文の結果をArrayListに格納
-		      while (rs.next()) {
-		        int itemId = rs.getInt("item_id");
-		        String category = rs.getString("category");
-		        String itemName = rs.getString("item_name");
-		        int price = rs.getInt("price");
-		        String comment = rs.getString("comment");
-		        int quantity = rs.getInt("quantity");
-		        int releaseFlag = rs.getInt("release_flag");
-		        String addDate = rs.getString("add_date");
-		        String rewriteDate = rs.getString("rewrite_date");
-		        String picture = rs.getString("picture");
-		        Items items = new Items(itemId,category,itemName,price,comment,quantity,releaseFlag,addDate,rewriteDate,picture);
-		        itemsList.add(items);
-		      }
-		    } catch (SQLException e) {
-		      e.printStackTrace();
-		      return null;
-		    }
-		    return itemsList;
-		  }
-		 
+			// SELECT文の結果をArrayListに格納
+			while (rs.next()) {
+				int itemId = rs.getInt("item_id");
+				String category = rs.getString("category");
+				String itemName = rs.getString("item_name");
+				int price = rs.getInt("price");
+				String comment = rs.getString("comment");
+				int quantity = rs.getInt("quantity");
+				int releaseFlag = rs.getInt("release_flag");
+				String addDate = rs.getString("add_date");
+				String rewriteDate = rs.getString("rewrite_date");
+				String picture = rs.getString("picture");
+				Items items = new Items(itemId, category, itemName, price, comment, quantity, releaseFlag, addDate,
+						rewriteDate, picture);
+				itemsList.add(items);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return itemsList;
+	}
+
 }
