@@ -10,6 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file = "header.jsp" %>
+	<main>
 <h1>商品詳細</h1>
 
 
@@ -45,5 +47,7 @@
 
 
 <p>戻る</p>
+	</main>
+	<%@ include file = "footer.jsp" %>
 </body>
 </html>

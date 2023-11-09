@@ -21,7 +21,7 @@
     <footer>
 	    <img src="image/town.svg">
 	        <div class="info">
-	           <a href="index.html"><span>CHRISTMAS TOWN</span></a>
+	           <a href="WelcomeServlet"><span>CHRISTMAS TOWN</span></a>
 	            <ul class="nav-footer"> 
 	               <li><a href="MypageServlet">マイページ</a></li>
 	               <li><a href="ContactServlet">お問い合わせ</a></li>

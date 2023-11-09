@@ -12,6 +12,8 @@
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+<%@ include file = "header.jsp" %>
+<main>
     <h1>ショッピングカート</h1>
 
     <table border="1">
@@ -39,7 +41,7 @@
 
     <a href="OrderServlet">購入決定</a>
     <a href="WelcomeServlet">買い物を続ける</a>
-
-
+</main>
+<%@ include file = "footer.jsp" %>
 </body>
 </html>
