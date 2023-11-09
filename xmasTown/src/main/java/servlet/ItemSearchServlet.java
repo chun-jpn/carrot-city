@@ -44,15 +44,12 @@ public class ItemSearchServlet extends HttpServlet {
 
 //		//リクエストパラメータの取得
 //		request.setCharacterEncoding("UTF-8");
-//		int itemId = Integer.parseInt(request.getParameter("item_id"));
-//		//int itemId = request.getParameter("item_id");
+//		int itemId = Integer.parseInt(request.getParameter("item_id"));		
 //		String category = request.getParameter("category");
 //		String itemName = request.getParameter("item_name");
-//		int price = Integer.parseInt(request.getParameter("price"));
-//		//int price = request.getParameter("price");
+//		int price = Integer.parseInt(request.getParameter("price"));		
 //		String comment = request.getParameter("comment");
-//		int releaseFlag = Integer.parseInt(request.getParameter("release_flag"));
-//		//int releaseFlag = request.getParameter("release_flag");
+//		int releaseFlag = Integer.parseInt(request.getParameter("release_flag"));		
 //		String addDate = request.getParameter("add_date");
 //		String rewriteDate = request.getParameter("rewrite_date");
 //		String picture = request.getParameter("picture");

@@ -78,7 +78,7 @@ public class ItemsDAO{
 			}
 	  }
 	  
-//	  public List<Items> findAll() {
+	  //カテゴリ検索
 	  public List<Items> findByCategory(String cSearch) {
 		    List<Items> itemsList = new ArrayList<Items>();
 		    // JDBCドライバを読み込む
@@ -120,5 +120,8 @@ public class ItemsDAO{
 		    }
 		    return itemsList;
 	  }
+	  
+	 
+	  
 	  
 }
