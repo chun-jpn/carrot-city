@@ -8,6 +8,10 @@
 </head>
 </head>
 <body>
+	<%@ include file = "header.jsp" %>
+	<main>
+	<div class="wrapper">
+	<div class="container">
 <h1>ログアウトしますか？</h1>
     <form action="LogoutOKServlet" method="get">
         <input type="submit" name="confirm" value="はい">
@@ -16,5 +20,9 @@
         <input type="submit" name="confirm" value="いいえ">
     </form>
 <a href="WelcomeServlet">トップへ</a>
+	</main>
+	</div>
+	</div>
+	<%@ include file = "footer.jsp" %>  
 </body>
 </html>
