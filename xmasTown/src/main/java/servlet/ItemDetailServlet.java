@@ -49,7 +49,7 @@ public class ItemDetailServlet extends HttpServlet {
  			itemsList = itemsDAO2.selectById(item_id);
  
  			//検索結果を持ってjspにフォワード
- 			request.setAttribute("item_id", item_id);
+ 			request.setAttribute("itemsList",itemsList);
  
  		}catch (IllegalStateException e) {
  			error ="DB接続エラーの為、一覧表示はできませんでした。";

@@ -12,10 +12,7 @@
 <body>
 <h1>商品詳細</h1>
 
-<p>商品ID</p>
-<p>商品名</p>
-<p>価格</p>
-<p>数量</p>
+
 
 
 	<%
@@ -24,11 +21,20 @@
 	<%
 	for (Items items : itemsList) {
 	%>
+	
+	<p>商品ID:</p><%=items.getPrice()%>
+	<%=items.getItem_name()%><br>
 
 	<img src = "itemImage/<%=items.getPicture()%>" alt="商品画像" width="300" height="200"><br>
-	<%=items.getItem_name()%><br>
-	<%=items.getPrice()%><br>
-
+	
+	<p>価格:</p><%=items.getPrice()%><br>
+    <p>数量</p><%=items.getQuantity()%>
+	
+    <p>カートに入れる</p>	
+	
+	
+	
+	
 	<%
 	}
 	%>
@@ -37,7 +43,7 @@
 
 
 
-<p>カートに入れる</p>
+
 <p>戻る</p>
 </body>
 </html>
