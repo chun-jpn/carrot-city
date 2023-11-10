@@ -61,8 +61,8 @@ public class CartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		int quantity = 1; //動作テスト用。正しくは下のコメントアウトプログラム
-//		int quantity = Integer.parseInt(request.getParameter("quantity"));
+//		int quantity = 1; //動作テスト用。正しくは下のコメントアウトプログラム
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		HttpSession session = request.getSession();
 		String mail = (String)session.getAttribute("mail");
 		String password = (String)session.getAttribute("password");
@@ -73,18 +73,20 @@ public class CartServlet extends HttpServlet {
 		LoginLogic bo = new LoginLogic();
 		boolean result = bo.execute(login);
 		
-		Items items = (Items)session.getAttribute("Items");
+		Items items = (Items)session.getAttribute("items");
 		
 		if(result) { //ログイン成功時
 			UsersDAO udao = new UsersDAO();
 //			データベースからユーザー情報を取得
 			Users account = udao.findByLogin(login); //戻り値;new Users(userName, address,tel, mail, password)
+//			CartDAOのinsertCartメソッド呼び出し
+			CartDAO cdao = new CartDAO();
+			Carts cart = cdao.insertCart(items, account, quantity);
+			
 //			セッションにアカウント情報を投げる
 			session.setAttribute("account", account);
 //			セッションに購入品の情報を投げる
-			session.setAttribute("item", items);
-			CartDAO cdao = new CartDAO();
-			Carts cart = cdao.insertCart(items, account, quantity);
+			session.setAttribute("items", items);
 			
 			if (cart != null) { // カートに商品が追加できた場合
 				// カート内の情報を取得

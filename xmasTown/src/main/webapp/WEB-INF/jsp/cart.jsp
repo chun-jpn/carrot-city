@@ -35,9 +35,9 @@
             <td><%= cartItem.getItem_name() %></td>
             <td><%= cartItem.getPrice() %></td>
             <td>
-            	<input type="number" name="quantity" value="<%= cartItem.getQuantity() %>">
+            	<input type="number" name="quantity" value="<%= cartItem.getQuantity() %>" min="1" max="99">
             </td>
-            <td><a href="ChangeCartServlet">個数変更</a></td>
+            <td><a href="ChangeCartServlet">購入数変更</a></td>
             <td><a href="DeleteCartServlet">削除</a></td>
         </tr>
         <%
