@@ -6,8 +6,12 @@
 <meta charset="UTF-8">
 <title>CHRISTMAS TOWN</title>
 </head>
-<body>
-<h1>登録完了</h1>
-<a href="WelcomeServlet">トップへ</a><br>
+	<body>
+	<%@ include file = "header.jsp" %>
+	<main>
+		<h1>登録完了</h1>
+		<a href="WelcomeServlet">トップへ</a><br>
+	</main>
+	<%@ include file = "footer.jsp" %>
 </body>
 </html>
