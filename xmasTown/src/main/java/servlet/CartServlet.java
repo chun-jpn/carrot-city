@@ -45,7 +45,7 @@ public class CartServlet extends HttpServlet {
 			session.setAttribute("account", account);
 			CartDAO cdao = new CartDAO();
 			List<Carts> cartsList = cdao.findByData(mail);
-
+			
 				// セッションにカート情報をセット
 			session.setAttribute("cartList", cartsList);
 			

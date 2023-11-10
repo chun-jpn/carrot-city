@@ -16,17 +16,19 @@
 
     <table border="1">
         <tr>
+        	<th>商品画像</th>
             <th>商品名</th>
             <th>価格</th>
             <th>数量</th>
         </tr>
         <%
             int totalPrice = 0;
-            for (Carts cartItem : cartList) {
+            for (Carts cartItem : cartsList) {
                 totalPrice += cartItem.getPrice() * cartItem.getQuantity();
         %>
         <tr>
-            <td><%= cartItem.getItemName() %></td>
+        	<td><img src="itemImage/<%= cartItem.getPicture %>" alt="商品画像"></td>
+            <td><%= cartItem.getItem_name() %></td>
             <td><%= cartItem.getPrice() %></td>
             <td><%= cartItem.getQuantity() %></td>
         </tr>

@@ -28,7 +28,7 @@
 	<p>商品コメント:
 		<textarea name="comment"></textarea>
 		<p>個数:
-			<input type="number" name="quantity" min="0" max="99">
+			<input type="number" name="stock" min="0" max="99">
 		</p>
 	</p>
 	<p>画像:
