@@ -16,7 +16,7 @@
 
 
 	<%
-	Items items = (Items) request.getAttribute("items");
+	Items items = (Items) session.getAttribute("items");
 	%>
 
 	<p>商品ID:</p><%=items.getItem_id()%>
@@ -27,8 +27,10 @@
 	<br>
 
 	<p>価格:</p><%=items.getPrice()%><br>
-<%-- 	<p>在庫</p><%=items.getstock()%>  --%>
-	
+	<%-- 	<p>在庫</p><%=items.getstock()%>  --%>
+
+	<form method="post" action="http://localhost:8080/xmasTown/CartServlet">
+<%--<input type="hidden" name="item_id" value="<%=items.getItem_id()%>">  --%>
 	<select name="quantity">
 		<option value="1" selected>1</option>
 		<option value="2">2</option>
@@ -36,10 +38,10 @@
 		<option value="4">4</option>
 		<option value="5">5</option>
 	</select>
-  	<input type="submit" value="カートに入れる">
-	
+	<input type="submit" value="カートに入れる">
+	</form>
 
 
-		<p>戻る</p>
+	<a href="WelcomeServlet">TOPへ</a>
 </body>
 </html>

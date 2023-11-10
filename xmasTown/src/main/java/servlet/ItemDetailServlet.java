@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ItemsDAO;
 import model.Items;
@@ -51,7 +52,8 @@ public class ItemDetailServlet extends HttpServlet {
  			Items items = itemsDAO.selectById(item_id);
  
  			//検索結果を持ってjspにフォワード
- 			request.setAttribute("items",items);
+ 			HttpSession session = request.getSession();
+ 			session.setAttribute("items",items);
  
  		}catch (IllegalStateException e) {
  			error ="DB接続エラーの為、一覧表示はできませんでした。";
