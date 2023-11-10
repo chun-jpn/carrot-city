@@ -22,6 +22,8 @@
             <th>商品名</th>
             <th>価格</th>
             <th>数量</th>
+            <th></th>
+            <th></th>
         </tr>
         <%
             int totalPrice = 0;
@@ -29,10 +31,14 @@
                 totalPrice += cartItem.getPrice() * cartItem.getQuantity();
         %>
         <tr>
-        	<td><img src="itemImage/<%= cartItem.getPicture %>" alt="商品画像"></td>
+        	<td><img src="itemImage/<%=cartItem.getPicture() %>" alt="商品画像" width="100" height="100"></td>
             <td><%= cartItem.getItem_name() %></td>
             <td><%= cartItem.getPrice() %></td>
-            <td><%= cartItem.getQuantity() %></td>
+            <td>
+            	<input type="number" name="quantity" value="<%= cartItem.getQuantity() %>">
+            </td>
+            <td><a href="ChangeCartServlet">個数変更</a></td>
+            <td><a href="DeleteCartServlet">削除</a></td>
         </tr>
         <%
             }
