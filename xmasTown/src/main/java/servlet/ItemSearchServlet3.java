@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ItemsDAO3;
+import dao.ItemsDAO;
 import model.Items;
 
 /**
@@ -39,10 +39,10 @@ public class ItemSearchServlet3 extends HttpServlet {
  			List<Items> itemsList = new ArrayList<Items>();
  
  			//オブジェクト宣言
- 			ItemsDAO3 objDao3 = new ItemsDAO3();
+ 			ItemsDAO objDao = new ItemsDAO();
  
  			//全検索メソッドを呼び出し
- 			itemsList = objDao3.search(item_name);
+ 			itemsList = objDao.search(item_name);
  		
  
  			//検索結果を持ってItemSearch.jspにフォワード

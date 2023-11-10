@@ -49,6 +49,7 @@ public class ItemSearchServlet extends HttpServlet {
 //		String itemName = request.getParameter("item_name");
 //		int price = Integer.parseInt(request.getParameter("price"));		
 //		String comment = request.getParameter("comment");
+//      int stock =	Integer.parseInt(request.getParameter("stock"));	
 //		int releaseFlag = Integer.parseInt(request.getParameter("release_flag"));		
 //		String addDate = request.getParameter("add_date");
 //		String rewriteDate = request.getParameter("rewrite_date");
