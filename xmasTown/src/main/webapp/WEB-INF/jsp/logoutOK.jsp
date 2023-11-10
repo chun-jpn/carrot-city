@@ -4,19 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/style_formframe.css">
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
 	<%@ include file = "header.jsp" %> 
 	<main>
-	<div class="wrapper">
-	<div class="container">
-<h1>ログアウト</h1>
-<p>ログアウト完了</p><br>
-<a href ="WelcomeServlet">トップへ</a>
+	<h1 class="logout_h1"><span class="marker-border-2">ログアウト完了しました</span></h1>
+		<div class="maincopy">
+		<p style="text-align: center; font-size: 24px">
+		ご利用ありがとうございました。またのご利用お待ちしております。<br></p><br>
+		</div>
+	<p class="link-text"  id="b">
+		<a href ="WelcomeServlet">TOPへ</a>
+	</p>
 	</main>
-	</div>
-	</div> 
+ 	
 	<%@ include file = "footer.jsp" %> 	 
 </body>
 </html>

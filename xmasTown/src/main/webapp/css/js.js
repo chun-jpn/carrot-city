@@ -27,4 +27,7 @@ $('.ranking-list').slick({
     }
   ]
   });
-  
+
+
+
+ 

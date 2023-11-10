@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/style_formframe.css">
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>

@@ -37,11 +37,11 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// リクエストパラメータの取得
-		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		request.setCharacterEncoding("UTF-8");
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
-		
+
 		// ログイン処理の実行
 		Login login = new Login (mail,  password);
 		LoginLogic bo = new LoginLogic();
@@ -49,15 +49,17 @@ public class LoginServlet extends HttpServlet {
 		
 		// ログイン処理の成否によって処理を分岐
 		if  (result)  {  //ログイン成功時
-			// セッションスコープにユーザーIDを保存
+			//ログイン時の名前表示
 			UsersDAO dao = new UsersDAO();
 			Users account = dao.findByLogin(login); //戻り値;new Users(userName, address,tel, mail, password)
 			String name = account.getUserName();
+//			セッションに名前情報を投げる
+			session.setAttribute("name", name);
+			// セッションスコープにユーザーIDを保存
+			
 			session.setAttribute("mail", mail);
 			session.setAttribute("password", password);
 			
-			//名前を呼び出すコード
-			session.setAttribute("name", name);
 		
 		// フォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/loginOK.jsp");
