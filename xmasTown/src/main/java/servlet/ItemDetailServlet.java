@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ItemsDAO2;
+import dao.ItemsDAO;
 import model.Items;
 
 /**
@@ -33,6 +31,10 @@ public class ItemDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+//		ItemDto itemDto = new ItemDto();
+//		ItemDto.setItem_id	
+		
 		String error = "";
 		 
  		try{
@@ -40,16 +42,16 @@ public class ItemDetailServlet extends HttpServlet {
  			String item_id = request.getParameter("item_id");
  
  			//DTOオブジェクト宣言
- 			List<Items> itemsList = new ArrayList<Items>();
+// 			Items items = new Items(item_id);
  
  			//DAOオブジェクト宣言
- 			ItemsDAO2 itemsDAO2 = new ItemsDAO2();
+ 			ItemsDAO itemsDAO = new ItemsDAO();
  
  			//1件検索メソッドを呼び出し
- 			itemsList = itemsDAO2.selectById(item_id);
+ 			Items items = itemsDAO.selectById(item_id);
  
  			//検索結果を持ってjspにフォワード
- 			request.setAttribute("itemsList",itemsList);
+ 			request.setAttribute("items",items);
  
  		}catch (IllegalStateException e) {
  			error ="DB接続エラーの為、一覧表示はできませんでした。";

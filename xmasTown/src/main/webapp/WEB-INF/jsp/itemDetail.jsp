@@ -1,53 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.List"%>
 <%@ page import="model.Items"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CHRISTMAS TOWN</title>
 </head>
 <body>
-	<%@ include file = "header.jsp" %>
-	<main>
-<h1>商品詳細</h1>
+	<h1>商品詳細</h1>
 
 
 
 
 	<%
-	List<Items> itemsList = (List<Items>) request.getAttribute("itemsList");
+	Items items = (Items) request.getAttribute("items");
 	%>
-	<%
-	for (Items items : itemsList) {
-	%>
-	
-	<p>商品ID:</p><%=items.getPrice()%>
+
+	<p>商品ID:</p><%=items.getItem_id()%>
 	<%=items.getItem_name()%><br>
 
-	<img src = "itemImage/<%=items.getPicture()%>" alt="商品画像" width="300" height="200"><br>
-	
+	<img src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="300"
+		height="200">
+	<br>
+
 	<p>価格:</p><%=items.getPrice()%><br>
-    <p>数量</p><%=items.getQuantity()%>
+<%-- 	<p>在庫</p><%=items.getstock()%>  --%>
 	
-    <p>カートに入れる</p>	
+	<select name="quantity">
+		<option value="1" selected>1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+  	<input type="submit" value="カートに入れる">
 	
-	
-	
-	
-	<%
-	}
-	%>
 
 
-
-
-
-
-<p>戻る</p>
-	</main>
-	<%@ include file = "footer.jsp" %>
+		<p>戻る</p>
 </body>
 </html>
