@@ -17,6 +17,7 @@ public class CartDAO {
 	private final String DB_user = "root";
 	private final String DB_pass = "";
 	
+//	カートアイテム追加メソッド
 	public Carts insertCart(Items items, Users account ,int cartQuantity) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -43,7 +44,8 @@ public class CartDAO {
 			ps.setInt(3, price);
 			ps.setInt(4, cartQuantity);
 			Carts cart = new Carts(mail, item_id, price, cartQuantity);
-			
+//			SQL実行
+			ps.executeUpdate();
 			return cart;
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -51,7 +53,7 @@ public class CartDAO {
 		}
 	}
 	
-	
+//	カートアイテム検索メソッド
 	public List<Carts> findByData(String userMail) {
 		List<Carts> cartList = new ArrayList<>();
 		try {
