@@ -62,6 +62,7 @@ public class LoginServlet extends HttpServlet {
 		// フォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/loginOK.jsp");
 				dispatcher.forward(request, response);
+				System.out.println("ログインしました");
 			} else  {  // ログイン失敗時
 			// リダイレクト
 				response.sendRedirect("LoginServlet");	

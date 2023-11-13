@@ -1,4 +1,4 @@
-				<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,10 +26,8 @@
 			<a href ="RegisterServlet" class="buttonBasic"  class="b">新規会員登録</a><br>
 			
 			</form>
-				<p class="link-text" id="b">
-					<a href="WelcomeServlet">TOPへ</a>
-				</p>
-					<br>
+				<p class="link-text">
+					<a href="WelcomeServlet"  class="b">TOPへ</a>
 				</p>
   		</main>
   		</div>

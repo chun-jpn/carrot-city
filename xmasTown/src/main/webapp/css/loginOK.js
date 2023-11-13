@@ -4,15 +4,15 @@
   
 //loginOKのアニメーション
 const CLASSNAME = "-visible";
-const TIMEOUT = 350;
+const TIMEOUT = 400;
 const $target = $(".bg");
 
-for (let i =0; i < 1; i++)  {
+
 setInterval(() => {
   $target.addClass(CLASSNAME);
 
   setTimeout(() => {
     $target.clearInterval(CLASSNAME);
   }, TIMEOUT);
-}, TIMEOUT*2);
-}
+}, TIMEOUT*3);
+
