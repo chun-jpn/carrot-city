@@ -73,6 +73,7 @@ public class CartDAO {
 			ResultSet rs = pStmt.executeQuery();
 			while (rs.next()) {
 //			結果を取得する処理
+				int cart_id = rs.getInt("cart_id");
 				String mail = rs.getString("mail");
 				int item_id = rs.getInt("item_id");
 				int price = rs.getInt("price");
@@ -81,7 +82,7 @@ public class CartDAO {
 				String picture = rs.getString("picture");
 				
 				
-				Carts cartInPicture = new Carts(mail, item_id, price, quantity, itemName, picture);
+				Carts cartInPicture = new Carts(cart_id, mail, item_id, price, quantity, itemName, picture);
 				cartList.add(cartInPicture);
 	        }
 			
@@ -90,5 +91,47 @@ public class CartDAO {
 			return null;
 		}
 		return cartList;
+	}
+	
+//	購入数変更メソッド
+	public void changeCart(int quantity, int cart_id, int item_id) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+		}
+		try(Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)){
+//			update文の準備
+			String sql = "UPDATE carts SET quantity = ? WHERE cart_id = ? AND item_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1, quantity);
+			pStmt.setInt(2, cart_id);
+			pStmt.setInt(3, item_id);
+//			SQL実行
+			pStmt.executeUpdate();
+			
+		}catch (SQLException e) {
+            e.printStackTrace();
+        }
+	}
+	
+//	購入品削除メソッド
+	public void deleteCart(int cart_id, int item_id) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+		}
+		try(Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)){
+			String sql = "DELETE FROM carts WHERE cart_id=? and item_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+	        pStmt.setInt(1, cart_id);
+	        pStmt.setInt(2, item_id);
+
+	        // DELETE文を実行
+	        pStmt.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 	}
 }
