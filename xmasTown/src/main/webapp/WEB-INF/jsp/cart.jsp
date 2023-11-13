@@ -32,12 +32,18 @@
         %>
         <tr>
         	<td><img src="itemImage/<%=cartItem.getPicture() %>" alt="商品画像" width="100" height="100"></td>
-            <td><%= cartItem.getItem_name() %></td>
-            <td><%= cartItem.getPrice() %></td>
-            <td>
-            	<input type="number" name="quantity" value="<%= cartItem.getQuantity() %>" min="1" max="99">
-            </td>
-            <td><a href="ChangeCartServlet">購入数変更</a></td>
+			<td><%= cartItem.getItem_name() %></td>
+			<td><%= cartItem.getPrice() %></td>
+			<form action="ChangeCartServlet" method="post">
+			<input type="hidden" name="cart_id" value="<%= cartItem.getCart_id() %>">
+			<input type="hidden" name="item_id" value="<%= cartItem.getItem_id() %>">
+				<td>
+					<input type="number" name="quantity" value="<%= cartItem.getQuantity() %>" min="1" max="99">
+				</td>
+				<td>
+					<input type="submit" value="数量変更">
+				</td>
+			</form>
             <td><a href="DeleteCartServlet">削除</a></td>
         </tr>
         <%
