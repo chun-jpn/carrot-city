@@ -46,7 +46,7 @@ public class CartServlet extends HttpServlet {
 			CartDAO cdao = new CartDAO();
 			List<Carts> cartsList = cdao.findByData(mail);
 			
-				// セッションにカート情報をセット
+			// セッションにカート情報をセット
 			session.setAttribute("cartList", cartsList);
 			
 //			フォワード
@@ -61,7 +61,7 @@ public class CartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-//		int quantity = 1; //動作テスト用。正しくは下のコメントアウトプログラム
+//		int quantity = 1; //動作テスト用。正しくは下のプログラム
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		HttpSession session = request.getSession();
 		String mail = (String)session.getAttribute("mail");
@@ -99,7 +99,7 @@ public class CartServlet extends HttpServlet {
 			}
 			
 			
-//			// フォワード
+//			フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/cart.jsp");
 			dispatcher.forward(request, response);
 		}else { //ログイン失敗時 リダイレクトでログインサーブレットへ

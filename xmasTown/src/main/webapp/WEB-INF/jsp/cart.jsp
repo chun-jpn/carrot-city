@@ -35,8 +35,8 @@
 			<td><%= cartItem.getItem_name() %></td>
 			<td><%= cartItem.getPrice() %></td>
 			<form action="ChangeCartServlet" method="post">
-			<input type="hidden" name="cart_id" value="<%= cartItem.getCart_id() %>">
-			<input type="hidden" name="item_id" value="<%= cartItem.getItem_id() %>">
+				<input type="hidden" name="cart_id" value="<%= cartItem.getCart_id() %>">
+				<input type="hidden" name="item_id" value="<%= cartItem.getItem_id() %>">
 				<td>
 					<input type="number" name="quantity" value="<%= cartItem.getQuantity() %>" min="1" max="99">
 				</td>
@@ -44,11 +44,17 @@
 					<input type="submit" value="数量変更">
 				</td>
 			</form>
-            <td><a href="DeleteCartServlet">削除</a></td>
-        </tr>
-        <%
-            }
-        %>
+			<form action="DeleteCartServlet" method="get">
+				<input type="hidden" name="cart_id" value="<%= cartItem.getCart_id() %>">
+				<input type="hidden" name="item_id" value="<%= cartItem.getItem_id() %>">
+				<td>
+					<input type="submit" value="削除">
+	            </td>
+			</form>
+		</tr>
+		<%
+			}
+		%>
     </table>
 
     <p>合計金額: <%= totalPrice %></p>
