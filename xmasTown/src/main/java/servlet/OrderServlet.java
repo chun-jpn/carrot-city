@@ -37,14 +37,16 @@ public class OrderServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		List<Carts> cartsList =(ArrayList<Carts>)session.getAttribute("cartList");
-		
+		String mail = (String)session.getAttribute("mail");
 		OrderDAO dao = new OrderDAO();
 		
 		for(Carts orderItem : cartsList) {
 			dao.insertOrder(orderItem);
 		}
 		
+		dao.deleteOrder(mail);
 		
+		session.removeAttribute("cartList");
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"WEB-INF/jsp/order.jsp");

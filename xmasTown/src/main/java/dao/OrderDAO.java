@@ -13,6 +13,7 @@ public class OrderDAO {
 	private final String DB_USER = "root";
 	private final String DB_PASS = "";
 
+//購入アイテム追加	
 	public void insertOrder(Carts carts) {
 		// JDBCドライバを読み込む
 		try {
@@ -34,7 +35,7 @@ public class OrderDAO {
 
 			//SQL文
 			String sql = "INSERT INTO orders(mail, item_id, quantity, order_date) VALUES(?, ?, ?,?)";
-
+			
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 			// 登録する内容をセットする
@@ -44,13 +45,46 @@ public class OrderDAO {
 			Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
 			ps.setTimestamp(4, currentTimestamp);
 //			Orders orders = new Orders( mail,item_id,quantity);
+			//SQL実行
+			ps.executeUpdate();
 
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
-		}
+		}		
 	}
+	
+	//カート内容削除
+			public void deleteOrder(String mail) {
+				// JDBCドライバを読み込む
+				try {
+					String drivername = "com.mysql.jdbc.Driver";
+					Class.forName(drivername);
+				} catch (ClassNotFoundException e) {
+					throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+				}
+
+				
+				// データベース接続
+				try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+					//			insert文の準備
+						String sql = "DELETE FROM carts WHERE mail=?";
+						PreparedStatement pStmt = conn.prepareStatement(sql);
+				        pStmt.setString(1, mail);
+//				        pStmt.setInt(2, item_id);
+
+				        // DELETE文を実行
+				        pStmt.executeUpdate();
+				
+			
+				
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			
+			}
+}
 	
 //	public List<Orders> findByData(String userMail) {
 //		List<Orders> OrdersList = new ArrayList<>();
@@ -90,4 +124,3 @@ public class OrderDAO {
 //		return cartList;
 //	}
 	
-}
