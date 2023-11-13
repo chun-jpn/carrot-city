@@ -16,7 +16,7 @@
 		ご利用ありがとうございました。またのご利用お待ちしております。<br></p><br>
 		</div>
 	<p class="link-text"  id="b">
-		<a href ="WelcomeServlet">TOPへ</a>
+		<a href ="WelcomeServlet" class="b">TOPへ</a>
 	</p>
 	</main>
  	

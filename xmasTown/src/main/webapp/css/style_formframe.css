@@ -98,6 +98,9 @@ button {
 .logout_h1 {
 	text-align: center;
 }
+.marker-border-1 {
+	background:linear-gradient(transparent 70%, #fac5a2 0%);
+}
 .marker-border-2 {
 	background:linear-gradient(transparent 70%, #fac5a2 0%);
 }
