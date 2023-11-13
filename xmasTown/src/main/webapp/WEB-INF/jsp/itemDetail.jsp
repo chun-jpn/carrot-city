@@ -29,7 +29,7 @@
 	<p>価格:</p><%=items.getPrice()%><br>
 	<%-- 	<p>在庫</p><%=items.getstock()%>  --%>
 
-	<form method="post" action="http://localhost:8080/xmasTown/CartServlet">
+	<form action="CartServlet" method="POST">
 <%--<input type="hidden" name="item_id" value="<%=items.getItem_id()%>">  --%>
 	<select name="quantity">
 		<option value="1" selected>1</option>
