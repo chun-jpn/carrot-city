@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.List,model.Items"%>
+<%
+Items items = (Items) session.getAttribute("items");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,36 +12,71 @@
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
-    <h1>商品詳細</h1>
     <%
-    Items items = (Items) session.getAttribute("items");
+    String category = items.getCategory();
+    %>
+    <%
+    String itemName = items.getItem_name();
+    %>
+    <%
+    int price = items.getPrice();
+    %>
+    <%
+    String comment = items.getComment();
+    %>
+    <%
+    int stock = items.getStock();
+    %>
+    <%
+    int releaseFlag = items.getRelease_flag();
+    %>
+    <%
+    String picture = items.getPicture();
     %>
 
-    <p>商品ID:</p><%=items.getItem_id()%>
-    <%=items.getItem_name()%><br>
+    <%
+    String releaseFlagValue = "";
+    if (releaseFlag == 0) {
+      releaseFlagValue = "公開";
+    } else if (releaseFlag == 1) {
+      releaseFlagValue = "非公開";
+    } else {
+      releaseFlagValue = "公開/非公開が選択されていません";
+    }
+    %>
 
-    <img src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="300"
-        height="200">
-    <br>
+    <h1>商品詳細</h1>
+    <h2>商品変更・削除</h2>
+    <p>
+        商品カテゴリ:<%=category%>
+    </p>
+    <p>
+        商品名:<%=itemName%>
+    </p>
+    <p>
+        商品価格:<%=price%>
+    </p>
+    <p>
+        コメント:<%=comment%>
+    </p>
+    <p>
+        在庫数:<%=stock%>
+    </p>
+    <p>
+        公開/非公開:<%=releaseFlagValue%>
+    </p>
+    <p>
+        <img src="itemImage/<%=picture%>" alt="商品画像" width="300" height="200">
+    </p>
 
-    <p>価格:</p><%=items.getPrice()%><br>
-    <p>在庫</p><%=items.getStock()%>
-
-    <p>商品ID:</p><%=items.getItem_id()%>
-    <%=items.getItem_name()%><br>
-
-    <img src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="300"
-        height="200">
-    <br>
-
-    <form action="AddItemOKServlet" method="GET">
+    <form action="ProductChangeServlet" method="GET">
         <input type="submit" value="変更" />
     </form>
-    <form action="AddItemNGServlet" method="GET">
+    <form action="ProductDeleteServlet" method="GET">
         <input type="submit" value="削除">
     </form>
     <p>
-        <a href="ProductSearchServlet">商品一覧へ</a>
+        <a href="AdminLoginServlet">TOPへ</a>
     </p>
 </body>
 </html>
