@@ -42,6 +42,6 @@
 	</p>
 	<input type="submit" value="商品登録">
 </form>
-<p><a href="AdminLoginOKServlet">戻る</a></p>
+<p><a href="AdminLoginServlet">戻る</a></p>
 </body>
 </html>
