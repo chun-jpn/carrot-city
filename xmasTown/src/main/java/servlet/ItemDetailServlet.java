@@ -7,6 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.ItemsDAO;
+import model.Items;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -28,23 +32,28 @@ public class ItemDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+//		ItemDto itemDto = new ItemDto();
+//		ItemDto.setItem_id	
+		
 		String error = "";
 		 
  		try{
  			//パラメータの取得
- 			String id = request.getParameter("id");
+ 			String item_id = request.getParameter("item_id");
  
  			//DTOオブジェクト宣言
- 			ItemInfo account = new ItemInfo();
+// 			Items items = new Items(item_id);
  
  			//DAOオブジェクト宣言
- 			ItemsDao objDao = new ItemsDao();
+ 			ItemsDAO itemsDAO = new ItemsDAO();
  
  			//1件検索メソッドを呼び出し
- 			account = objDao.selectById(id);
+ 			Items items = itemsDAO.selectById(item_id);
  
- 			//検索結果を持ってlist3.jspにフォワード
- 			request.setAttribute("account", account);
+ 			//検索結果を持ってjspにフォワード
+ 			HttpSession session = request.getSession();
+ 			session.setAttribute("items",items);
  
  		}catch (IllegalStateException e) {
  			error ="DB接続エラーの為、一覧表示はできませんでした。";
@@ -54,7 +63,7 @@ public class ItemDetailServlet extends HttpServlet {
  
  		}finally{
  			request.setAttribute("error", error);
- 			request.getRequestDispatcher("/view/ch13/list3.jsp").forward(request, response);
+ 			request.getRequestDispatcher("WEB-INF/jsp/itemDetail.jsp").forward(request, response);
  		}
  	}
 		

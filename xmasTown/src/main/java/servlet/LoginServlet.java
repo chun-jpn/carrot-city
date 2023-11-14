@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UsersDAO;
 import model.Login;
 import model.LoginLogic;
+import model.Users;
 /**
  * Servlet implementation class LoginServlet
  */
@@ -36,6 +38,7 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 		
@@ -47,13 +50,19 @@ public class LoginServlet extends HttpServlet {
 		// ログイン処理の成否によって処理を分岐
 		if  (result)  {  //ログイン成功時
 			// セッションスコープにユーザーIDを保存
-			HttpSession session = request.getSession();
+			UsersDAO dao = new UsersDAO();
+			Users account = dao.findByLogin(login); //戻り値;new Users(userName, address,tel, mail, password)
+			String name = account.getUserName();
 			session.setAttribute("mail", mail);
 			session.setAttribute("password", password);
+			
+			//名前を呼び出すコード
+			session.setAttribute("name", name);
 		
 		// フォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/loginOK.jsp");
 				dispatcher.forward(request, response);
+				System.out.println("ログインしました");
 			} else  {  // ログイン失敗時
 			// リダイレクト
 				response.sendRedirect("LoginServlet");	

@@ -14,7 +14,7 @@
 <% String itemName = items.getItem_name(); %>
 <% int price = items.getPrice(); %>
 <% String comment = items.getComment(); %>
-<% int quantity = items.getQuantity(); %>
+<% int stock = items.getStock(); %>
 <% int releaseFlag = items.getRelease_flag(); %>
 <% String picture = items.getPicture(); %>
 
@@ -34,11 +34,9 @@ if(releaseFlag == 0) {
 <p>商品名:<%= itemName %></p>
 <p>商品価格:<%= price %></p>
 <p>コメント:<%= comment %></p>
-<p>在庫数:<%= quantity %></p>
+<p>在庫数:<%= stock %></p>
 <p>公開/非公開:<%= releaseFlagValue %></p>
 <p>商品画像:<img src="itemImage/<%= picture %>" alt="商品画像"></p>
-<img src="itemImage/1e129c56-1d8d-4af9-869c-e25d62ab417920231106094315.jpg">
-<p><%= picture %>
 <form action="AddItemOKServlet" method="POST">
 <input type="submit" value="登録する" />
 </form>

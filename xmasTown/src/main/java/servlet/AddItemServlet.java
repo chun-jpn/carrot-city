@@ -49,7 +49,7 @@ public class AddItemServlet extends HttpServlet {
 		String itemName = request.getParameter("itemName");
 		int price = Integer.parseInt(request.getParameter("price"));
 		String comment = request.getParameter("comment");
-		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		int stock = Integer.parseInt(request.getParameter("stock"));
 		int releaseFlag = Integer.parseInt(request.getParameter("releaseFlag"));
 //		String picture = request.getParameter("picture");
 		
@@ -64,7 +64,7 @@ public class AddItemServlet extends HttpServlet {
 		
 		
 //		Itemsインスタンスの生成
-		Items items = new Items(category, itemName, price, comment, quantity, releaseFlag, picture);
+		Items items = new Items(category, itemName, price, comment, stock, releaseFlag, picture);
 		
 //		リクエストスコープに保存
 //		request.setAttribute("item", items);

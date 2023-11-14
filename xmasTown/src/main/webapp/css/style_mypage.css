@@ -1,0 +1,80 @@
+@charset "UTF-8";
+main {
+	text-align: center;	
+}
+
+p.font-name {
+	font-size: 26px;
+	font-weight:bold;
+}
+
+/*少しずらしたボックス*/
+.box27{
+	margin: 2em auto;
+	padding:2em;/*内側の余白*/
+	background: none;/*元のボックス背景色なし*/
+	border:1px solid #ccc ;/*線の太さ・種類・色*/
+	position: relative;/*配置（基準）*/
+	display:inline-block;
+	font-size: 28px;
+	
+}
+.box27:after{
+	background-color:#eee;/*ずらしたボックスの背景色*/
+	border:none;
+	content: '';
+	position: absolute;/*配置（ここを動かす）*/
+	top: 7px;/*上から7pxずらす*/
+	left: 7px;/*左から7pxずらす*/
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+/* ボタンの初期スタイル */
+.slide-button {
+    display: inline-block;
+    padding: 13px 50px;
+    background-color: #f5e9ce;
+    color: #2f39d4; /*#fff*/
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    overflow-wrap: break-word;
+    width: 280px;
+    
+}
+
+/* ボタンにホバー時のアニメーションを追加 */
+.slide-button:hover {
+    transform: translateX(10px); /* 10px右にスライド */
+}
+
+.box8 {
+    padding: 0.3em 1em;
+    margin: 1em 0;
+    color: #232323; /*#232323*/
+    background: #fff8e8; /*#fff8e8*/
+    border-left: solid 10px #ebae2d; /*#ffc06e*/
+}
+.box8 p {
+    margin: 0; 
+    padding: 0;
+}
+
+/*ログアウトボタン*/
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #001e3d;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #0f3a6b;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+

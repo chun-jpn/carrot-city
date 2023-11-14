@@ -15,7 +15,8 @@
 <% String mail = user.getMail(); %>
 <% String password = user.getPassword(); %>
 
-
+<%@ include file = "header.jsp" %>
+<main>
 <h2>下記内容で変更します</h2>
 <form action="ChangeAccountOKServlet" method="POST">
 	<p>ユーザー名:<%= userName %></p>
@@ -32,6 +33,7 @@
 </form>
 <p><a href="MypageServlet">マイページへ</a></p>
 <p><a href="WelcomServlet">TOPへ</a></p>
-
+</main>
+<%@ include file = "footer.jsp" %>
 </body>
 </html>

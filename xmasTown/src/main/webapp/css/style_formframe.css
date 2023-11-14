@@ -1,0 +1,145 @@
+@charset "UTF-8";
+/*入力フォーム(ログイン、問い合わせ)*/
+body {
+	background-image: url('background-image.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: Arial, sans-serif;
+	color: #333;
+}
+.login-container {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 10px;
+	padding: 20px;
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 100px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}        
+.input-field {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+        }
+#login-button {
+	width: 100%;
+	padding: 10px;
+	background-color: #529e78;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 16px;
+}        
+.login-button:hover {
+	background-color: black;
+}       
+.link-text {
+	text-align: center;
+	font-size: 30px;
+}        
+.footer {
+	text-align: center;
+	margin-top: 20px;
+	color: #777;
+}        
+a {
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}       
+.b:hover, #b:hover {
+	color: #a2dbd9;
+}
+
+/* buttonタグのリセットCSS（不要な場合、セレクタごと削除してください） */
+button {
+	padding: 0;
+	font-family: inherit;
+	appearance: none;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+}
+/* ボタンのスタイル */
+.buttonBasic {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: 200px;
+	height: 40px;
+	padding: 8px 15px;
+/*font-family: sans-serif;*/
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	overflow-wrap: anywhere;
+	background-color: #c24461;
+	border-radius: 5px;
+}	
+@media (any-hover: hover) {
+.buttonBasic, #login-button {
+	transition: background-color 0.2s;
+}
+.buttonBasic:hover {
+	background-color: #db355e;
+}
+#login-button:hover {
+	background-color: #4aba82;
+  	}
+}
+
+/*ログアウトのcss*/
+.logout_h1 {
+	text-align: center;
+}
+.marker-border-1 {
+	background:linear-gradient(transparent 70%, #fac5a2 0%);
+}
+.marker-border-2 {
+	background:linear-gradient(transparent 70%, #fac5a2 0%);
+}
+
+.container {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  background-color: White;
+  color: Black;
+  border: 1px solid Black;
+  padding: 10px 40px;
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn{
+  &.hv-solid {
+    box-shadow: 2px 2px 0 0 Black;
+    border-radius: 7px;
+    max-width: 200px;
+
+    &:hover {
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+  }
+
+/*contactのcss*/
+.example2{
+    width: 50%;
+    border: 2px solid red;
+}
+.example2 input{
+    /*コレ*/width: 100%;
+    background: #e6f2f5;
+}
+}
