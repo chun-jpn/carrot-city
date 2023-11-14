@@ -18,14 +18,11 @@ import model.Items;
 public class ProductSearchServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  /**
-   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-   */
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    // request.setCharacterEncoding("UTF-8");
-
+    // リクエストパラメータの取得
+    request.setCharacterEncoding("UTF-8");
 
     String error = "";
 
@@ -42,8 +39,7 @@ public class ProductSearchServlet extends HttpServlet {
       // 全検索メソッドを呼び出し
       itemsList = objDao.search(item_name);
 
-
-      // 検索結果を持ってItemSearch.jspにフォワード
+      // 検索結果を持ってproductSearch.jspにフォワード
       request.setAttribute("itemsList", itemsList);
 
     } catch (IllegalStateException e) {
@@ -56,13 +52,6 @@ public class ProductSearchServlet extends HttpServlet {
       request.setAttribute("error", error);
       request.getRequestDispatcher("WEB-INF/jsp/productSearch.jsp").forward(request, response);
     }
-  }
-
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
-
-    // リクエストパラメータの取得
-    request.setCharacterEncoding("UTF-8");
 
   }
 }
