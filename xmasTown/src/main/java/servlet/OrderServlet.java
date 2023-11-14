@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ItemsDAO;
 import dao.OrderDAO;
 import model.Carts;
+import model.Orders;
 
 /**
  * Servlet implementation class OrderServlet
@@ -38,14 +40,21 @@ public class OrderServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		List<Carts> cartsList =(ArrayList<Carts>)session.getAttribute("cartList");
 		String mail = (String)session.getAttribute("mail");
-		OrderDAO dao = new OrderDAO();
+		OrderDAO odao = new OrderDAO();
+		ItemsDAO idao = new ItemsDAO();
 		
 		for(Carts orderItem : cartsList) {
-			dao.insertOrder(orderItem);
+//			ordersテーブルに購入品情報を追加
+			Orders order = odao.insertOrder(orderItem);
+//			insertOrderメソッドの戻り値:Orders order = new Orders(mail,item_id,quantity);
+			int item_id = order.getItem_id();
+			int quantity = order.getQuantity();
+//			在庫数から購入数を引くメソッド(stock - quantity)
+			idao.decStock(quantity, item_id);
 		}
-		
-		dao.deleteOrder(mail);
-		
+//		購入済みの商品をcartsテーブルから抹消
+		odao.deleteOrder(mail);
+//		セッションスコープから"cartList"を抹消
 		session.removeAttribute("cartList");
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(

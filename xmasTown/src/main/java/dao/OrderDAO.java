@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import model.Carts;
+import model.Orders;
 
 public class OrderDAO {
 	private final String JDBC_URL = "jdbc:mysql://localhost:3306/xmas_town?charaxterEncoding=UTF-8&serverTimezone=JST";
@@ -14,7 +15,7 @@ public class OrderDAO {
 	private final String DB_PASS = "";
 
 //購入アイテム追加	
-	public void insertOrder(Carts carts) {
+	public Orders insertOrder(Carts carts) {
 		// JDBCドライバを読み込む
 		try {
 			String drivername = "com.mysql.jdbc.Driver";
@@ -44,15 +45,16 @@ public class OrderDAO {
 			ps.setInt(3, quantity);
 			Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
 			ps.setTimestamp(4, currentTimestamp);
-//			Orders orders = new Orders( mail,item_id,quantity);
+			Orders order = new Orders(mail,item_id,quantity);
 			//SQL実行
 			ps.executeUpdate();
-
+			return order;
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
-			
-		}		
+			return null;		
+		}
+		
 	}
 	
 	//カート内容削除

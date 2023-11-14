@@ -143,6 +143,7 @@ public class ItemsDAO {
 			pStmt.setString(1, item_id);
 			// SELECTを実行
 			ResultSet rs = pStmt.executeQuery();
+			
 
 			// SELECT文の結果をArrayListに格納
 			if (rs.next()) {
@@ -187,7 +188,7 @@ public class ItemsDAO {
 
 			// SELECTを実行
 			ResultSet rs = pStmt.executeQuery();
-
+			
 			// SELECT文の結果をArrayListに格納
 			while (rs.next()) {
 				int itemId = rs.getInt("item_id");
@@ -210,5 +211,41 @@ public class ItemsDAO {
 		}
 		return itemsList;
 	}
-
+	
+//	商品売却時、ストックマイナスメソッド
+	public void decStock(int quantity, int item_id) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+		}
+		
+		
+		try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+//			select文の準備
+			String getSql = "SELECT stock FROM items WHERE item_id = ?";
+			PreparedStatement getPStmt = conn.prepareStatement(getSql);
+			getPStmt.setInt(1, item_id);
+//			SELECTを実行
+			ResultSet rs = getPStmt.executeQuery();
+			if (rs.next()) {
+	            int stock = rs.getInt("stock");
+	            int decStock = stock - quantity;
+			
+//				update文の準備
+				String upSql = "UPDATE items SET stock = ? WHERE item_id = ?";
+				PreparedStatement upPStmt = conn.prepareStatement(upSql);
+				upPStmt.setInt(1, decStock);
+				upPStmt.setInt(2, item_id);
+				
+				//SQL実行
+				upPStmt.executeUpdate();
+			}else {
+				// エラー処理: 指定したitem_idの商品が見つからなかった場合の処理
+				System.err.println("指定したitem_idの商品が見つかりませんでした。");
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
