@@ -73,9 +73,14 @@ public class AddItemServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("item", items);
 		
+
+		// リダイレクト
+		response.sendRedirect("AddItemFakeServlet");
+		
+		
 		// フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/addItemConfirm.jsp");
-		dispatcher.forward(request, response);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/addItemConfirm.jsp");
+//		dispatcher.forward(request, response);
 		
 	}
 	
@@ -100,20 +105,14 @@ public class AddItemServlet extends HttpServlet {
 //                String uploadDir = getServletContext().getRealPath("/itemImage");
                 String uploadDir = "C:\\carrot-city\\xmasTown\\src\\main\\webapp\\itemImage";
                 
-                File dir = new File(uploadDir);
-                if (!dir.exists()) {
-                    dir.mkdirs();
-                }
-                
-//              保存先フォルダ確認用
-                System.out.println(uploadDir);
+				File dir = new File(uploadDir);
+				if (!dir.exists()) {
+				dir.mkdirs();
+				}
                 
                 // ファイルを保存
                 String savePath = uploadDir + File.separator + fileName;
                 filePart.write(savePath);
-                
-                //ファイル名確認用
-                System.out.println(fileName);
                 
             }
             
