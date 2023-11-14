@@ -41,10 +41,7 @@ public class ItemDetailServlet extends HttpServlet {
  		try{
  			//パラメータの取得
  			String item_id = request.getParameter("item_id");
- 
- 			//DTOオブジェクト宣言
-// 			Items items = new Items(item_id);
- 
+
  			//DAOオブジェクト宣言
  			ItemsDAO itemsDAO = new ItemsDAO();
  
