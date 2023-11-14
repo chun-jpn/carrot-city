@@ -1,0 +1,53 @@
+package servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import dao.ItemsDAO;
+import model.Items;
+
+/**
+ * Servlet implementation class ProductDetailServlet
+ */
+@WebServlet("/ProductDetailServlet")
+public class ProductDetailServlet extends HttpServlet {
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    String error = "";
+
+    try {
+      // パラメータの取得
+      String item_id = request.getParameter("item_id");
+
+      // DAOオブジェクト宣言
+      ItemsDAO itemsDAO = new ItemsDAO();
+
+      // 1件検索メソッドを呼び出し
+      Items items = itemsDAO.selectById(item_id);
+
+      // 検索結果を持ってjspにフォワード
+      HttpSession session = request.getSession();
+      session.setAttribute("items", items);
+
+    } catch (IllegalStateException e) {
+      error = "DB接続エラーの為、一覧表示はできませんでした。";
+
+    } catch (Exception e) {
+      error = "予期せぬエラーが発生しました。<br>" + e;
+
+    } finally {
+      request.setAttribute("error", error);
+      request.getRequestDispatcher("WEB-INF/jsp/productDetail.jsp").forward(request, response);
+    }
+  }
+
+}

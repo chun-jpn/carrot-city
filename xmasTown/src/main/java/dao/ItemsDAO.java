@@ -75,7 +75,7 @@ public class ItemsDAO {
 		}
 	}
 
-	//カテゴリ検索
+//カテゴリ検索
 	public List<Items> findByCategory(String cSearch) {
 		List<Items> itemsList = new ArrayList<Items>();
 		// JDBCドライバを読み込む
@@ -120,7 +120,7 @@ public class ItemsDAO {
 		return itemsList;
 	}
 
-	//商品詳細
+//商品詳細
 	public Items selectById(String item_id) {
 		Items items = null;
 
@@ -167,7 +167,7 @@ public class ItemsDAO {
 		return items;
 	}
 
-	//商品名検索
+//商品名検索
 	public List<Items> search(String item_name) {
 		List<Items> itemsList = new ArrayList<Items>();
 
@@ -248,4 +248,54 @@ public class ItemsDAO {
 			e.printStackTrace();
 		}
 	}
+
+	
+//おすすめ商品、ランダム表示
+	public List<Items> randById() {
+		List<Items> itemsList = new ArrayList<Items>();
+
+		// JDBCドライバを読み込む
+		try {
+			String drivername = "com.mysql.jdbc.Driver";
+			Class.forName(drivername);
+		} catch (ClassNotFoundException e) {
+			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+		}
+
+		// データベース接続
+		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+
+		// SELECT文の準備
+
+			String sql = "SELECT * FROM items ORDER BY RAND() LIMIT 4";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+//			pStmt.setInt();
+			// SELECTを実行
+			ResultSet rs = pStmt.executeQuery();
+			
+
+			// SELECT文の結果をArrayListに格納
+			while (rs.next()) {
+				int itemId = rs.getInt("item_id");
+				String category = rs.getString("category");
+				String itemName = rs.getString("item_name");
+				int price = rs.getInt("price");
+				String comment = rs.getString("comment");
+				int stock = rs.getInt("stock");
+				int releaseFlag = rs.getInt("release_flag");
+				String addDate = rs.getString("add_date");
+				String rewriteDate = rs.getString("rewrite_date");
+				String picture = rs.getString("picture");
+				Items items = new Items(itemId, category, itemName, price, comment, stock, releaseFlag, addDate,
+						rewriteDate, picture);
+				itemsList.add(items);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return itemsList;
+	}
+	
+	
 }

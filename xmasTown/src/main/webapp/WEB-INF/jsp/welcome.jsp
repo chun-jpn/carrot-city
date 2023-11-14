@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.List"%>
+<%@ page import="model.Items"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,31 +70,31 @@
 		
 		<ul class="ranking-list">
 		  <li class="rank1">
-		  	<div class="zoom"><a href="#"><span class="mask"><img src="image/010791.jpg"></span></a></div>
+		  	<div class="zoom"><a href="#"><span class="mask"><img src="itemImage/010791.jpg"></span></a></div>
 		  	<div class="maru" id="maru1"> <span>1</span></div>
 		  	<div class="rank-name">ジンジャーブレッドオーナメント2コセット</div>
 		  	<div class="rank-price"><span>\1,540</span>（税込）</div>
 		  </li>
 		  <li>
-		  	<div class="zoom"><a href="#"><span class="mask"><img src="image/010732_01.jpg"></span></a></div>
+		  	<div class="zoom"><a href="#"><span class="mask"><img src="itemImage/010732_01.jpg"></span></a></div>
 		  	<div class="maru" id="maru2"> <span>2</span></div>
 		  	<div class="rank-name">キャンディーナッツクラッカーオーナメント（ケーキ/ハウス）</div>
 		  	<div class="rank-price"><span>\3,190</span>（税込）</div>
 		  </li>
 		  <li>
-		  	<div class="zoom"><a href="#"><span class="mask"><img src="image/010140.jpg"></span></a></div>
+		  	<div class="zoom"><a href="#"><span class="mask"><img src="itemImage/010140.jpg"></span></a></div>
 		  	<div class="maru" id="maru1"> <span>3</span></div>
 		  	<div class="rank-name">フォレストスリムクリスマスツリーL 130cm</div>
 		  	<div class="rank-price"><span>\20,900</span>（税込）</div>
 		  </li>
 		  <li>
-		  	<div class="zoom"><a href="#"><span class="mask"><img src="image/010320_00.jpg"></span></a></div>
+		  	<div class="zoom"><a href="#"><span class="mask"><img src="itemImage/010320_00.jpg"></span></a></div>
 		  	<div class="maru" id="maru2"> <span>4</span></div>
 		  	<div class="rank-name">カラフルハーレクイングラスボールオーナメント（チェック/ストライプ）</div>
 		  	<div class="rank-price"><span>\2,530</span>（税込）</div>
 		  </li>
 		  <li>
-		  	<div class="zoom"><a href="#"><span class="mask"><img src="image/010751_01.jpg"></span></a></div>
+		  	<div class="zoom"><a href="#"><span class="mask"><img src="itemImage/010751_01.jpg"></span></a></div>
 		  	<div class="maru" id="maru1"> <span>5</span></div>
 		  	<div class="rank-name">ラージケーキツリーオブジェ/ピンク</div>
 		  	<div class="rank-price"><span>\30,800</span>（税込）</div>
@@ -100,19 +103,27 @@
 	</div>
 	
 <!-- おすすめ -->
+	
 	<h2><span>Recommend</span></h2>
 	<p class="recommend-sub">おすすめ</p>
 	<ul class="recommend">
+	<%
+	List<Items> itemsList = (List<Items>)request.getAttribute("itemsList");
+	%>
+	<%
+	for (Items items : itemsList) {
+	%>
+	
 	  	 <li id="re-grid1">
-		  	<div class="recommend-item" ><a href="#"><img src="image/010716_01.jpg"></a>
+		  	<div class="recommend-item" ><a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=items.getItem_id()%>"><img src="itemImage/<%=items.getPicture()%>"></a>
 			  	<div class="item-info">
-				  	<div class="item-name">シャルドネゴールドソルジャーカレンダー（R）</div>
-				  	<div class="item-price">\4,620[税込]</div>
+				  	<div class="item-name"><%=items.getItem_name()%></div>
+				  	<div class="item-price">\<%=items.getPrice()%>[税込]</div>
 			  	</div>
 		  	</div>
 		  </li>
-		  <li id="re-grid2">
-		  	<div class="recommend-item"><a href="#"><img src="image/010811_01.jpg"></a>
+<!--  		  <li id="re-grid2">
+		  	<div class="recommend-item"><a href="#"><img src="itemImage/010811_01.jpg"></a>
 			  	<div class="item-info">
 				  	<div class="item-name">カルーセルユニコーンオルゴール（R）</div>
 				  	<div class="item-price">\9,900[税込]</div>
@@ -120,7 +131,7 @@
 		  	</div>
 		  </li>
 		  <li id="re-grid3">
-		  	<div class="recommend-item"><a href="#"><img src="image/WS070_cd.jpg"></a>
+		  	<div class="recommend-item"><a href="#"><img src="itemImage/WS070_cd.jpg"></a>
 			  	<div class="item-info">
 				  	<div class="item-name">クリスマスツリーセット90cm/くるみ割り人形</div>
 				  	<div class="item-price">\50,380[税込]</div>
@@ -128,14 +139,18 @@
 		  	</div>
 		  </li>
 		  <li id="re-grid4">
-		  	<div class="recommend-item"><a href="#"><img src="image/010654_01.jpg"></a>
+		  	<div class="recommend-item"><a href="#"><img src="itemImage/010654_01.jpg"></a>
 			  	<div class="item-info">
 				  	<div class="item-name">リキッドLEDツリーキャリッジ（R</div>
 				  	<div class="item-price">\16,500[税込]</div>
 			  	</div>
 		  	</div>
 		  </li>  
-	</ul>
+-->	</ul>
+	<%
+	}
+	%>
+	
 	<!-- カテゴリ -->
 	<h2><span>Category</span></h2>
 	<p class="category-sub">カテゴリ</p>
