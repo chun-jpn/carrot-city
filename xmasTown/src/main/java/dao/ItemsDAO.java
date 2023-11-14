@@ -251,7 +251,7 @@ public class ItemsDAO {
 
 	
 //おすすめ商品、ランダム表示
-	public List<Items> randById(int item_id) {
+	public List<Items> randById() {
 		List<Items> itemsList = new ArrayList<Items>();
 
 		// JDBCドライバを読み込む
@@ -267,9 +267,9 @@ public class ItemsDAO {
 
 		// SELECT文の準備
 
-			String sql = "SELECT item_id FROM items ORDER BY RAND() LIMIT 4";
+			String sql = "SELECT * FROM items ORDER BY RAND() LIMIT 4";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setInt(1, item_id);
+//			pStmt.setInt();
 			// SELECTを実行
 			ResultSet rs = pStmt.executeQuery();
 			

@@ -37,13 +37,13 @@ public class WelcomeServlet extends HttpServlet {
 		 
  		try{
  			//パラメータの取得
- 			int item_id = Integer.parseInt(request.getParameter("item_id"));
+ //			int item_id = Integer.parseInt(request.getParameter("item_id"));
  
  			//DAOオブジェクト宣言
  			ItemsDAO itemsDAO = new ItemsDAO();
  
- 			//1件検索メソッドを呼び出し
- 			List<Items> itemsList = itemsDAO.randById(item_id);
+ 			//リスト
+ 			List<Items> itemsList = itemsDAO.randById();
  			request.setAttribute("itemsList", itemsList);
 // 			//検索結果を持ってjspにフォワード
 // 			HttpSession session = request.getSession();

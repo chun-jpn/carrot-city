@@ -103,21 +103,26 @@
 	</div>
 	
 <!-- おすすめ -->
-	<%
-	List<Items> itemsList = (List<Items>) request.getAttribute("itemsList");
-	%>
+	
 	<h2><span>Recommend</span></h2>
 	<p class="recommend-sub">おすすめ</p>
 	<ul class="recommend">
+	<%
+	List<Items> itemsList = (List<Items>)request.getAttribute("itemsList");
+	%>
+	<%
+	for (Items items : itemsList) {
+	%>
+	
 	  	 <li id="re-grid1">
-		  	<div class="recommend-item" ><a href="#"><img src="itemImage/010716_01.jpg"></a>
+		  	<div class="recommend-item" ><a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=items.getItem_id()%>"><img src="itemImage/<%=items.getPicture()%>"></a>
 			  	<div class="item-info">
-				  	<div class="item-name">シャルドネゴールドソルジャーカレンダー（R）</div>
-				  	<div class="item-price">\4,620[税込]</div>
+				  	<div class="item-name"><%=items.getItem_name()%></div>
+				  	<div class="item-price">\<%=items.getPrice()%>[税込]</div>
 			  	</div>
 		  	</div>
 		  </li>
-		  <li id="re-grid2">
+<!--  		  <li id="re-grid2">
 		  	<div class="recommend-item"><a href="#"><img src="itemImage/010811_01.jpg"></a>
 			  	<div class="item-info">
 				  	<div class="item-name">カルーセルユニコーンオルゴール（R）</div>
@@ -141,7 +146,11 @@
 			  	</div>
 		  	</div>
 		  </li>  
-	</ul>
+-->	</ul>
+	<%
+	}
+	%>
+	
 	<!-- カテゴリ -->
 	<h2><span>Category</span></h2>
 	<p class="category-sub">カテゴリ</p>
