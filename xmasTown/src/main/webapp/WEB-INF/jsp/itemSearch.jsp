@@ -8,7 +8,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">	
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/items.css">
+	<link rel="stylesheet" href="css/style_formframe.css">
+	<style>	
+main {
+	font-size: 20px;
+}
+	</style>
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
@@ -21,30 +28,34 @@
 	<%= item_name %>
 	<% } %>	
 --%>
+<div class="items">
 
 	<%
 	List<Items> itemsList = (List<Items>) request.getAttribute("itemsList");
 	%>
+	
 	<%
 	for (Items items : itemsList) {
 	%>
+	<div class="item">
 	<a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=items.getItem_id()%>">
-	<img src = "itemImage/<%=items.getPicture()%>" alt="商品画像" width="300" height="200"></a><br>
+	<img src = "itemImage/<%=items.getPicture()%>" alt="商品画像" width="300" height="220"></a><br>
  	
  	<%=items.getItem_name()%><br>
 
-	<%=items.getPrice()%><br>
-
+	&yen;<%=items.getPrice()%><br>
+	</div>
 	<%
 	}
 	%>
+</div>
 
 
-
-	<p>
-		<a href="WelcomeServlet">TOPへ</a>
+	<p class="link-text">
+		<a href="WelcomeServlet" class="b">TOPへ</a>
 	</p>
 	</main>
 	<%@ include file = "footer.jsp" %>
+	<script src="css/js.js"></script>
 </body>
 </html>
