@@ -3,16 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style_formframe.css">
+	<link rel="stylesheet" type="text/css" href="css/style_mypage.css">
+	<style>
+    	p {
+    	font-size:20px;
+    	}
+    </style>
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
 <%@ include file = "header.jsp" %>
-<main>
-<h2>商品の登録が完了しました</h2>
-<a href="MypageServlet">マイページに戻る</a><br>
-<a href="WelcomeServlet">トップページに戻る</a>
-</main>
+	<main>
+		<h1 class="logout_h1"  style="margin: 0; font-size: 28px;"><p class="marker2"><span>登録情報変更が完了しました</span></h1>
+		<br>
+			<p><a href="MypageServlet" class="button-52" role="button" style="color: #4f4f47;"><b>マイページに戻る<b></b></a></p><br>
+			<p class="link-text">
+				<a href="WelcomeServlet" class="b">トップページに戻る</a>
+			</p>
+	</main>
 <%@ include file = "footer.jsp" %>
 </body>
 </html>
