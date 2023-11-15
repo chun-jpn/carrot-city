@@ -110,47 +110,62 @@
 	<%
 	List<Items> itemsList = (List<Items>)request.getAttribute("itemsList");
 	%>
-	<%
+<%-- <%
 	for (Items items : itemsList) {
-	%>
-	
+	 %>--%>
+		<% Items randam1 = itemsList.get(0); %>
+		
+		 <script>
+
+		  document.getElementById('itemImage').addEventListener('click',function(){
+
+				  window.location.href = document.getElementById('itemLink').href;
+				  });
+		  </script>
 	  	 <li id="re-grid1">
-		  	<div class="recommend-item" ><a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=items.getItem_id()%>"><img src="itemImage/<%=items.getPicture()%>"></a>
+		  	<div class="recommend-item" >
+		  	<a id="itemLink" href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=randam1.getItem_id()%>"></a>
+		  	<img id="itemImage" src="itemImage/<%=randam1.getPicture()%>">
 			  	<div class="item-info">
-				  	<div class="item-name"><%=items.getItem_name()%></div>
-				  	<div class="item-price">\<%=items.getPrice()%>[税込]</div>
+				  	<div class="item-name"><%=randam1.getItem_name()%></div>
+				  	<div class="item-price">\<%=randam1.getPrice()%>[税込]</div>
+			  	
 			  	</div>
 		  	</div>
 		  </li>
-<!--  		  <li id="re-grid2">
-		  	<div class="recommend-item"><a href="#"><img src="itemImage/010811_01.jpg"></a>
+		  <% Items randam2 = itemsList.get(1); %>
+ 		  <li id="re-grid2">
+		  	<div class="recommend-item"><a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=randam2.getItem_id()%>"><img src="itemImage/<%=randam2.getPicture()%>"></a>
 			  	<div class="item-info">
-				  	<div class="item-name">カルーセルユニコーンオルゴール（R）</div>
-				  	<div class="item-price">\9,900[税込]</div>
+				  	<div class="item-name"><%=randam2.getItem_name()%></div>
+				  	<div class="item-price">\<%=randam2.getPrice()%>[税込]</div>
 			  	</div>
 		  	</div>
 		  </li>
+		  <% Items randam3 = itemsList.get(2); %>
 		  <li id="re-grid3">
-		  	<div class="recommend-item"><a href="#"><img src="itemImage/WS070_cd.jpg"></a>
+		  	<div class="recommend-item"><a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=randam3.getItem_id()%>"><img src="itemImage/<%=randam3.getPicture()%>"></a>
 			  	<div class="item-info">
-				  	<div class="item-name">クリスマスツリーセット90cm/くるみ割り人形</div>
-				  	<div class="item-price">\50,380[税込]</div>
+				  	<div class="item-name"><%=randam3.getItem_name()%></div>
+				  	<div class="item-price">\<%=randam3.getPrice()%>[税込]</div>
 			  	</div>
 		  	</div>
 		  </li>
+		  <% Items randam4 = itemsList.get(3); %>
 		  <li id="re-grid4">
-		  	<div class="recommend-item"><a href="#"><img src="itemImage/010654_01.jpg"></a>
+		  	<div class="recommend-item"><a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=randam4.getItem_id()%>"><img src="itemImage/<%=randam4.getPicture()%>"></a>
 			  	<div class="item-info">
-				  	<div class="item-name">リキッドLEDツリーキャリッジ（R</div>
-				  	<div class="item-price">\16,500[税込]</div>
+				  	<div class="item-name"><%=randam4.getItem_name()%></div>
+				  	<div class="item-price">\<%=randam4.getPrice()%>[税込]</div>
 			  	</div>
 		  	</div>
 		  </li>  
--->	</ul>
-	<%
+	</ul>
+	
+<%--<%
 	}
 	%>
-	
+--%>	
 	<!-- カテゴリ -->
 	<h2><span>Category</span></h2>
 	<p class="category-sub">カテゴリ</p>
