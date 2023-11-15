@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ItemsDAO;
+import dao.RankingDAO;
 import model.Items;
 
 /**
@@ -36,6 +37,11 @@ public class WelcomeServlet extends HttpServlet {
 		String error = "";
 		 
  		try{
+ 			
+ 			RankingDAO rankingDAO = new RankingDAO();
+ 	        List<Items> rankingList = rankingDAO.getRanking();
+
+ 	        request.setAttribute("rankingList", rankingList);
  			//パラメータの取得
  //			int item_id = Integer.parseInt(request.getParameter("item_id"));
  

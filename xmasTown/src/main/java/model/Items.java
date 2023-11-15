@@ -11,6 +11,7 @@ public class Items {
 	private String add_date;
 	private String rewrite_date;
 	private String picture;
+	private int totalQuantity;
 	
 	//アイテム検索用
 	public Items(int item_id,String category,String item_name,
@@ -40,6 +41,15 @@ public class Items {
 		this.picture = picture;
 	}
 	
+//	ランキング表示表
+	public Items(int item_id, String item_name,int price, String picture, int totalQuantity) {
+		this.item_id = item_id;
+		this.item_name = item_name;
+		this.price = price;
+		this.picture = picture;
+		this.totalQuantity = totalQuantity;
+		
+	}
 	public int getItem_id() {return item_id;}
 	public String getCategory() {return category;}
 	public String getItem_name() {return item_name;}
@@ -50,6 +60,7 @@ public class Items {
 	public String getAdd_date() {return add_date;}
 	public String getRewrite_date() {return rewrite_date;}
 	public String getPicture() {return picture;}
+	public int getTotalQuantity() {return totalQuantity;}
 
 	
 	
