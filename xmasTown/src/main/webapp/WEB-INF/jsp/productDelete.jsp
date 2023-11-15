@@ -45,38 +45,28 @@ Items items = (Items) session.getAttribute("items");
     }
     %>
 
-    <h1>商品詳細</h1>
-    <h2>商品変更・削除</h2>
+    <h2>下記の商品を削除します</h2>
     <p>
-        商品カテゴリ:<%=category%>
-    </p>
+        商品カテゴリ:<%=category%></p>
     <p>
-        商品名:<%=itemName%>
-    </p>
+        商品名:<%=itemName%></p>
     <p>
-        商品価格:<%=price%>
-    </p>
+        商品価格:<%=price%></p>
     <p>
-        コメント:<%=comment%>
-    </p>
+        コメント:<%=comment%></p>
     <p>
-        在庫数:<%=stock%>
-    </p>
+        在庫数:<%=stock%></p>
     <p>
-        公開/非公開:<%=releaseFlagValue%>
-    </p>
+        公開/非公開:<%=releaseFlagValue%></p>
     <p>
-        <img src="itemImage/<%=picture%>" alt="商品画像" width="300" height="200">
+        商品画像:<br><img src="itemImage/<%=picture%>" alt="商品画像" width="300"
+            height="200">
     </p>
-
-    <form action="ProductChangeServlet" method="GET">
-        <input type="submit" value="変更" />
-    </form>
-    <form action="ProductDeleteServlet" method="GET">
+    <form action="ProductDeleteOKServlet" method="POST">
         <input type="submit" value="削除">
     </form>
-    <p>
-        <a href="AdminLoginServlet">TOPへ</a>
-    </p>
+    <form action="AdminLoginServlet" method="GET">
+        <input type="submit" value="キャンセル">
+    </form>
 </body>
 </html>
