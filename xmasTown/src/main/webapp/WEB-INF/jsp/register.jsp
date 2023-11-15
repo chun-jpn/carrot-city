@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/style_formframe.css">
+<link rel="stylesheet" type="text/css" href="css/style_mypage.css">
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
@@ -16,16 +17,21 @@
 				※全ての項目を入力してください<br>
 				(一度登録したメールアドレスは再度登録不可)
 			<form action="RegisterServlet" method="post">
-				ユーザー名:<input type="text"  class="input-field" name="name"><br>
-				住所:<input type="text"  class="input-field" name="address"><br>
-				電話番号:<input type="text"  class="input-field" name="tel"><br>
-				メールアドレス:<input type="text"  class="input-field" name="mail"><br>
-				パスワード:<input type="password"  class="input-field" name="password"><br>
-				<a><input type="submit" name="success"  value="決定"></a><br>
+				<div class="left">
+					<p><b>ユーザー名: &nbsp;</b><input type="text"  class="input-field" name="name" placeholder="ユーザー名"></p>
+					<p><b>住所: &nbsp;</b><input type="text"  class="input-field" name="address" placeholder="〇〇県～"></p>
+					<p><b>電話番号: &nbsp;</b><input type="text"  class="input-field" name="tel" placeholder="0000000000 or 000-000-0000"></p>
+					<p><b>メールアドレス: &nbsp;</b><input type="text"  class="input-field" name="mail" placeholder="メールアドレス"></p>
+					<p><b>パスワード: &nbsp;</b><input type="password"  class="input-field" name="password" placeholder="oooo"></p>
+						<input type="submit" name="success"  value="決定" id="button_solid017">
+						<br>
 					<c:if test="${not empty requestScope.error}">
 					<p style="color: red">${requestScope.error}</p>
 					</c:if>
-					<p><a href="WelcomeServlet">戻る</a></p>
+				</div>
+					<p class="link-text">
+						<a href="WelcomeServlet">戻る</a>
+					</p>
 			</form>
 	</main>
 	</div>

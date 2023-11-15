@@ -12,9 +12,10 @@
 	font-size     : 18pt;        /* 文字サイズ */
 	text-align    : center;      /* 文字位置   */
 	cursor        : pointer;     /* カーソル   */
-	padding       : 12px 12px;   /* 余白       */
-	background    : rgba(127, 127, 0, 0.77);     /* 背景色     */
-	color         : #ffffff;     /* 文字色     */
+	padding       : 10px 10px;   /* 余白       */
+	background    : #c7c744;     /* 背景色     */
+
+	color         : #3d3d17;     /* 文字色     */
 	line-height   : 1em;         /* 1行の高さ  */
 	transition    : .3s;         /* なめらか変化 */
 	box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
@@ -39,7 +40,7 @@
 			Message:<textarea name="detail" class="input-field" id="detail" cols="30" rows="10" required placeholder="Message" ></textarea>
 			<label for="detail"   name="message"  placeholder="Message" id="example2"></label><br>
 			<br>
-				<input type="submit" value="send" class="button-send">
+				<input type="submit" value="send" class="button-send" style="background: #dbdb00;">
 		</form>
 		<p  class="link-text" style="margin: 0;">
 			<a href="WelcomServlet" class="b">TOPへ</a>
