@@ -101,6 +101,13 @@ button {
   	}
 }
 
+/*h1のCSS*/
+.change_h1 {
+	text-align: center;
+	margin: 0;
+	font-size: 28px;
+}
+
 /*ログアウトのcss*/
 .logout_h1 {
 	text-align: center;

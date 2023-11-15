@@ -123,7 +123,7 @@ div .btn-top {
   	transition: all .2s;
   	padding: 20px 50px;
   	border-radius: 100px;
-  	background: #e26301;
+  	background: #b04545;
   	border: 1px solid transparent;
   	display: inline-flex;
   	align-items: center;
@@ -131,7 +131,7 @@ div .btn-top {
 }
 
 div .btn-top:hover {
-  background: #ef7800;
+  background: #d16662;
 }
 
 div .btn-top > svg {
