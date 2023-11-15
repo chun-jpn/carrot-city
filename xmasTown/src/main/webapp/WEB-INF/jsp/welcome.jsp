@@ -93,8 +93,21 @@
 				<span>Ranking</span>
 			</h2>
 			<p class="ranking-sub">ランキング</p>
-
+			
 			<ul class="ranking-list">
+				<% 
+				List<Items> rankedItems = (List<Items>) request.getAttribute("rankingList");
+				int rank = 1;
+				for (Items item : rankedItems) { 
+				%>
+				<li>
+					<div class="zoom"><a href="ItemDetailServlet?item_id=<%= item.getItem_id() %>"><span class="mask"><img src="itemImage/<%= item.getPicture() %>"></span></a></div>
+					<div class="maru"> <span><%= rank++ %></span></div>
+					<div class="rank-name"><%= item.getItem_name() %></div>
+					<div class="rank-price"><span>\ <%= item.getPrice() %></span>（税込）</div>
+				</li>
+				<% } %>
+<%--
 				<li class="rank1">
 					<div class="zoom">
 						<a href="#"><span class="mask"><img
@@ -160,6 +173,7 @@
 						<span>\30,800</span>（税込）
 					</div>
 				</li>
+ --%>
 			</ul>
 		</div>
 
