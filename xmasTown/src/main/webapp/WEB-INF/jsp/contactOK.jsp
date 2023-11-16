@@ -3,15 +3,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>CHRISTMAS TOWN</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style_formframe.css">
+	<link rel="stylesheet" type="text/css" href="css/style_mypage.css">
+	<style>
+    	p {
+    	font-size:20px;
+    	}
+    </style>
+	<title>CHRISTMAS TOWN</title>
 </head>
 	<body>
 	<%@ include file = "header.jsp" %>
 	<main>
-		<h1>送信完了</h1>
+		<h1 class="logout_h1">送信完了</h1>
 		<p>お問い合わせいただき、誠にありがとうございました。</p>
-		<a href="WelcomeServlet">トップへ</a><br>
+		<p class="link-text"><a href="WelcomeServlet" class="b">TOPへ</a></p><br>
 	</main>
 	<%@ include file = "footer.jsp" %>
 </body>

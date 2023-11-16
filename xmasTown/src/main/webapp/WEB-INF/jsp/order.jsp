@@ -4,21 +4,26 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/items.css">
 	<link rel="stylesheet" href="css/style_formframe.css">
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
-
-<h1 class="logout_h1">注文完了</h1>
-
-
-
-
-
-
+	<%@ include file = "header.jsp" %>
+	<main>
+	<h1 class="logout_h1">
+	<p class="popout">				
+  			<span>注</span>
+  			<span>文</span>
+  			<span>完</span>
+  			<span>了</span>
+	</p>
+	</h1>
 <p style="text-align: center; font-size: 24px">ご注文ありがとうございました。</p>
-
-<a href="WelcomeServlet">TOPへ</a>
-
+		<p class="link-text">
+			<a href="WelcomeServlet" class="b">TOPへ</a>
+		</p>
+	</main>
+	<%@ include file = "footer.jsp" %>
 </body>
 </html>

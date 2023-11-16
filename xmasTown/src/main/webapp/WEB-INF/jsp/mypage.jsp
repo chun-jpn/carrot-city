@@ -5,10 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="css/responsive.css">
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 	<link rel="stylesheet" href="css/style_formframe.css">
     <link rel="stylesheet" type="text/css" href="css/style_mypage.css">
 	<title>CHRISTMAS TOWN</title>
@@ -17,7 +14,7 @@
 	<%@ include file = "header.jsp" %>
 	<main>	
 	<h1 style="margin:0;">マイページ</h1>
-		<div class="box27" style="margin:0;">
+		<div class="box27">
 			<p class="font-name">ようこそ、<%= name %>さん！</p>
 		<div class="box8">
 			<p><a href="ChangeAccountServlet" class="slide-button">登録情報変更</a></p>
