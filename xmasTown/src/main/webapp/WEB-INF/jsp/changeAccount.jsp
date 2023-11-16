@@ -29,11 +29,11 @@
 			
 			<form action="ChangeAccountServlet" method="POST">
 				<div class="left">
-					<p><b>ユーザー名: &nbsp;</b><input type="text" class="input-field" name="userName" value="<%= userName %>"></p>
-					<p><b>住所: &nbsp;</b><input type="text"  class="input-field"  name="address" value="<%= address %>"></p>
-					<p><b>電話番号: &nbsp;</b><input type="text" class="input-field"  name="tel" value="<%= tel %>"></p>
-					<p><b>メースアドレス: &nbsp;</b><input type="text"  class="input-field" name="mail" value="<%= mail %>"></p>
-					<p><b>パスワード: &nbsp;</b><input type="password"  class="input-field"  name="password" value="<%= password %>"></p>
+					<p><b>ユーザー名: </b><input type="text" class="input-field" name="userName" value="<%= userName %>"></p>
+					<p><b>住所: </b><input type="text"  class="input-field"  name="address" value="<%= address %>"></p>
+					<p><b>電話番号: </b><input type="text" class="input-field"  name="tel" value="<%= tel %>"></p>
+					<p><b>メースアドレス: </b><input type="text"  class="input-field" name="mail" value="<%= mail %>"></p>
+					<p><b>パスワード: </b><input type="password"  class="input-field"  name="password" value="<%= password %>"></p>
 						<input type="submit" value="変更内容送信" id="button-arrow-inner">
 				</div>
 			</form>
