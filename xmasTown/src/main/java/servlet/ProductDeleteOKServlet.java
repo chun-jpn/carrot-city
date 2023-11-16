@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import dao.ItemsDAO;
+import model.Items;
 
 /**
  * Servlet implementation class ProductDeleteOKServlet
@@ -21,10 +23,11 @@ public class ProductDeleteOKServlet extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    // 商品IDを取得する
-    String item_idStr = request.getParameter("item_id");
-    // 商品IDがnullの場合は0を返す
-    int item_id = item_idStr == null ? 0 : Integer.parseInt(item_idStr);
+    HttpSession session = request.getSession();
+    //セッションスコープからアイテムを取得
+    Items item = (Items) session.getAttribute("items");
+
+    int item_id = item.getItem_id();
 
     // DAOを呼び出して商品を削除する
     ItemsDAO dao = new ItemsDAO();
