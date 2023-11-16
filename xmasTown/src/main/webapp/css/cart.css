@@ -9,8 +9,9 @@ h1 {
   text-align: center;
 }
 
-table .table_box{
-  border: none;
+/*カート内のtable css*/
+table{
+  
   border-collapse: collapse;
   width: 50%;
   margin-left: auto;
@@ -18,13 +19,18 @@ table .table_box{
   box-shadow: 0 0 50px -3px #00000073;
 }
 
-table th .table_box,
-table td .table_box{
+table tr{
+  background-color: #fff;
+  /*border: 2px #808080 solid;*/
+}
+
+table th,
+table td {
   padding: 5px 0;
 }
 
 
-table  th .table_box{
+table  th{
   width: 20%;
   padding: 5px 0;
   font-size: 14px;
@@ -33,12 +39,16 @@ table  th .table_box{
   color:#fff;
 }
 
-table tr .table_box{
+table tr {
   text-align: center;
   width: 10%;
   padding: 10px 0;
   background-color: #fff;
   color:#3a3a3a;
+}
+
+table tr:hover{
+  background-color: #d4faff;
 }
 
 /*商品詳細のtable*/

@@ -10,6 +10,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style_formframe.css">
+	<link rel="stylesheet" href="css/cart.css">
 	<link rel="stylesheet" type="text/css" href="css/items.css">
 	<style>	
 main {
@@ -22,11 +23,11 @@ main {
 <%@ include file = "header.jsp" %>
 <main>
     <h1 class="logout_h1">ショッピングカート</h1>
-    <table class="table_box">
+    <table class="table_box" style="border: 2px #808080 solid;">
     <thead>
         <tr>
         	<th>商品画像</th>
-            <th style="wi">商品名</th>
+            <th>商品名</th>
             <th>価格</th>
             <th>数量</th>
             <th></th>
