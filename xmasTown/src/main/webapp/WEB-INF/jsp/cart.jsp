@@ -40,7 +40,7 @@ main {
         %>
         <tr>
         	<td><img src="itemImage/<%=cartItem.getPicture() %>" alt="商品画像" width="100px" height="100px"></td>
-			<td><%= cartItem.getItem_name() %></td>
+			<td style="font-size: 16px;"><%= cartItem.getItem_name() %></td>
 			<td>&yen;<%= cartItem.getPrice() %></td>
 			<form action="ChangeCartServlet" method="post">
 				<input type="hidden" name="cart_id" value="<%= cartItem.getCart_id() %>">
