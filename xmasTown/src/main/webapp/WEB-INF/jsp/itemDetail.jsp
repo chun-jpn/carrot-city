@@ -39,8 +39,8 @@
 	<form method="post" action="http://localhost:8080/xmasTown/CartServlet">
 <%--<input type="hidden" name="item_id" value="<%=items.getItem_id()%>">  --%>
 
-	個数:<select name="quantity" style="font-size:18px;" id="S">
-		<option value="1" selected disabled>1</option>
+	個数:<select name="quantity">
+		<option value="1" selected>1</option>
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>

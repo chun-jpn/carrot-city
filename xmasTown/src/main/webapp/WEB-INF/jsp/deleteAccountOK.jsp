@@ -16,7 +16,7 @@
 	<body>
 	<%@ include file = "header.jsp" %>
 	<main>
-		<h1 class="logout_h1"><p class="marker1"  style="font-size: 30px;"><span>退会が完了しました</span></p></h1>
+		<h1 class="logout_h1"><p class="marker1"><span style="font-size: 30px;">退会が完了しました</span></p></h1>
 			<p>ご利用、ありがとうございました。</p>
 			<p class="link-text">
 				<a href="WelcomeServlet" class="b">TOPへ</a>
