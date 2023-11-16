@@ -63,7 +63,6 @@ Items items = (Items) session.getAttribute("items");
             width="300" height="200">
     </p>
     <form action="ProductDeleteOKServlet" method="GET">
-        <%-- POSTからGETに変更 --%>
         <input type="submit" value="削除">
     </form>
     <form action="AdminLoginServlet" method="GET">
