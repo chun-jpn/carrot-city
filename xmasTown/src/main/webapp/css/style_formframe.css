@@ -157,7 +157,7 @@ button {
 }
 .example2 input{
     /*コレ*/width: 100%;
-    background: #e6f2f5;
+    background: #e6f2f5; /*#e6f2f5*/
 	}
 }
 

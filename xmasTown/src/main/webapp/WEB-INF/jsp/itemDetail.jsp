@@ -34,12 +34,13 @@ table .itemsDetail-teble {
 			<br>
 		</td>
 		<td>
-			<div style="margin-top: -10px;">
-					<span style="margin-bottom: 30px;" class="product-title">
+
+					<span class="product-title">
 					<%=items.getItem_name()%></span><br>
 					<font size="3">商品ID:<%=items.getItem_id()%></font>
-			</div><br><br><br>
-			<p style="font-size: 14px"><%=items.getComment()%></p><br><br>
+			<br><br>
+			<p style="background: rgb(220, 233, 231);">商品説明</p><br>
+			<p style="font-size: 16px"><%=items.getComment()%></p><br>
 	
 			価格:<b style="font-size: 24px;" class="product-price">&yen;<%=items.getPrice()%></b>
 			<%-- 	<p>在庫</p><%=items.getstock()%>  --%>
