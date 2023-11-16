@@ -40,7 +40,7 @@
 <%--<input type="hidden" name="item_id" value="<%=items.getItem_id()%>">  --%>
 
 	個数:<select name="quantity">
-		<option value="1" selected disabled>1</option>
+		<option value="1" selected>1</option>
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
