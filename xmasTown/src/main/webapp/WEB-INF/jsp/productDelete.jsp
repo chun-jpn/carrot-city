@@ -59,10 +59,10 @@ Items items = (Items) session.getAttribute("items");
     <p>
         公開/非公開:<%=releaseFlagValue%></p>
     <p>
-        商品画像:<br><img src="itemImage/<%=picture%>" alt="商品画像" width="300"
-            height="200">
+        商品画像:<br> <img src="itemImage/<%=picture%>" alt="商品画像"
+            width="300" height="200">
     </p>
-    <form action="ProductDeleteOKServlet" method="POST">
+    <form action="ProductDeleteOKServlet" method="GET">
         <input type="submit" value="削除">
     </form>
     <form action="AdminLoginServlet" method="GET">

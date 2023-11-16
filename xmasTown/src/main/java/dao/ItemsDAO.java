@@ -300,26 +300,38 @@ public class ItemsDAO {
 
   // 商品削除メソッド
   public void deleteItem(int item_id) {
+    // JDBCドライバを読み込む
     try {
-      Class.forName("com.mysql.jdbc.Driver");
+      String drivername = "com.mysql.jdbc.Driver";
+      Class.forName(drivername);
     } catch (ClassNotFoundException e) {
       throw new IllegalStateException("JDBCドライバを読み込めませんでした");
     }
+
+    // データベース接続
     try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+      // DELETE文の準備
       String sql = "DELETE FROM items WHERE item_id=?";
-
-      // DBで実行するSQL文を「prepareStatement」インスタンスに格納する
       PreparedStatement pStmt = conn.prepareStatement(sql);
-
       pStmt.setInt(1, item_id);
+      int affectedRows = pStmt.executeUpdate();
 
-      // DELETE文を実行
-      pStmt.executeUpdate();
+      // データベース接続を閉じる
+      conn.close();
 
+      // 削除確認
+      if (affectedRows > 0) {
+        // 削除が成功した場合の処理
+        System.out.println("商品の削除に成功しました");
+      } else {
+        // 削除が失敗した場合の処理
+        System.out.println("商品の削除に失敗しました");
+      }
     } catch (SQLException e) {
       e.printStackTrace();
     }
+
   }
 
-
 }
+
