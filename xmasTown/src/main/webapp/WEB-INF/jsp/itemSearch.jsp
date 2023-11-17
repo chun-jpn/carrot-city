@@ -43,9 +43,9 @@ main {
 	<img src = "itemImage/<%=items.getPicture()%>" alt="商品画像" width="320" height="240" id="img22">
 	</a><br>
  	
- 	<b><%=items.getItem_name()%></b><br>
+ 	<%=items.getItem_name()%><br>
 
-	<span >&yen;<%=items.getPrice()%></span><br>
+	<b>&yen;<%=items.getPrice()%></b><br>
 	</div>
 	<%
 	}
