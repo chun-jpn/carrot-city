@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="model.Items"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 Items items = (Items) session.getAttribute("items");
 %>
@@ -57,7 +58,8 @@ if (releaseFlag == 0) {
 	<h3>商品名:</h3>
 	<p><%=itemName%></p>
 	<h3>商品価格:</h3>
-	<p><%=price%></p>
+	<p>&yen;<fmt:formatNumber value="<%=price%>"
+	type="currency" currencySymbol="" maxFractionDigits="0" /></p>
 	<h3>コメント:</h3>
 	<p><%=comment%></p>
 	<h3>在庫数:</h3>
