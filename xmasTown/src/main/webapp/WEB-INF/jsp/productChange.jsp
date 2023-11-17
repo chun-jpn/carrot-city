@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.util.List,model.Items"%>
+<%@ page import="model.Items"%>
 <%
 Items items = (Items) session.getAttribute("items");
 %>
@@ -44,8 +43,7 @@ if (releaseFlag == 0) {
 }
 %>
 
-<h1>商品詳細</h1>
-<h2>商品変更・削除</h2>
+<h2>下記内容で商品情報を変更します</h2>
 <p>
     商品カテゴリ:<%=category%>
 </p>
