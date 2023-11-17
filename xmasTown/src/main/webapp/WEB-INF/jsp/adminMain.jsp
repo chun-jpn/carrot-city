@@ -28,7 +28,7 @@
         <a href="AdminAccountServlet">アカウント管理</a>
     </p>
     <p>
-        <a href="AdminLogoutServlet">ログアウト</a>
+        <a href="AdminLogoutServlet" class="btn btn--orange btn--radius">ログアウト</a>
     </p>
 </div>
 </body>

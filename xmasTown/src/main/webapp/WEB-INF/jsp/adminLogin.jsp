@@ -10,11 +10,11 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
-	<link rel="stylesheet" href="css/style_formframe.css">
 	<link rel="stylesheet" href="css/style_admin.css">
 	<title>CHRISTMAS TOWN</title>
 </head>
 <body>
+	<main>
 	<div class="login-container">
 		<h1>管理者ログイン</h1>
 		<form action="AdminLoginServlet" method="post">
@@ -23,5 +23,7 @@
 			<a class="b"><input type="submit" value="ログイン"></a><br>
 		</form>
 	</div>
+	
+	</main>
 </body>
 </html>

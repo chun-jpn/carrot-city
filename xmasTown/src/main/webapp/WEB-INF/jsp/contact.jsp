@@ -43,7 +43,7 @@
 				<input type="submit" value="send" class="button-send" style="background: #dbdb00;">
 		</form>
 		<p  class="link-text" style="margin: 0;">
-			<a href="WelcomServlet" class="b">TOPへ</a>
+			<a href="WelcomeServlet" class="b">TOPへ</a>
 		</p>
 	</main>
 	<%@ include file = "footer.jsp" %>

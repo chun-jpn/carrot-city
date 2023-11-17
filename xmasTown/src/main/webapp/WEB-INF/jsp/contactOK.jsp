@@ -16,7 +16,7 @@
 	<body>
 	<%@ include file = "header.jsp" %>
 	<main>
-		<h1 class="logout_h1">送信完了</h1>
+		<h1 class="logout_h1"><p class="marker3" style="font-size: 30px;"><span>送信完了</span></p></h1>
 		<p>お問い合わせいただき、誠にありがとうございました。</p>
 		<p class="link-text"><a href="WelcomeServlet" class="b">TOPへ</a></p><br>
 	</main>

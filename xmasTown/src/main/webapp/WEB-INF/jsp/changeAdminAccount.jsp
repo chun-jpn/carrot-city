@@ -17,6 +17,6 @@
 <body>
 <h1>管理者のユーザー情報変更完了</h1>
 <p>変更が完了いたしました</p><br>
-<a href ="WEB-INF/jsp/adminMain.jsp">トップへ</a>
+<a href ="AdminLoginServlet">トップへ</a>
 </body>
 </html>

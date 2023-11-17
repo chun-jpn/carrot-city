@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+
 import model.Items;
 
 public class ItemsDAO {
@@ -76,6 +77,67 @@ public class ItemsDAO {
     }
   }
 
+//商品情報更新用メソッド
+ public void productChange(Items items) {
+   // 初期値を入手
+   Connection db_con = null;
+   int item_id = items.getItem_id();
+   String category = items.getCategory();
+   String item_name = items.getItem_name();
+   int price = items.getPrice();
+   String comment = items.getComment();
+   int stock = items.getStock();
+   int release_flag = items.getRelease_flag();
+   String picture = items.getPicture();
+
+   try {
+     // jdbcドライバの読み込み（OracleDB）
+     Class.forName("com.mysql.jdbc.Driver");
+
+     // DB接続
+     db_con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+
+     // 実行するSQL文をセット（空文字）
+     String sql =
+         "update items set category=?, item_name=?, price=?, comment=?, stock=?, release_flag=?, rewrite_date=?, picture=? where item_id=?";
+
+     // DBで実行するSQL文を「prepareStatement」インスタンスに格納する
+     PreparedStatement ps = db_con.prepareStatement(sql);
+
+     // 登録するIDと名前をセットする
+     ps.setString(1, category);
+     ps.setString(2, item_name);
+     ps.setInt(3, price);
+     ps.setString(4, comment);
+     ps.setInt(5, stock);
+     ps.setInt(6, release_flag);
+     Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+     ps.setTimestamp(7, currentTimestamp);
+     ps.setString(8, picture);
+     ps.setInt(9, item_id);
+     // SQL実行
+     ps.executeUpdate();
+
+   } catch (SQLException sql_e) {
+     System.out.println("SQL実行中にエラーが発生しました: " + sql_e.getMessage());
+     sql_e.printStackTrace();
+   } catch (ClassNotFoundException e) {
+     System.out.println("JDBCドライバ関連エラー: " + e.getMessage());
+     e.printStackTrace();
+
+   } finally {
+     // DB接続を解除
+     if (db_con != null) {
+       try {
+         db_con.close();
+       } catch (SQLException e) {
+         System.out.println("sqlクローズ失敗");
+         e.printStackTrace();
+       }
+     }
+   }
+ }
+  
   // カテゴリ検索
   public List<Items> findByCategory(String cSearch) {
     List<Items> itemsList = new ArrayList<Items>();
