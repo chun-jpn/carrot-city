@@ -261,13 +261,20 @@ table tr .table_box{
 	display: grid;
 	gap: 50px 80px;
 	/*grid-template-columns: repeat(1, 1fr);*/
-	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));	
 }
+.item {
+	align-items: center;
+  	width: 320px; 
+  	height: auto;
+  	object-fit: contain;
+}
+
 #img22 {
 	background: rgb(192, 192, 192);
 	box-shadow: 0 0 20px -3px #00000073;
-	height: 300px;
+	height: auto;
+	
 }
 
 	/*画像のhover*/

@@ -25,22 +25,20 @@ table .itemsDetail-teble {
 	Items items = (Items) session.getAttribute("items");
 	%>
 <table class="login-container" style="box-shadow: 0 0 90px rgba(0, 0, 0, 0.2);">
-
 		<td>
 			<div style="margin-top: 0%; width: 580px;">
 			<%--<a href="itemImage/<%=items.getPicture()%> class="image_link" >	--%>
 			<img src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="540"
 			height="500" id="itemImage">
-			<br>
 		</td>
 		<td>
-
-					<span class="product-title">
+			<div style="margin-top: auto;">
+					<span style="margin-bottom: 30px;" class="product-title">
 					<%=items.getItem_name()%></span><br>
 					<font size="3">商品ID:<%=items.getItem_id()%></font>
-			<br><br>
+			</div>
 			<p style="background: rgb(220, 233, 231);">商品説明</p><br>
-			<p style="font-size: 16px"><%=items.getComment()%></p><br>
+			<p style="font-size: 14px"><%=items.getComment()%></p><br><br>
 	
 			価格:<b style="font-size: 24px;" class="product-price">&yen;<%=items.getPrice()%></b>
 			<%-- 	<p>在庫</p><%=items.getstock()%>  --%>
@@ -59,9 +57,6 @@ table .itemsDetail-teble {
 		<input type="submit" id="button-063" value="カートに入れる">
 		</form>
 		</td>
-	
-
-
 </table>
 </div>
 </div>
