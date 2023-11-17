@@ -1,5 +1,10 @@
 @charset "UTF-8";
+body  {
+	background: rgb(224, 254, 224);
+}
+
   .login-container {
+	background: #fff;
     width: 50%;
     margin: 20px auto;
     padding: 20px;
@@ -72,3 +77,21 @@
     margin: 0 auto;
     max-height: 300px; /* 画像の最大高さを設定 */
   }
+  
+  /*ログアウトボタン*/
+.btn--orange,
+a.btn--orange {
+	font-size: 14px;
+	width: 160px;
+  	color: #fff;
+  	background-color: #001e3d;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  	color: #fff;
+  	background: #0f3a6b;
+}
+
+a.btn--radius {
+   	border-radius: 100vh;
+}

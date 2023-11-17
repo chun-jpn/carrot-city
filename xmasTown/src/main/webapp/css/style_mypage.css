@@ -262,3 +262,8 @@ a.btn--radius {
 	background: linear-gradient(transparent 70%, #ba2a4e 80%);
 	line-height: 1;
 }
+
+.marker3 span{
+	background: linear-gradient(transparent 70%, #af78eb 80%);
+	line-height: 1;
+}

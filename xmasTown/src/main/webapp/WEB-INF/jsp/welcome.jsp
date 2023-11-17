@@ -19,7 +19,7 @@
 <body>
 	<header class="header">
 		<div class="logo">
-			<a href="index.html"><img src="image/ロゴ.svg" alt="CHRISTMAS TOWN"></a>
+			<a href="WelcomeServlet"><img src="image/ロゴ.svg" alt="CHRISTMAS TOWN"></a>
 		</div>
 		<div class="header-right">
 			<form action="<%=request.getContextPath()%>/ItemSearchServlet3"
