@@ -52,14 +52,14 @@ main {
   						<span class="spinner spinner-up">+</span>
 				</td>
 				<td>
-					<input type="submit" value="数量変更">
+					<input type="submit" value="数量変更"  class="btn">
 				</td>
 			</form>
 			<form action="DeleteCartServlet" method="get">
 				<input type="hidden" name="cart_id" value="<%= cartItem.getCart_id() %>">
 				<input type="hidden" name="item_id" value="<%= cartItem.getItem_id() %>">
 				<td>
-					<input type="submit" value="削除">
+					<input type="submit" value="削除" class="btn--orange">
 	            </td>
 			</form>
 		</tr>

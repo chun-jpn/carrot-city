@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
-
+/*****カート内の css*****/
 body {
   margin:0 30px 0 30px;
 }
@@ -9,7 +9,6 @@ h1 {
   text-align: center;
 }
 
-/*カート内のtable css*/
 table{
   
   border-collapse: collapse;
@@ -51,7 +50,6 @@ table tr:hover{
   background-color: #d4faff;
 }
 
-/*商品詳細のtable*/
 
 /*input type="namber"のcss*/
 		/** input/スピンボタンのラップ要素 **/
@@ -100,15 +98,6 @@ table tr:hover{
   border-left: 1px solid lightgray;
 }
 
-/*下線のレスポンシブ*/
-.border22  {
-	border-collapse: collapse;
-  margin: 0 auto;
-  padding: 0;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /*購入決定ボダン*/
 .button-049 {
@@ -189,110 +178,6 @@ table tr:hover{
     content: '';
 }
 
-/*商品詳細*/
-#itemImage img{
-	background: #333;
-}
-
-
-/*購入完了画面の文字*/
-	/* GSAPの各見本共通*/
-.popout {
-  font-family: Futura, sans-serif;
-  font-weight: 900;
-  font-size: 80px;
-  padding: 80px;
-}
-@-webkit-keyframes ani {
-  0% {
-    transform: translate3d(0, 0, 0);
-    text-shadow: 0em 0em 0 lightblue;
-    color: black;
-  }
-  30% {
-    transform: translate3d(0, 0, 0);
-    text-shadow: 0em 0em 0 lightblue;
-    color: black;
-  }
-  70% {
-    transform: translate3d(0.08em, -0.08em, 0);
-    text-shadow: -0.08em 0.08em lightblue;
-    color: black;
-  }
-  100% {
-    transform: translate3d(0.08em, -0.08em, 0);
-    text-shadow: -0.08em 0.08em lightblue;
-    color: black;
-  }
-}
-@keyframes ani {
-  0% {
-    transform: translate3d(0, 0, 0);
-    text-shadow: 0em 0em 0 lightblue;
-    color: black;
-  }
-  30% {
-    transform: translate3d(0, 0, 0);
-    text-shadow: 0em 0em 0 lightblue;
-    color: black;
-  }
-  70% {
-    transform: translate3d(0.08em, -0.08em, 0);
-    text-shadow: -0.08em 0.08em lightblue;
-    color: black;
-  }
-  100% {
-    transform: translate3d(0.08em, -0.08em, 0);
-    text-shadow: -0.08em 0.08em lightblue;
-    color: black;
-  }
-}
-.popout span {
-  position: relative;
-  display: inline-block;
-  -webkit-animation: ani 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
-          animation: ani 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
-}
-.popout span:nth-last-child(1n) {
-  -webkit-animation-delay: -0.1666666667s;
-          animation-delay: -0.1666666667s;
-}
-.popout span:nth-last-child(2n) {
-  -webkit-animation-delay: -0.3333333333s;
-          animation-delay: -0.3333333333s;
-}
-.popout span:nth-last-child(3n) {
-  -webkit-animation-delay: -0.5s;
-          animation-delay: -0.5s;
-}
-
-/*商品一覧の画面css*/
-.items {
-	display: grid;
-	gap: 50px 80px;
-	/*grid-template-columns: repeat(1, 1fr);*/
-	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	
-}
-#img22 {
-	background: rgb(192, 192, 192);
-	box-shadow: 0 0 20px -3px #00000073;
-	height: 300px;
-}
-
-	/*画像のhover*/
-.image_link{
-  display:block;
-}
-.image_link img{
-  transition:0.3s;
-  display:block;
-  width:100%;
-}
-.image_link:hover img{
-  opacity:0.5;
-}
-
 	/*モバイル対応*/
 @media(max-width:767px){
 	main {
@@ -313,55 +198,63 @@ table tr:hover{
 	height:100%;
 	}
 }
-	
-/*商品詳細の画面css*/
-.item_Detail img {
-	background: rgb(192, 192, 192);
-	gap: 100px;
-	width: 40%;
-	height: 40%;
-	box-shadow: 0 0 20px -3px #00000073;
-}
-
-
 main {
 	font-size: 20px;
 }
 
-/* 商品タイトル */
-.product-title {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #333;
+/*********ボタンのcss**********/
+*,
+*:before,
+*:after {
+  	-webkit-box-sizing: inherit;
+  	box-sizing: inherit;
 }
 
-/* 商品説明 */
-.product-description {
-  font-size: 1em;
-  color: #666;
+.btn,
+form.btn,
+input.btn {
+  	font-size: 1rem;
+  	font-weight: 150;
+  	line-height: 1;
+  	position: relative;
+  	display: inline-block;
+  	padding: 0.8rem 0.4rem;
+  	cursor: pointer;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
+  	-webkit-transition: all 0.3s;
+  	transition: all 0.3s;
+  	text-align: center;
+  	vertical-align: middle;
+  	text-decoration: none;
+  	letter-spacing: 0.1em;
+  	color: #212529;
+  	border-radius: 0.5rem;
 }
 
-/* 価格 */
-.product-price {
-  font-size: 1.2em;
-  /*color: #ff0000;  赤色の例 */
+.btn {
+  	color:antiquewhite;
+  	background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+  	background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  	-webkit-box-shadow: inset 1px 1px 1px rgb(128, 128, 128);
+  	box-shadow: inset 1px 1px 1px #fff;
 }
 
-/*商品詳細selectのcss*/
-select {
-  border: 2px solid skyblue;
-  border-radius: 5px;
-  color: #333;
-  font-size: 16px;
-  padding: 0 10px;
-  height: 40px;
-  width: 100px;
-  position: relative;
-  
+.btn:hover {
+  	background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+  	background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
 }
 
-option[selected][disabled] {
-  display: none;
-}
 
+.btn--orange {
+	padding: 0.4rem 0.8rem;
+  	color: #fff;
+  	background-color: #615fb0;
+}
+.btn--orange:hover {
+  	color: #fff;
+  	background: #807ee6;
+}
 
