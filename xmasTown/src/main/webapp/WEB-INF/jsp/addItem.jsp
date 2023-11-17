@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
-	<link rel="stylesheet" href="css/style_formframe.css">
 	<link rel="stylesheet" href="css/style_admin.css">
 	<title>CHRISTMAS TOWN</title>
 </head>
