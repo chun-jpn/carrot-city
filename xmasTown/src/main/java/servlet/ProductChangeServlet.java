@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -45,13 +44,16 @@ public class ProductChangeServlet extends HttpServlet {
 		
 //		postで投げられてくる画像情報を取得
 		Part newPicture = request.getPart("picture");
-		
 //		セッションに保存してある古い画像データを取得
 		HttpSession session = request.getSession();
 		Items items = (Items) session.getAttribute("items");
+		int itemId = items.getItem_id();
+		String addDate = items.getAdd_date();
+		String rewriteDate = items.getAdd_date();
+		
 		String oldPicture = items.getPicture();
-
-		if(newPicture != null) {//newPictureがnullでない場合
+//		newPictureがnull、サイズが0でない場合
+		if (newPicture != null && newPicture.getSize() > 0) {
 //			pictureに新しい画像が指定されている場合は新しい画像を登録
 //			画像のアップロード処理
 			picture = uploadFile(newPicture);
@@ -61,15 +63,19 @@ public class ProductChangeServlet extends HttpServlet {
 		}
 		
 		//新しいItemsインスタンスの生成
-		items = new Items(category, itemName, price, comment, stock, release_flag, picture);
+		items = new Items(itemId, category, itemName, price, comment, stock, release_flag, addDate,
+				rewriteDate, picture);
 //		セッションに情報を投げる
 		session.setAttribute("items", items);
 		session.setAttribute("newPicture", newPicture);
 		session.setAttribute("oldPicture", oldPicture);
 		
 		// フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/productChange.jsp");
-		dispatcher.forward(request, response);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/productChange.jsp");
+//		dispatcher.forward(request, response);
+		
+		// リダイレクト
+		response.sendRedirect("ProductChangeFakeServlet");
 	}
 
 	

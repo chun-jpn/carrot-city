@@ -7,8 +7,16 @@ Items items = (Items) session.getAttribute("items");
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>CHRISTMAS TOWN</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/style_formframe.css">
+	<link rel="stylesheet" href="css/style_admin.css">
+	<title>CHRISTMAS TOWN</title>
 </head>
 <%
 String category = items.getCategory();
@@ -42,36 +50,29 @@ if (releaseFlag == 0) {
   releaseFlagValue = "公開/非公開が選択されていません";
 }
 %>
-
-<h2>下記内容で商品情報を変更します</h2>
-<p>
-    商品カテゴリ:<%=category%>
-</p>
-<p>
-    商品名:<%=itemName%>
-</p>
-<p>
-    商品価格:<%=price%>
-</p>
-<p>
-    コメント:<%=comment%>
-</p>
-<p>
-    在庫数:<%=stock%>
-</p>
-<p>
-    公開/非公開:<%=releaseFlagValue%>
-</p>
-<p>
-    <img src="itemImage/<%=picture%>" alt="商品画像" width="300" height="200">
-</p>
-
-<form action="ProductChangeOKServlet" method="GET">
-    <input type="submit" value="変更">
-</form>
-
-<form action="ProductDetailServlet" method="GET">
-    <input type="submit" value="キャンセル">
-</form>
+<div class="login-container">
+	<h2>下記内容で商品情報を変更します</h2>
+	<h3>商品カテゴリ:</h3>
+	<p><%=category%></p>
+	<h3>商品名:</h3>
+	<p><%=itemName%></p>
+	<h3>商品価格:</h3>
+	<p><%=price%></p>
+	<h3>コメント:</h3>
+	<p><%=comment%></p>
+	<h3>在庫数:</h3>
+	<p><%=stock%></p>
+	<h3>公開/非公開:</h3>
+	<p><%=releaseFlagValue%></p>
+	<h3>商品画像:<img src="itemImage/<%= picture %>" alt="商品画像"></h3>
+	
+	<form action="ProductChangeOKServlet" method="GET">
+	    <input type="submit" value="変更">
+	</form>
+	
+	<form action="ProductChangeNGServlet" method="GET">
+	    <input type="submit" value="キャンセル">
+	</form>
+</div>
 </body>
 </html>

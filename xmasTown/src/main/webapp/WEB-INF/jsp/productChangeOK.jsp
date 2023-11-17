@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8"%>
+<%@ page import="model.Items"%>
+<%
+Items items = (Items) session.getAttribute("items");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +15,15 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/style_formframe.css">
-	<link rel="stylesheet" href="css/style_admin.css">
 	<title>CHRISTMAS TOWN</title>
 </head>
 <body>
-<h1>管理者のユーザー情報変更完了</h1>
-<p>変更が完了いたしました</p><br>
-<a href ="AdminLoginServlet">トップへ</a>
+	<div class="login-container">
+		<h2>商品情報の変更が完了しました</h2>
+		<br>
+		<br>
+		<a href="ProductDetailServlet?item_id=<%=items.getItem_id()%>">商品詳細に戻る</a><br>
+		<a href="AdminLoginServlet">トップページに戻る</a>
+	</div>
 </body>
 </html>
