@@ -23,7 +23,7 @@
 				メールアドレス:<input type="text" class="input-field" name="mail" placeholder="Mail"><br>
 				パスワード:<input type="password" class="input-field" name="password" placeholder="Password"><br><br>
 			<a class="b"><input type="submit"  id="login-button" value="ログイン"></a><br><br><br>
-			<a href ="RegisterServlet" class="buttonBasic"  class="b">新規会員登録</a><br>
+			<a href ="RegisterServlet" class="buttonBasic"  class="b">新規会員登録</a>
 			
 			</form>
 				<p class="link-text">
