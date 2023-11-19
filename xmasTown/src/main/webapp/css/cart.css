@@ -2,7 +2,7 @@
 @import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
 /*****カート内の css*****/
 body {
-  margin:0 30px 0 30px;
+  margin:0 20px 0 20px;
 }
 
 h1 {
@@ -10,11 +10,7 @@ h1 {
 }
 
 table{
-  
   border-collapse: collapse;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
   box-shadow: 0 0 50px -3px #00000073;
 }
 
@@ -26,78 +22,82 @@ table tr{
 table th,
 table td {
   padding: 5px 0;
+
 }
 
 
 table  th{
-  width: 20%;
   padding: 5px 0;
   font-size: 14px;
-  padding: 15px;
+  padding: 10px;
   background-color: #FFC107;
   color:#fff;
 }
 
 table tr {
   text-align: center;
-  width: 10%;
   padding: 10px 0;
   background-color: #fff;
   color:#3a3a3a;
 }
 
 table tr:hover{
-  background-color: #d4faff;
+  background-color: #edf6f7;
+}
+.line {
+  border: 1px #808080 solid;
+}
+/* スピンボタン全体のスタイル */
+input[type="number"] {
+    width: 30px; /* 幅の指定 */
+    padding: 5px; /* 内側の余白 */
+    font-size: 14px; /* フォントサイズ */
 }
 
-
-/*input type="namber"のcss*/
-		/** input/スピンボタンのラップ要素 **/
-.number-spinner-wrap{
-   position: relative;
-   display: block;
-   width: 80px !important;
-   height: 2.8rem;
-   margin-top: 40px;
+/***/
+.spinner-container {
+  display: flex;
+  justify-content: center;
 
 }
-		/** デフォルトのスピンボタンを隠す **/
-.number-spinner-wrap input::-webkit-outer-spin-button,
-.number-spinner-wrap input::-webkit-inner-spin-button {
+.spinner {
+  width: 70px;
+  padding: 0;
+  text-align: center;
+  border: none;
+  background: none;
+  outline: none;
+  pointer-events: none;
+}
+.spinner::-webkit-inner-spin-button,
+.spinner::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  margin: 0;
 }
-		/** input要素 **/
-.number-spinner-wrap input{
-  width: 100%; height: 100%;
-  padding-left: 2rem;
-  padding-right: 2rem;
+.spinner-sub,
+.spinner-add {
+  background: #dadae6;
+  display: block;
+  width: 30px;
+  height: 30px;
   text-align: center;
-}
-		/** スピンボタン要素 **/
-.number-spinner-wrap .spinner{
-  position: absolute;
-  top: 50%;
-  width: 1.3rem;
-  transform: translate(0, -50%);
-  font-size: 1rem;
-  padding: 2px .4rem;
-  text-align: center;
-  background: lightgray;
+  border: 1px solid #000;
+  border-radius: 5px;
   cursor: pointer;
-  user-select: none;
-}
-		/** 減算のスピンボタン要素 **/
-.number-spinner-wrap .spinner-down{
-  left: 2px;
-  border-right: 1px solid lightgray;
-}
-		/** 加算のスピンボタン要素 **/
-.number-spinner-wrap .spinner-up{
-  right: 2px;
-  border-left: 1px solid lightgray;
+  line-height: 30px;
 }
 
+hr {
+	border: 0 none; 
+    height: 2px; 
+    color: #696969;
+    background-color: #696969;
+}
+
+.space {
+	width: 14%;
+	display: block;
+	margin: 0 auto;
+}
 
 /*購入決定ボダン*/
 .button-049 {
@@ -182,6 +182,8 @@ table tr:hover{
 @media(max-width:767px){
 	main {
     padding: 0 4%;
+    width: 100%;
+	height:100%;
 	}
 	.items {
 	grid-template-columns: repeat(1, 1fr);
@@ -190,17 +192,85 @@ table tr:hover{
 	width: 100%;
 	height:100%;
 	}
+	hr {
+	width: 250px;
+	height:100%;
+	}
+	.space {
+	width: 40%;
+	}
+	thead {
+	font-size: 12px;
+	}
 }
 
 @media (min-width: 481px) {
-.items img {
+	.items img {
 	width: 100%;
 	height:100%;
 	}
-}
-main {
+	main {
 	font-size: 20px;
+	}
+	hr {
+	border: none;
+	}
 }
+/*tableのレスポンシブ*/
+.table_box td:first-child {
+   background: #fbf5f5;
+}
+
+@media screen and (max-width: 767px) and (min-width: 280px){
+  .table_box {
+	width: 80%;
+    text-align:center;
+    border: 5px #808080 solid;
+  }
+  .table_box .thead {
+    display: none;
+  }
+  .table_box tr {
+    width: 100%;
+  }
+  .table_box td {
+    display: block;
+    text-align: right;
+    width: 100%;
+  }
+  .table_box td:first-child {
+    font-weight: bold;
+    text-align: right;
+  }
+  .table_box td:before {
+    content: attr(data-label);
+    width: 90px;
+ 	height: 20%;
+    float: left;
+    font-weight: bold;
+    text-align: left;
+    color:#6e100d;
+    /*background: #FFC107;*/
+  }
+  .spinner, .spinner-sub,
+  .spinner-add, input[type="number"]{
+	width: 90%;
+    height: 100%;
+	text-align: center;
+	justify-content: right;
+  }
+  .line {
+  border: 4px #808080 solid;
+  }
+}
+ 
+
+/* 画面幅が600px以下の場合のスタイル
+@media screen and (max-width: 600px) {
+	.main {
+    width: 50px;
+    }
+}*/
 
 /*********ボタンのcss**********/
 *,
@@ -247,7 +317,6 @@ input.btn {
   	background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
 }
 
-
 .btn--orange {
 	padding: 0.4rem 0.8rem;
   	color: #fff;
@@ -257,4 +326,3 @@ input.btn {
   	color: #fff;
   	background: #807ee6;
 }
-

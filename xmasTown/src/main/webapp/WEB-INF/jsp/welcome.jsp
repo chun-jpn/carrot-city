@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.List"%>
 <%@ page import="model.Items"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,7 +105,9 @@
 					<div class="zoom"><a href="ItemDetailServlet?item_id=<%= item.getItem_id() %>"><span class="mask"><img src="itemImage/<%= item.getPicture() %>"></span></a></div>
 					<div class="maru"> <span><%= rank++ %></span></div>
 					<div class="rank-name"><%= item.getItem_name() %></div>
-					<div class="rank-price"><span>\ <%= item.getPrice() %></span>（税込）</div>
+					<div class="rank-price"><span>&yen;<fmt:formatNumber
+						value="<%=item.getPrice()%>" type="currency" currencySymbol=""
+						maxFractionDigits="0" /></span>（税込）</div>
 				</li>
 				<% } %>
 <%--
@@ -201,7 +204,9 @@
 						<div class="item-info">
 							<div class="item-name"><%=randam1.getItem_name()%></div>
 							<div class="item-price">
-								\<%=randam1.getPrice()%>[税込]
+								&yen;<fmt:formatNumber
+						value="<%=randam1.getPrice()%>" type="currency" currencySymbol=""
+						maxFractionDigits="0" />[税込]
 							</div>
 						</div>
 					</a>
@@ -218,7 +223,9 @@
 						<div class="item-info">
 							<div class="item-name"><%=randam2.getItem_name()%></div>
 							<div class="item-price">
-								\<%=randam2.getPrice()%>[税込]
+								&yen;<fmt:formatNumber
+						value="<%=randam2.getPrice()%>" type="currency" currencySymbol=""
+						maxFractionDigits="0" />[税込]
 							</div>
 						</div>
 					</a>
@@ -235,7 +242,9 @@
 						<div class="item-info">
 							<div class="item-name"><%=randam3.getItem_name()%></div>
 							<div class="item-price">
-								\<%=randam3.getPrice()%>[税込]
+								&yen;<fmt:formatNumber
+						value="<%=randam3.getPrice()%>" type="currency" currencySymbol=""
+						maxFractionDigits="0" />[税込]
 							</div>
 						</div>
 					</a>
@@ -253,7 +262,9 @@
 						<div class="item-info">
 							<div class="item-name"><%=randam4.getItem_name()%></div>
 							<div class="item-price">
-								\<%=randam4.getPrice()%>[税込]
+								&yen;<fmt:formatNumber
+						value="<%=randam4.getPrice()%>" type="currency" currencySymbol=""
+						maxFractionDigits="0" />[税込]
 							</div>
 						</div>
 					</a>

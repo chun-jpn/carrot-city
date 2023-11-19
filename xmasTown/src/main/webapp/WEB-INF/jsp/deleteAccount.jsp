@@ -21,8 +21,8 @@
 				<p>退会する場合、メールアドレスとパスワードを入力して「退会する」ボタンを押してください</p>
 		<div class="left">
 		<form action="DeleteAccountOKServlet" method="post">
-				<p><b>メールアドレス: &nbsp;</b><input type="text" name="checkMail"></p>
-				<p><b>パスワード: &nbsp;</b><input type="password" name="checkPass"></p>
+				<p><b>メールアドレス:</b><input type="text" name="checkMail" class="input-field"></p>
+				<p><b>パスワード:</b><input type="password" name="checkPass" class="input-field"></p>
 				<input type="submit" value="退会する" id="button-arrow-inner">
 		</div>
 		<br>
