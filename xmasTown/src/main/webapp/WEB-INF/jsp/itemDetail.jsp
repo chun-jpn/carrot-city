@@ -33,30 +33,32 @@
 					<img src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="540"
 						height="500" id="itemImage">
 			</th>
-			<td>
+			<td  style="border-radius: 10px;" id="size1">
 				<div style="margin: 0 auto;">
 					<span style="margin-bottom: 30px;" class="product-title"> <%=items.getItem_name()%></span><br>
 					<font size="3">商品ID:<%=items.getItem_id()%></font>
 				</div>
-				<p style="background: rgb(220, 233, 231);">商品説明</p>
-				<br>
-				<p style="font-size: 14px"><%=items.getComment()%></p>
-				<br>
-				<br> 価格:<b style="font-size: 24px;" class="product-price">&yen;<fmt:formatNumber
+				<div style="text-align:left;">
+					<p style="background: rgb(220, 233, 231); font-size: 16px;"><b>商品説明</b></p>
+					<br>
+					<p style="margin-top: -20px; font-size: 14px;"><%=items.getComment()%></p>
+						<br>
+						価格:<b style="font-size: 24px;" class="product-price">&yen;<fmt:formatNumber
 						value="<%=items.getPrice()%>" type="currency" currencySymbol=""
 						maxFractionDigits="0" /></b> <%-- 	<p>在庫</p><%=items.getstock()%>  --%>
-				<div class="login-container" id="size1">
+				</div>
+				<div class="login-container" id="size2">
 					<form method="post"
 						action="http://localhost:8080/xmasTown/CartServlet">
 						<%--<input type="hidden" name="item_id" value="<%=items.getItem_id()%>">  --%>
 
 						個数:<select name="quantity" style="font-size: 18px;">
-							<option value="1" selected>1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select><br>
+									<option value="1" selected>1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+                               </select><br><br>
 						<input type="submit" id="button-063" value="カートに入れる">
 					</form>
 			</td>
