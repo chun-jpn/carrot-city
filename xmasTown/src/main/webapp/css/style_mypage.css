@@ -11,7 +11,7 @@ p.font-name {
 /*少しずらしたボックス*/
 .box27{
 	margin: 1em auto;
-	padding:2em;/*内側の余白*/
+	padding:1em;/*内側の余白*/
 	background: none;/*元のボックス背景色なし*/
 	border:1px solid #ccc ;/*線の太さ・種類・色*/
 	position: relative;/*配置（基準）*/
@@ -50,7 +50,7 @@ p.font-name {
 
 /* ボタンにホバー時のアニメーションを追加 */
 .slide-button:hover {
-    transform: translateX(10px); /* 10px右にスライド */
+	transform: translateX(10px); /* 10px右にスライド */
 }
 
 .box8 {
@@ -68,38 +68,38 @@ p.font-name {
 /*ログアウトボタン*/
 .btn--orange,
 a.btn--orange {
-  color: #fff;
-  background-color: #001e3d;
+ 	color: #fff;
+	background-color: #001e3d;
 }
 .btn--orange:hover,
 a.btn--orange:hover {
-  color: #fff;
-  background: #0f3a6b;
+	color: #fff;
+	background: #0f3a6b;
 }
 
 a.btn--radius {
-   border-radius: 100vh;
+	border-radius: 100vh;
 }
 
 /*マイページの情報変更時のボタン*/
 #button-arrow-inner {
-  font-size: 20px;
-  text-align: center;
-  box-sizing: border-box;
-  display: block;
-  border: 2px solid #2f1b33;	/*#447fff*/
-  background: #fff;	/*#fff*/
-  color: #2f1b33;		/*#447fff*/
-  font-weight: bold;
-  padding: 0.8em 2em 0.8em 2em;
-  line-height: 1.4;
-  max-width: 200px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
+	font-size: 20px;
+	text-align: center;
+	box-sizing: border-box;
+	display: block;
+	border: 2px solid #2f1b33;	/*#447fff*/
+	background: #fff;	/*#fff*/
+	color: #2f1b33;		/*#447fff*/
+	font-weight: bold;
+	padding: 0.8em 2em 0.8em 2em;
+	line-height: 1.4;
+	max-width: 200px;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
   &::after {
     content: '';
-    width: 10px;
+	width: 10px;
     height: 10px;
     display: block;
     position: absolute;
@@ -114,9 +114,9 @@ a.btn--radius {
   &:hover {
     background: #513757;
     color: #fff;
-    &::after {
-      border-color: #513757;
-      right: 7px;
+  &::after {
+    border: #513757;
+    right: 7px;
     }
   }
   &:active, &:focus {
@@ -146,10 +146,10 @@ a.btn--radius {
     box-shadow: 0.2rem 0.2rem 0px 0.1rem #cccccc;
 }
 #button_solid017 :hover {
-  transform: translate3d(0.2rem, 0.2rem, 0);
-  box-shadow: none;
-  opacity: 1;
-  transition: all 0.2s;
+	transform: translate3d(0.2rem, 0.2rem, 0);
+	box-shadow: none;
+	opacity: 1;
+	transition: all 0.2s;
 }
 #button_solid017 :after {
     content: '';
@@ -167,20 +167,20 @@ a.btn--radius {
 
 /*キャンセルのボタン*/
 #button-arrow-inner-can {
-  text-align: center;
-  box-sizing: border-box;
-  display: block;
-  border: 2px solid #447fff;	/*#447fff*/
-  background: #447fff;	/*#fff*/
-  color: #fff;		/*#447fff*/
-  font-weight: bold;
-  padding: 0.5em 1em 0.5em 1em;
-  line-height: 1.4;
-  max-width: 200px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  &::after {
+	text-align: center;
+	box-sizing: border-box;
+	display: block;
+	border: 2px solid #447fff;	/*#447fff*/
+	background: #447fff;	/*#fff*/
+	color: #fff;		/*#447fff*/
+	font-weight: bold;
+	padding: 0.5em 1em 0.5em 1em;
+	line-height: 1.4;
+	max-width: 200px;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+  	&::after {
     content: '';
     width: 10px;
     height: 10px;
@@ -247,7 +247,10 @@ a.btn--radius {
 
 /*モバイル対応*/
 @media (min-width: 768px) {
-  .button-52 {
+	.box27 {
+    padding: 0 4%;
+	}
+   .button-52 {
     padding: 13px 50px 13px;
   }
 }
