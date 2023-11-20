@@ -17,12 +17,12 @@
 <%@ include file = "header.jsp" %>
 	<main>
 	<h1 class="logout_h1"  style="margin: 0; font-size: 28px;">退会確認</h1>
-	<div class="login-container" style="margin-top: 0%; width: 600px;">
+	<div class="login-container" style="margin-top: 0%; width: 40%">
 				<p>退会する場合、メールアドレスとパスワードを入力して「退会する」ボタンを押してください</p>
 		<div class="left">
 		<form action="DeleteAccountOKServlet" method="post">
-				<p><b>メールアドレス:</b><input type="text" name="checkMail" class="input-field"></p>
-				<p><b>パスワード:</b><input type="password" name="checkPass" class="input-field"></p>
+				<p><b>メールアドレス:</b><br><input type="text" name="checkMail" class="input-field"></p>
+				<p><b>パスワード:</b><br><input type="password" name="checkPass" class="input-field"></p>
 				<input type="submit" value="退会する" id="button-arrow-inner">
 		</div>
 		<br>

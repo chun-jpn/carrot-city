@@ -160,13 +160,10 @@ button {
 
 
 /*モバイル対応*/
-@media screen and (min-width: 767px){
+@media all and (max-width: 767px) and (min-width: 280px) {
 	main {
     padding: 0 4%;
-    
-    top: 0;
-	left: 0;
-	right: 0;
+    margin: 0 auto;
 	}
 }
 
