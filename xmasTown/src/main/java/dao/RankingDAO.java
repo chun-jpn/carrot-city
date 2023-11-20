@@ -25,9 +25,10 @@ public class RankingDAO {
 		List<Items> rankingList = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)) {
-			String sql = "SELECT items.item_id, items.item_name, items.price, items.picture, SUM(orders.quantity) AS total_quantity "
+			String sql = "SELECT items.item_id, items.item_name, items.price, items.release_flag, items.picture, SUM(orders.quantity) AS total_quantity "
 						+ "FROM orders "
 						+ "JOIN items ON orders.item_id = items.item_id "
+						+ "WHERE items.release_flag = 0 "
 						+ "GROUP BY items.item_id "
 						+ "ORDER BY total_quantity DESC "
 						+ "LIMIT 5";
