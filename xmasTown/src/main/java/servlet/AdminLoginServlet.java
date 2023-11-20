@@ -25,6 +25,7 @@ public class AdminLoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*
 		String confirmLogout = request.getParameter("confirm");
 		if ("いいえ".equals(confirmLogout)) {
 	        // ユーザがログアウト確認をキャンセルした場合の処理フォワード
@@ -40,11 +41,26 @@ public class AdminLoginServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/adminLogin.jsp");
 		dispatcher.forward(request, response);
 		}
+		*/
+		
+//		セッション情報の取得
+		HttpSession session = request.getSession();
+		String ownerId = (String)session.getAttribute("ownerId");
+		String ownerPass = (String)session.getAttribute("ownerPass");
+//		ログインチェック
+		AdminLogin login = new AdminLogin(ownerId, ownerPass);
+		AdminLoginLogic bo = new AdminLoginLogic();
+		boolean result = bo.execute(login);
+		
+		if(result) { //ログイン成功時、メインページへ
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/adminMain.jsp");
+	    	dispatcher.forward(request, response);
+		}else { //ログイン失敗時、ログインページへ
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/adminLogin.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// リクエストパラメータの取得
