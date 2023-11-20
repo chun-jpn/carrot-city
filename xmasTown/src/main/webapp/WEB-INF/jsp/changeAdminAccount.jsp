@@ -15,8 +15,10 @@
 	<title>CHRISTMAS TOWN</title>
 </head>
 <body>
-<h1>管理者のユーザー情報変更完了</h1>
-<p>変更が完了いたしました</p><br>
-<a href ="AdminLoginServlet">トップへ</a>
+<div class="login-container">   
+	<h1>ユーザー情報変更完了</h1>
+	<p>変更が完了いたしました</p><br>
+	<a href ="AdminLoginServlet">トップへ</a>
+</div>
 </body>
 </html>
