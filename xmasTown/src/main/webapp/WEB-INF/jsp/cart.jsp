@@ -42,15 +42,15 @@ main {
 				totalPrice += cartItem.getPrice() * cartItem.getQuantity();
 			%>
 			<tr class="line">
-				<td data-label="商品画像" width="200">
+				<td data-label="商品画像:" width="200">
 					<img src="itemImage/<%=cartItem.getPicture()%>" alt="商品画像"
 					width="150px" height="150px">
 				</td>
-				<td data-label="商品名" width="350">
+				<td data-label="商品名:" width="350">
 					<p style="margin-top: 0px; text-align: left"><%=cartItem.getItem_name()%></p>
 				</td> <%-- style="font-size: 16px;" --%>
-				<div>
-				<td data-label="価格" width="130">&yen;<fmt:formatNumber 
+
+				<td data-label="価格:" width="130">&yen;<fmt:formatNumber 
 						value="<%=cartItem.getPrice()%>"
 						type="currency" currencySymbol="" maxFractionDigits="0" /></td>
 						
@@ -60,7 +60,7 @@ main {
 						<input type="hidden" name="item_id" 
 						value="<%=cartItem.getItem_id()%>">
 
-				<td data-label="数量" width="50" >
+				<td data-label="数量:" width="50" >
 					<div class="spinner-container">
   						<span class="spinner-sub disabled">-</span>
 						<input type="number" class="spinner" name="quantity" 

@@ -154,7 +154,7 @@ public class ItemsDAO {
       // SELECT文の準備
 
       // String sql = "select * from items";
-      String sql = "select * from items where category = ?";
+      String sql = "select * from items where category = ? and release_flag = 0";
       PreparedStatement pStmt = conn.prepareStatement(sql);
       pStmt.setString(1, cSearch);
       // SELECTを実行
@@ -245,7 +245,7 @@ public class ItemsDAO {
     try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 
       // SELECT文の準備
-      String sql = "SELECT * FROM items WHERE item_name LIKE ?";
+      String sql = "SELECT * FROM items WHERE item_name LIKE ? and release_flag = 0";
       PreparedStatement pStmt = conn.prepareStatement(sql);
       pStmt.setString(1, "%" + item_name + "%");
 
@@ -330,7 +330,7 @@ public class ItemsDAO {
 
       // SELECT文の準備
 
-      String sql = "SELECT * FROM items ORDER BY RAND() LIMIT 4";
+      String sql = "SELECT * FROM items  WHERE release_flag = 0 ORDER BY RAND() LIMIT 4 ";
       PreparedStatement pStmt = conn.prepareStatement(sql);
       // pStmt.setInt();
       // SELECTを実行

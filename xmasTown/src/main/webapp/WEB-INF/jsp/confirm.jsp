@@ -25,7 +25,7 @@
 <%@ include file = "header.jsp" %>
 	<main>
 	<h1 class="change_h1">下記内容で変更します</h1>
-	<div class="login-container" style="margin-top: 0%; width: 600px;">
+	<div class="login-container" style="margin-top: 0%; width: 40%;">
 		<form action="ChangeAccountOKServlet" method="POST">
 			<div class="left">
 			<p><b>ユーザー名: &nbsp;</b><%= userName %></p>
