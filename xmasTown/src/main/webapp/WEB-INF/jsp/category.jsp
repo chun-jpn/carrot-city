@@ -20,25 +20,27 @@ main {
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+
 	<%@ include file="header.jsp"%>
 	<main>
-		<h1>検索結果一覧</h1>
-		<br>
-<!--    <p style="font-size: 24px;">商品一覧</p> -->
-		<%-- 	
-	<% for (String item_name : request.getAttribute("itemsList")) { %>
-	<%= item_name %>
-	<% } %>	
---%>
-		<div class="items">
+		
+			
 
+			<h1><%=request.getParameter("category")%></h1>   
+			
+			
+			<p style="font-size: 24px;">商品一覧</p>
+			
+			<div class="items">
 			<%
 			List<Items> itemsList = (List<Items>) request.getAttribute("itemsList");
 			%>
-
 			<%
 			for (Items items : itemsList) {
 			%>
+
+
+
 			<div class="item">
 				<a
 					href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=items.getItem_id()%>"
@@ -60,8 +62,11 @@ main {
 		<p class="link-text">
 			<a href="WelcomeServlet" class="b">TOPへ</a>
 		</p>
+
 	</main>
 	<%@ include file="footer.jsp"%>
 	<script src="css/js.js"></script>
+
+
 </body>
 </html>

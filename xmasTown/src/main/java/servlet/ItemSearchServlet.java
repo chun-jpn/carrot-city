@@ -28,13 +28,13 @@ public class ItemSearchServlet extends HttpServlet {
 		String category = request.getParameter("category");
 		
 		ItemsDAO dao = new ItemsDAO();
-//		List<Items> itemsList = dao.findAll();
+
 		List<Items> itemsList = dao.findByCategory(category);
 		request.setAttribute("itemsList", itemsList);
-		System.out.println(itemsList.get(0));
+	
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
-				"WEB-INF/jsp/itemSearch.jsp");
+				"WEB-INF/jsp/category.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -42,21 +42,7 @@ public class ItemSearchServlet extends HttpServlet {
 			HttpServletResponse response)
 			throws ServletException, IOException {
 
-//		//リクエストパラメータの取得
-//		request.setCharacterEncoding("UTF-8");
-//		int itemId = Integer.parseInt(request.getParameter("item_id"));		
-//		String category = request.getParameter("category");
-//		String itemName = request.getParameter("item_name");
-//		int price = Integer.parseInt(request.getParameter("price"));		
-//		String comment = request.getParameter("comment");
-//      int stock =	Integer.parseInt(request.getParameter("stock"));	
-//		int releaseFlag = Integer.parseInt(request.getParameter("release_flag"));		
-//		String addDate = request.getParameter("add_date");
-//		String rewriteDate = request.getParameter("rewrite_date");
-//		String picture = request.getParameter("picture");
 
-		//        Itemslogic bo = new Itemslogic();
-	
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(
 				"WEB-INF/jsp/itemSearch.jsp");
