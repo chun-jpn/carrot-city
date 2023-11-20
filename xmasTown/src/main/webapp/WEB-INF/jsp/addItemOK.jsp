@@ -13,14 +13,15 @@
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/style_formframe.css">
 	<link rel="stylesheet" href="css/style_admin.css">
+	<style>h2 { text-align: center;}</style>
 	<title>CHRISTMAS TOWN</title>
 </head>
 <body>
 <div class="login-container">
 <h2>商品の登録が完了しました</h2>
+<hr>
+<a href="AddItemServlet">さらに商品を追加する</a>
 <br>
-<br>
-<a href="AddItemServlet">さらに商品を追加する</a><br>
 <a href="AdminLoginServlet">トップページに戻る</a>
 </div>
 </body>

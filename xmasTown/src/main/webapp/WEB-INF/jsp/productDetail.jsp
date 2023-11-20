@@ -91,7 +91,7 @@ Items items = (Items) session.getAttribute("items");
 			<input type="submit" value="変更">
 		</form>
 
-		<form action="ProductDeleteServlet" method="GET">
+		<form action="ProductDeleteServlet" method="GET" class="red">
 			<input type="submit" value="削除">
 		</form>
 

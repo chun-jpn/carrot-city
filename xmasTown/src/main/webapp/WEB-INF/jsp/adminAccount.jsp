@@ -28,7 +28,7 @@
 		<p>新しい管理者パスワード:<input type="password" name="ownerPass" value="<%= ownerPass %>"><br></p>
 	   <input type="submit" name="confirm" value="変更">
 	</form>
-	<form action="AdminAccountServlet" method="get">
+	<form action="AdminAccountServlet" method="get" class="red">
 		<input type="submit" name="confirm" value="キャンセル">
 	</form>
 </div>

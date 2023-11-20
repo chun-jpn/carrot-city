@@ -17,16 +17,16 @@
 <body>
 <div class="login-container">
 	<h1>メインページ</h1>
-    <form action="ProductSearchServlet" method="post">
-        <label> <input type="text" name="item_name" placeholder="商品名">
-        </label> <input type="submit" value="商品検索">
-    </form>
-    <p>
-        <a href="AddItemServlet">商品新規登録</a>
-    </p>
-    <p>
-        <a href="AdminAccountServlet">アカウント管理</a>
-    </p>
+	<form action="ProductSearchServlet" method="post">
+		<label> <input type="text" name="item_name" placeholder="商品名">
+		</label> <input type="submit" value="商品検索">
+	</form>
+	<form action="AddItemServlet" method="get" class="blue">
+		<input type="submit" value="商品新規登録">
+	</form>
+		<form action="AdminAccountServlet" method="get" class="orange">
+		<input type="submit" value="アカウント管理">
+	</form>
     <p>
         <a href="AdminLogoutServlet" class="btn btn--orange btn--radius">ログアウト</a>
     </p>

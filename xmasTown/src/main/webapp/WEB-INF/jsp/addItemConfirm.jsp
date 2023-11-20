@@ -54,7 +54,7 @@
 		<form action="AddItemOKServlet" method="POST">
 			<input type="submit" value="登録する" />
 		</form>
-		<form action ="AddItemNGServlet" method="GET">
+		<form action ="AddItemNGServlet" method="GET" class="red">
 			<input type="submit" value="登録をキャンセルする" />
 		</form>
 	</div>
