@@ -47,7 +47,7 @@ main {
 					width="150px" height="150px">
 				</td>
 				<td data-label="商品名" width="350">
-					<%=cartItem.getItem_name()%>
+					<p style="margin-top: 0px; text-align: left"><%=cartItem.getItem_name()%></p>
 				</td> <%-- style="font-size: 16px;" --%>
 				<div>
 				<td data-label="価格" width="130">&yen;<fmt:formatNumber 

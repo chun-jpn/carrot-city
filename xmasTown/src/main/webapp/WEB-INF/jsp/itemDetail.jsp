@@ -10,32 +10,31 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/items.css">
 <link rel="stylesheet" href="css/style_formframe.css">
+<link rel="stylesheet" href="css/itemDetail.css">
 <style>
-table .itemsDetail-teble {
-	border: none;
-}
+
 </style>
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<main>
+	<main align="center">
 		<h1 class="change_h1" style="margin: 0;">商品詳細</h1>
 		<%
 		Items items = (Items) session.getAttribute("items");
 		%>
 		<table class="login-container"
-			style="box-shadow: 0 0 90px rgba(0, 0, 0, 0.2);">
-			<td>
-				<div style="margin-top: 0%; width: 580px;">
+			style="margin: 0 auto; box-shadow: 0 0 90px rgba(0, 0, 0, 0.2);" width="350">
+			<tr>
+			<th>
+				<div style="margin-top: 0%; " align="center">
 					<%--<a href="itemImage/<%=items.getPicture()%> class="image_link" >	--%>
 					<img src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="540"
 						height="500" id="itemImage">
-			</td>
+			</th>
 			<td>
-				<div style="margin-top: auto;">
+				<div style="margin: 0 auto;">
 					<span style="margin-bottom: 30px;" class="product-title"> <%=items.getItem_name()%></span><br>
 					<font size="3">商品ID:<%=items.getItem_id()%></font>
 				</div>
@@ -43,11 +42,10 @@ table .itemsDetail-teble {
 				<br>
 				<p style="font-size: 14px"><%=items.getComment()%></p>
 				<br>
-			<br> 価格:<b style="font-size: 24px;" class="product-price">&yen;<fmt:formatNumber
+				<br> 価格:<b style="font-size: 24px;" class="product-price">&yen;<fmt:formatNumber
 						value="<%=items.getPrice()%>" type="currency" currencySymbol=""
 						maxFractionDigits="0" /></b> <%-- 	<p>在庫</p><%=items.getstock()%>  --%>
-
-				<div class="login-container" style="margin-top: 0%; width: 540px;">
+				<div class="login-container" id="size1">
 					<form method="post"
 						action="http://localhost:8080/xmasTown/CartServlet">
 						<%--<input type="hidden" name="item_id" value="<%=items.getItem_id()%>">  --%>
@@ -58,9 +56,11 @@ table .itemsDetail-teble {
 							<option value="3">3</option>
 							<option value="4">4</option>
 							<option value="5">5</option>
-						</select><br> <input type="submit" id="button-063" value="カートに入れる">
+						</select><br>
+						<input type="submit" id="button-063" value="カートに入れる">
 					</form>
 			</td>
+			</tr>
 		</table>
 		</div>
 		</div>
