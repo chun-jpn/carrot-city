@@ -25,19 +25,17 @@ main {
 </head>
 <body>
 
-	<main>
-		<h1>検索結果一覧</h1>
-		<p
-			style="font-size: 24px;>商品一覧</p>
+<main>
+	<h1>検索結果一覧</h1>
+	<p style="font-size: 24px;">商品一覧</p>
     
 <div class="items">
     <%List<Items> itemsList = (List<Items>) request.getAttribute("itemsList");%>
     <%for (Items items : itemsList) {%>
     <div class="item">
-    <a
-        href="<%=request.getContextPath()%>/ProductDetailServlet?item_id=<%=items.getItem_id()%>" class="image_link">
-        <img src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="300"
-        height="200"  id="img22">
+    <a href="<%=request.getContextPath()%>/ProductDetailServlet?item_id=<%=items.getItem_id()%>" class="image_link">
+        <img src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="320"
+		height="240"  id="img22">
     </a><br>
     <%=items.getItem_name()%><br>
     <b>&yen;<fmt:formatNumber value="<%=items.getPrice()%>"

@@ -20,7 +20,7 @@ public class AddItemFakeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
             // 2.5秒の遅延をシミュレート
-            Thread.sleep(2500);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

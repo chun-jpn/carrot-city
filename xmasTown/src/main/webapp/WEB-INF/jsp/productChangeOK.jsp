@@ -15,13 +15,14 @@ Items items = (Items) session.getAttribute("items");
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/style_formframe.css">
+	<link rel="stylesheet" href="css/style_admin.css">
+	<style>h2 { text-align: center;}</style>
 	<title>CHRISTMAS TOWN</title>
 </head>
 <body>
 	<div class="login-container">
 		<h2>商品情報の変更が完了しました</h2>
-		<br>
-		<br>
+		<hr>
 		<a href="ProductDetailServlet?item_id=<%=items.getItem_id()%>">商品詳細に戻る</a><br>
 		<a href="AdminLoginServlet">トップページに戻る</a>
 	</div>

@@ -8,8 +8,21 @@ Items items = (Items) session.getAttribute("items");
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>CHRISTMAS TOWN</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/style_formframe.css">
+	<link rel="stylesheet" href="css/style_admin.css">
+	<style>
+		p  {
+			text-align: left;
+		}
+ 	</style>
+	<title>CHRISTMAS TOWN</title>
 </head>
 <body>
     <%
@@ -44,7 +57,7 @@ Items items = (Items) session.getAttribute("items");
       releaseFlagValue = "公開/非公開が選択されていません";
     }
     %>
-
+<div class="login-container">
     <h2>下記の商品を削除します</h2>
     <p>
         商品カテゴリ:<%=category%></p>
@@ -65,8 +78,9 @@ Items items = (Items) session.getAttribute("items");
     <form action="ProductDeleteOKServlet" method="GET">
         <input type="submit" value="削除">
     </form>
-    <form action="AdminLoginServlet" method="GET">
+    <form action="AdminLoginServlet" method="GET" class="red">
         <input type="submit" value="キャンセル">
     </form>
+</div>
 </body>
 </html>

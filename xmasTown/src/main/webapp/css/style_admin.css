@@ -11,6 +11,7 @@ body  {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
 
   h1 {
@@ -65,6 +66,32 @@ body  {
     background-color: #45a049;
   }
 
+  .blue input[type="submit"] {
+    background-color: #3498db; /* 青色 */
+  }
+
+  .blue input[type="submit"]:hover {
+    background-color: #2980b9; /* ホバー時の濃い青色 */
+  }
+  
+  .orange input[type="submit"] {
+    background-color: #ff8c00; /* オレンジ色 */
+    color: #fff; /* テキストの色を白に設定 */
+  }
+
+  .orange input[type="submit"]:hover {
+    background-color: #d27d00; /* ホバー時の濃いオレンジ色 */
+  }
+  
+  .red input[type="submit"] {
+    background-color: #e74c3c; /* 赤色 */
+    color: #fff; /* テキストの色を白に設定 */
+ }
+
+  .red input[type="submit"]:hover {
+    background-color: #c0392b; /* ホバー時の濃い赤色 */
+  }
+  
   a {
     text-decoration: none;
     color: #1e90ff;
@@ -79,19 +106,19 @@ body  {
   }
   
   /*ログアウトボタン*/
-.btn--orange,
-a.btn--orange {
+  .btn--orange,
+  a.btn--orange {
 	font-size: 14px;
 	width: 160px;
   	color: #fff;
   	background-color: #001e3d;
-}
-.btn--orange:hover,
-a.btn--orange:hover {
+  }
+  .btn--orange:hover,
+  a.btn--orange:hover {
   	color: #fff;
   	background: #0f3a6b;
-}
+  }
 
-a.btn--radius {
+  a.btn--radius {
    	border-radius: 100vh;
-}
+  }

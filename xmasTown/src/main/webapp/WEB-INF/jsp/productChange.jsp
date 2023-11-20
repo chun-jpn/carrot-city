@@ -72,7 +72,7 @@ if (releaseFlag == 0) {
 	    <input type="submit" value="変更">
 	</form>
 	
-	<form action="ProductChangeNGServlet" method="GET">
+	<form action="ProductChangeNGServlet" method="GET" class="red">
 	    <input type="submit" value="キャンセル">
 	</form>
 </div>

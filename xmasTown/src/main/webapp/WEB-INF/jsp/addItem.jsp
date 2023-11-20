@@ -11,6 +11,11 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/style_admin.css">
+	<style>
+		p  {
+			text-align: left;
+		}
+ 	</style>
 	<title>CHRISTMAS TOWN</title>
 </head>
 <body>

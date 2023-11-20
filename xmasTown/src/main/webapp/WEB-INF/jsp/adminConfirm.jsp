@@ -33,9 +33,8 @@
 		<p><input type="password" name="checkPass"></p>
 		<input type="submit" value="変更">
 	</form>
-	    <form action="AdminAccountServlet" method="get">
-	        <input type="submit" name="confirm" value="キャンセル">
-	    </form>
+	<form action ="AdminAccountServlet" method="GET" class="red">
+			<input type="submit" value="キャンセル" />
 	</form>
 </div>
 </body>
