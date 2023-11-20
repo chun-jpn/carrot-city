@@ -13,8 +13,8 @@
 <body>
 	<%@ include file = "header.jsp" %>
 	<main>	
-	<h1 style="margin:0;">マイページ</h1>
-		<div class="box27">
+	<h1 class="change_h1">マイページ</h1>
+		<div class="box27" style="margin: 0;">
 			<p class="font-name">ようこそ、<%= name %>さん！</p>
 		<div class="box8">
 			<p><a href="ChangeAccountServlet" class="slide-button">登録情報変更</a></p>
