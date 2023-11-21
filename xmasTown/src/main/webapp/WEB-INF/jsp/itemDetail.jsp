@@ -48,18 +48,29 @@
 						maxFractionDigits="0" /></b> <%-- 	<p>在庫</p><%=items.getstock()%>  --%>
 				</div>
 				<div class="login-container" id="size2">
-					<form method="post"
-						action="http://localhost:8080/xmasTown/CartServlet">
+					<form method="post"	action="CartServlet">
 						<%--<input type="hidden" name="item_id" value="<%=items.getItem_id()%>">  --%>
 
-						個数:<select name="quantity" style="font-size: 18px;">
-									<option value="1" selected>1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-                               </select><br><br>
-							   <input type="submit" class="button-mark" id="button-063" value="カートに入れる">
+						個数:
+						<select name="quantity" style="font-size: 18px;">
+						
+							<% for(int i = 1 ; i <= items.getStock() ; i++){ %>
+								<% if(i == 1){ %>
+									<option value="<%= i %>" selected><%= i %></option>
+								<% }else{ %>
+									<option value="<%= i %>"><%= i %></option>
+								<% } %>
+							<% } %>
+						
+						<%--
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						--%>
+						</select><br><br>
+						<input type="submit" id="button-063" value="カートに入れる">
 					</form>
 			</td>
 			</tr>
