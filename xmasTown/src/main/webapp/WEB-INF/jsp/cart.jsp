@@ -11,6 +11,7 @@ List<Carts> cartsList = (ArrayList<Carts>) session.getAttribute("cartList");
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/style_formframe.css">
 <link rel="stylesheet" href="css/cart.css">
 <link rel="stylesheet" type="text/css" href="css/items.css">
@@ -100,6 +101,7 @@ main {
 			<td>	
 			<a href="OrderServlet" class="button-049">購入決定</a><br> 
 			<a href="WelcomeServlet" class="button-063">買い物を続ける</a>
+			</td>
 			</div>
 	</main>
 	<%@ include file="footer.jsp"%>

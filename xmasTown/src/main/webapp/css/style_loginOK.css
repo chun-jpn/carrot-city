@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 .bg {
   display: flex;
@@ -38,7 +37,6 @@
 .title {
   display: block;
   color: #111;
-  font-family: 'Josefin Sans', sans-serif;
   text-align: center;
 }
 
@@ -117,9 +115,8 @@
 div .btn-top {
 	margin: auto;
   	cursor: pointer;
-  	font-weight: 200px;
+  	font-weight: 180px;
   	min-width: 80px;
-  	font-family: Helvetica,"sans-serif";
   	transition: all .2s;
   	padding: 20px 50px;
   	border-radius: 100px;
@@ -148,8 +145,19 @@ div .btn-top:active {
   transform: scale(0.8);
 }
 
-/****** Base style. ******/
-/*body {
-  margin: 0;
+/*モバイル対応*/
+@media all and (max-width: 767px) and (min-width: 280px) {
+	main {
+    padding: 0 4%;
+    margin: 0 auto;
+	}
+	img {
+    max-width: 320px;
+  }
+}
 
-}*/
+@media screen and (min-width: 481px) {
+  	img {
+    max-width: 320px;
+  }
+}

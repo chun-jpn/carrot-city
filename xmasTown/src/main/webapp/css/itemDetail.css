@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
+
 main {
 	margin: 0 auto;
 }
@@ -160,5 +162,5 @@ option[selected][disabled] {
 }
 
 #button-063:hover {
-    background-color: #c95376;
+    background-color: #d65c80;
 }
