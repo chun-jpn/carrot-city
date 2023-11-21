@@ -1,6 +1,7 @@
 @charset "UTF-8";
 main  {
 	text-align: center;
+	font-family: 'Zen Maru Gothic', sans-serif;
 }
 
 p.font-name {
@@ -13,7 +14,7 @@ p.font-name {
 	margin: 1em auto;
 	padding:1em;/*内側の余白*/
 	background: none;/*元のボックス背景色なし*/
-	border:1px solid #ccc ;/*線の太さ・種類・色*/
+	border:0.5px solid #ccc ;/*線の太さ・種類・色*/
 	position: relative;/*配置（基準）*/
 	display:inline-block;
 	font-size: 26px;
@@ -37,14 +38,14 @@ p.font-name {
 .slide-button {
     display: inline-block;
     padding: 13px 50px;
-    background-color: #f5e9ce;
-    color: #2f39d4; /*#fff*/
+    background-color: #e8dfca;
+    color: #418b89; /*#fff*/
     text-decoration: none;
     position: relative;
     transition: transform 0.3s ease-in-out;
     overflow-wrap: break-word;
     width: 280px;
-    font-family: "M PLUS 1p";
+    font-family: 'Zen Maru Gothic', sans-serif;
     
 }
 
@@ -57,8 +58,8 @@ p.font-name {
     padding: 0.3em 1em;
     margin: 1em 0;
     color: #232323; /*#232323*/
-    background: #fff8e8; /*#fff8e8*/
-    border-left: solid 10px #ebae2d; /*#ffc06e*/
+    background: #f0ebe1; /*#fff8e8*/
+    border-left: solid 10px #e3c381; /*#ffc06e*/
 }
 .box8 p {
     margin: 0; 
@@ -69,12 +70,13 @@ p.font-name {
 .btn--orange,
 a.btn--orange {
  	color: #fff;
-	background-color: #001e3d;
+	background-color: #6587a8;
+	border: none;
 }
 .btn--orange:hover,
 a.btn--orange:hover {
 	color: #fff;
-	background: #0f3a6b;
+	background: #789ec2;
 }
 
 a.btn--radius {

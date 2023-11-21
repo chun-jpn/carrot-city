@@ -59,7 +59,7 @@
 									<option value="4">4</option>
 									<option value="5">5</option>
                                </select><br><br>
-						<input type="submit" id="button-063" value="カートに入れる">
+							   <input type="submit" class="button-mark" id="button-063" value="カートに入れる">
 					</form>
 			</td>
 			</tr>
