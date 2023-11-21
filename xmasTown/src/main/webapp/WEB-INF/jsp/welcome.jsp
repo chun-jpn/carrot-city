@@ -18,6 +18,8 @@
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+	<%@ include file = "header.jsp" %>
+	<%-- 
 	<header class="header">
 		<div class="logo">
 			<a href="WelcomeServlet"><img src="image/ロゴ.svg" alt="CHRISTMAS TOWN"></a>
@@ -43,7 +45,7 @@
 			</nav>
 		</div>
 	</header>
-
+	--%>
 	<!-- TOP -->
 
 	<div class="top">
