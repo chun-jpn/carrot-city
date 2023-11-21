@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% String mail = (String) session.getAttribute("mail"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,12 +27,16 @@
 			    <button type="submit" aria-label="検索"></button>
 			</form>
 			<nav class="nav"> 
-		      <ul> 
-		        <li id="login"><a href="LoginServlet">ログイン</a></li>
-		        <li id="mypage"><a href="MypageServlet"><img src="image/mypage.svg" alt="マイページ" width="25px"></a></li>
-		        <li id="cart"><a href="CartServlet"><img src="image/cart.svg" alt="カート" width="30px"></a></li>
-		        <li id="mail"><a href="ContactServlet"><img src="image/mail.svg" alt="お問い合わせ" width="30px"></a></li>
-		      </ul>
+			<ul> 
+				<% if(mail == null){ %>
+					<li id="login"><a href="LoginServlet">ログイン</a></li>
+				<% }else{ %>
+					<li id="logout"><a href="LogoutServlet">ログアウト</a></li>
+				<% } %>
+				<li id="mypage"><a href="MypageServlet"><img src="image/mypage.svg" alt="マイページ" width="25px"></a></li>
+				<li id="cart"><a href="CartServlet"><img src="image/cart.svg" alt="カート" width="30px"></a></li>
+				<li id="mail"><a href="ContactServlet"><img src="image/mail.svg" alt="お問い合わせ" width="30px"></a></li>
+			</ul>
 		    </nav>
 	    </div>  
 	 </header>
