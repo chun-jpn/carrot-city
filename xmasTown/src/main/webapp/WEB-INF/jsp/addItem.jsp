@@ -21,6 +21,9 @@
 <body>
 	<div class="login-container">
 		<h1>商品新規登録</h1>
+		<% if(request.getAttribute("error") != null){ %>
+			<p style="color: red"><%= request.getAttribute("error") %></p>
+		<% } %>
 		<h2>商品情報</h2>
 		<form action="AddItemServlet" method="post" enctype="multipart/form-data">
 			<div class="form-section">
@@ -42,7 +45,7 @@
 				<p>商品名:<input type="text" name="itemName"></p>
 			</div>
 			<div class="form-section">
-				<p>価格:<input type="text" name="price"></p>
+				<p>価格:<input type="number" name="price"></p>
 			</div>
 			<div class="form-section">
 				<p>商品コメント:<textarea name="comment"></textarea></p>
