@@ -47,64 +47,73 @@ public class AddItemServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String category = request.getParameter("category");
 		String itemName = request.getParameter("itemName");
-		int price = Integer.parseInt(request.getParameter("price"));
+		String s_price = request.getParameter("price");
 		String comment = request.getParameter("comment");
-		int stock = Integer.parseInt(request.getParameter("stock"));
-		int releaseFlag = Integer.parseInt(request.getParameter("releaseFlag"));
+		String s_stock = request.getParameter("stock");
+		String s_releaseFlag = request.getParameter("releaseFlag");
 //		String picture = request.getParameter("picture");
 		
+		if (category.isEmpty() || itemName.isEmpty() || s_price.isEmpty() || comment.isEmpty() || s_stock.isEmpty() || s_releaseFlag.isEmpty()) {
+			// エラーメッセージをセットしてフォームを再表示
+			request.setAttribute("error", "入力していない項目があります。全て入力してから登録ボタンを押してください");
+			request.getRequestDispatcher("WEB-INF/jsp/addItem.jsp").forward(request, response);
+			System.out.println("入力していない項目があります");
+		}else {
+		int price = Integer.parseInt(s_price);
+		int stock = Integer.parseInt(s_stock);
+		int releaseFlag = Integer.parseInt(s_releaseFlag);
+		
 //		画像のアップロード処理
-		Part filePart = request.getPart("picture");
-		String picture = uploadFile(filePart);
+			Part filePart = request.getPart("picture");
+			String picture = uploadFile(filePart);
 
 //		filePart確認用
-		System.out.println(picture);
+			System.out.println(picture);
 		
-
-		
+			if(picture.isEmpty()) {
+				picture = "noimage.png";
+			}
+			
 		
 //		Itemsインスタンスの生成
-		Items items = new Items(category, itemName, price, comment, stock, releaseFlag, picture);
-		
-//		リクエストスコープに保存
-//		request.setAttribute("item", items);
+			Items items = new Items(category, itemName, price, comment, stock, releaseFlag, picture);
 		
 //		セッションスコープに保存
-		HttpSession session = request.getSession();
-		session.setAttribute("item", items);
+			HttpSession session = request.getSession();
+			session.setAttribute("item", items);
 		
 
 		// リダイレクト
-		response.sendRedirect("AddItemFakeServlet");
+			response.sendRedirect("AddItemFakeServlet");
 		
 		
 		// フォワード
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/addItemConfirm.jsp");
 //		dispatcher.forward(request, response);
-		
+		}
 	}
 	
 //	画像ファイル保存メソッド
 	private String uploadFile(Part filePart) {
-        String fileName = "";
-        try {
-            String contentType = filePart.getContentType();
-            if (contentType != null && contentType.startsWith("image")) {
-            	// 拡張子を取得
-            	String fileExtension = getExtension(filePart);
-            	
-                // 一意のファイル名を生成
-                String uniqueFileName = UUID.randomUUID().toString();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-                String timestamp = sdf.format(new Date());
+		String fileName = "";
+		try {
+			String contentType = filePart.getContentType();
+			if (contentType != null && contentType.startsWith("image")) {
+				// 拡張子を取得
+				String fileExtension = getExtension(filePart);
+
+				// 一意のファイル名を生成
+				String uniqueFileName = UUID.randomUUID().toString();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+				String timestamp = sdf.format(new Date());
 //				fileName = uniqueFileName + timestamp;
 				fileName = uniqueFileName + timestamp + "." + fileExtension;
 
                 // 画像ファイルの保存先ディレクトリ
-//              String uploadDir = "../webapp/itemImage";
-//                String uploadDir = getServletContext().getRealPath("/itemImage");
-                String uploadDir = "C:\\carrot-city\\xmasTown\\src\\main\\webapp\\itemImage";
-                
+//				String uploadDir = "../webapp/itemImage";
+//				String uploadDir = getServletContext().getRealPath("/itemImage");
+				String uploadDir = "C:\\carrot-city\\xmasTown\\src\\main\\webapp\\itemImage";
+
 				File dir = new File(uploadDir);
 				if (!dir.exists()) {
 				dir.mkdirs();
