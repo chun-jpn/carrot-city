@@ -66,7 +66,7 @@ main {
   						<span class="spinner-sub disabled">-</span>
 						<input type="number" class="spinner" name="quantity" 
 						value="<%=cartItem.getQuantity()%>" 
-						min="1" max="99">
+						min="1" max="<%=cartItem.getStock()%>">
 					  	<span class="spinner-add">+</span>
 					 </div>					
 				</td>
@@ -91,8 +91,8 @@ main {
 		</table>
 		<br>
 			
-			<hr width="61%" noshade>
-			<div class="space">		
+			<hr width="61%" noshade style="margin: 0 auto;">
+			<div class="space" align="center">		
 			<p>
 				合計金額: <b style="font-size: 24px;">&yen;<fmt:formatNumber 
 				 		value="<%=totalPrice%>" type="currency" currencySymbol="" maxFractionDigits="0" />

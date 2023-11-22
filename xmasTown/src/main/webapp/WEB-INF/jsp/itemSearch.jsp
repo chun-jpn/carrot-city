@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%@ page import="dao.itemsDAO" --%>
 <%@ page import="java.util.List"%>
 <%@ page import="model.Items"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -17,12 +19,10 @@ String pageParam = request.getParameter("page");
 if (pageParam != null && !pageParam.isEmpty()) {
 	currentPage = Integer.parseInt(pageParam);
 }
-
 // 表示するアイテムの範囲を計算
 int startIdx = (currentPage - 1) * itemsPerPage;
 int endIdx = Math.min(startIdx + itemsPerPage, itemsList.size());
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,11 +38,17 @@ main {
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+	<div class="footerFixed">
 	<%@ include file="header.jsp"%>
 	<main>
-		<h1>検索結果一覧</h1>
+		<h1 class="change_h1" style="margin: 0;">検索結果一覧</h1>
 		<br>
-
+<!--    <p style="font-size: 24px;">商品一覧</p> -->
+		<%-- 	
+	<% for (String item_name : request.getAttribute("itemsList")) { %>
+	<%= item_name %>
+	<% } %>	
+--%>
 		<div class="items">
 			<%
 			for (int i = startIdx; i < endIdx; i++) {
@@ -51,19 +57,19 @@ main {
 				<a
 					href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=itemsList.get(i).getItem_id()%>"
 					class="image_link"> <img
-					src="itemImage/<%=itemsList.get(i).getPicture()%>" alt="商品画像"
-					width="320" height="240" id="img22">
+					src="itemImage/<%=itemsList.get(i).getPicture()%>" alt="商品画像" width="320"
+					height="240" id="img22">
 				</a><br>
+
 				<%=itemsList.get(i).getItem_name()%><br> <b>&yen;<fmt:formatNumber
-						value="<%=itemsList.get(i).getPrice()%>" type="currency"
-						currencySymbol="" maxFractionDigits="0" /></b><br>
+						value="<%=itemsList.get(i).getPrice()%>" type="currency" currencySymbol=""
+						maxFractionDigits="0" /></b><br>
 			</div>
 			<%
 			}
 			%>
 		</div>
-
-		<!-- ページングのリンクを表示 -->
+				<!-- ページングのリンクを表示 -->
 		<div class="paging">
 			<%
 			if (currentPage > 1) {
@@ -107,6 +113,7 @@ main {
 		</p>
 	</main>
 	<%@ include file="footer.jsp"%>
+	</div>
 	<script src="css/js.js"></script>
 </body>
 </html>

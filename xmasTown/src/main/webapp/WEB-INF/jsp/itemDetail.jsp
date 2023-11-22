@@ -18,6 +18,7 @@
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+	<div class="footerFixed">
 	<%@ include file="header.jsp"%>
 	<main align="center">
 		<h1 class="change_h1" style="margin: 0;">商品詳細</h1>
@@ -48,12 +49,12 @@
 						maxFractionDigits="0" /></b> <%-- 	<p>在庫</p><%=items.getstock()%>  --%>
 				</div>
 				<div class="login-container" id="size2">
+				<% if(items.getStock() > 0){ %>
 					<form method="post"	action="CartServlet">
 						<%--<input type="hidden" name="item_id" value="<%=items.getItem_id()%>">  --%>
 
 						個数:
 						<select name="quantity" style="font-size: 18px;">
-						
 							<% for(int i = 1 ; i <= items.getStock() ; i++){ %>
 								<% if(i == 1){ %>
 									<option value="<%= i %>" selected><%= i %></option>
@@ -71,7 +72,11 @@
 						--%>
 						</select><br><br>
 						<input type="submit" id="button-063" value="カートに入れる">
+						
 					</form>
+					<% }else{ %>
+							<p>商品売り切れ中。入荷をお待ちください。</p>
+					<% } %>
 			</td>
 			</tr>
 		</table>
@@ -82,5 +87,6 @@
 		</p>
 	</main>
 	<%@ include file="footer.jsp"%>
+	</div>
 </body>
 </html>

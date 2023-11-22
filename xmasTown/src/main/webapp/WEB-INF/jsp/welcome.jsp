@@ -18,6 +18,7 @@
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+	<div class="footerFixed">
 	<%@ include file = "header.jsp" %>
 	<%-- 
 	<header class="header">
@@ -79,7 +80,7 @@
 
 	<main>
 		<div class="maincopy">
-			<h1>
+			<h1 class="font">
 				CHRISTMAS TOWNは<br>クリスマスグッズが<br class="sp_br">一年中買えるお店です
 			</h1>
 			<p>
@@ -334,19 +335,8 @@
 
 	</main>
 	<!--フッター-->
-	<footer>
-		<img src="image/town.svg">
-		<div class="info">
-			<a href="index.html"><span>CHRISTMAS TOWN</span></a>
-			<ul class="nav-footer">
-				<li><a href="MypageServlet">マイページ</a></li>
-				<li><a href="ContactServlet">お問い合わせ</a></li>
-			</ul>
-
-			<p>&copy;CHRISTMAS TOWN</p>
-		</div>
-	</footer>
-
+	<%@ include file="footer.jsp"%>
+	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 		crossorigin="anonymous"></script>

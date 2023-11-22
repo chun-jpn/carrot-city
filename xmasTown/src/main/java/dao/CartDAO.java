@@ -64,7 +64,7 @@ public class CartDAO {
 		
 		try(Connection conn = DriverManager.getConnection(JDBC_url, DB_user, DB_pass)){
 //			select文の準備
-			String sql = "SELECT c.*, i.item_name, i.picture FROM carts c " +
+			String sql = "SELECT c.*, i.item_name, i.picture , i.stock FROM carts c " +
 					"INNER JOIN items i ON c.item_id = i.item_id " +
 					"WHERE c.mail = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -80,9 +80,9 @@ public class CartDAO {
 				int quantity = rs.getInt("quantity");
 				String itemName = rs.getString("item_name");
 				String picture = rs.getString("picture");
+				int stock = rs.getInt("stock");
 				
-				
-				Carts cartInPicture = new Carts(cart_id, mail, item_id, price, quantity, itemName, picture);
+				Carts cartInPicture = new Carts(cart_id, mail, item_id, price, quantity, itemName, picture, stock);
 				cartList.add(cartInPicture);
 	        }
 			

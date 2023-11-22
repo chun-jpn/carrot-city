@@ -17,7 +17,7 @@
 <body>
 <div class="login-container">
 	<h1>メインページ</h1>
-	<form action="ProductSearchServlet" method="post">
+	<form action="ProductSearchServlet" method="get">
 		<label> <input type="text" name="item_name" placeholder="商品名">
 		</label> <input type="submit" value="商品検索">
 	</form>
