@@ -66,7 +66,7 @@ main {
   						<span class="spinner-sub disabled">-</span>
 						<input type="number" class="spinner" name="quantity" 
 						value="<%=cartItem.getQuantity()%>" 
-						min="1" max="99">
+						min="1" max="<%=cartItem.getStock()%>">
 					  	<span class="spinner-add">+</span>
 					 </div>					
 				</td>
