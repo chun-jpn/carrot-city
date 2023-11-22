@@ -6,23 +6,24 @@
 <%@ page import="model.Items"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<% // 1ページあたりのアイテム数
-    int itemsPerPage = 20;
+<%
+// 1ページあたりのアイテム数
+int itemsPerPage = 20;
 %>
 
 <%
-    List<Items> itemsList = (List<Items>) request.getAttribute("itemsList");
-	String category =request.getParameter("category");
-    // 現在のページ番号 (デフォルト: ページ1)
-    int currentPage = 1;
-    String pageParam = request.getParameter("page");
-    if (pageParam != null && !pageParam.isEmpty()) {
-        currentPage = Integer.parseInt(pageParam);
-    }
+List<Items> itemsList = (List<Items>) request.getAttribute("itemsList");
+String category = request.getParameter("category");
+// 現在のページ番号 (デフォルト: ページ1)
+int currentPage = 1;
+String pageParam = request.getParameter("page");
+if (pageParam != null && !pageParam.isEmpty()) {
+	currentPage = Integer.parseInt(pageParam);
+}
 
-    // 表示するアイテムの範囲を計算
-    int startIdx = (currentPage - 1) * itemsPerPage;
-    int endIdx = Math.min(startIdx + itemsPerPage, itemsList.size());
+// 表示するアイテムの範囲を計算
+int startIdx = (currentPage - 1) * itemsPerPage;
+int endIdx = Math.min(startIdx + itemsPerPage, itemsList.size());
 %>
 <!DOCTYPE html>
 <html>
@@ -32,10 +33,9 @@
 <link rel="stylesheet" href="css/items.css">
 <link rel="stylesheet" href="css/style_formframe.css">
 <style>
-		main {
-			font-size: 18px;
-		}
-
+main {
+	font-size: 18px;
+}
 </style>
 <title>CHRISTMAS TOWN</title>
 </head>
@@ -43,58 +43,66 @@
 
 	<%@ include file="header.jsp"%>
 	<main>
-			<h1><%=request.getParameter("category")%></h1>   
-			<p style="font-size: 24px;">商品一覧</p>
-			<div class="items">
-				<% for (int i = startIdx; i < endIdx; i++) { %>
-                <div class="item">
-                    <a href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=itemsList.get(i).getItem_id()%>"
-                        class="image_link">
-                        <img src="itemImage/<%=itemsList.get(i).getPicture()%>" alt="商品画像" width="320" height="240" id="img22">
-                    </a><br>
-                    <%=itemsList.get(i).getItem_name()%><br>
-                    <b>&yen;<%=itemsList.get(i).getPrice()%></b><br>
-                </div>
-            <% } %>
-			<%--
+		<h1><%=request.getParameter("category")%></h1>
+		<p style="font-size: 24px;">商品一覧</p>
+		<div class="items">
 			<%
 			for (int i = startIdx; i < endIdx; i++) {
 			%>
 			<div class="item">
 				<a
-					href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=items.getItem_id()%>"
+					href="<%=request.getContextPath()%>/ItemDetailServlet?item_id=<%=itemsList.get(i).getItem_id()%>"
 					class="image_link"> <img
-					src="itemImage/<%=items.getPicture()%>" alt="商品画像" width="320"
-					height="240" id="img22">
+					src="itemImage/<%=itemsList.get(i).getPicture()%>" alt="商品画像"
+					width="320" height="240" id="img22">
 				</a><br>
-
-				<%=items.getItem_name()%><br> <b>&yen;<fmt:formatNumber
-						value="<%=items.getPrice()%>" type="currency" currencySymbol=""
-						maxFractionDigits="0" /></b><br>
+				<%=itemsList.get(i).getItem_name()%><br> <b>&yen;<fmt:formatNumber
+						value="<%=itemsList.get(i).getPrice()%>" type="currency"
+						currencySymbol="" maxFractionDigits="0" /></b><br>
 			</div>
 			<%
 			}
 			%>
-			 --%>
+
 		</div>
-<!-- ページングのリンクを表示 -->
-        <div class="paging">
-            <% if (currentPage > 1) { %>
-                <a href="ItemSearchServlet?category=<%= category %>&page=<%=currentPage - 1%>">前のページ</a>
-            <% } %>
+		<!-- ページングのリンクを表示 -->
+		<div class="paging">
+			<%
+			if (currentPage > 1) {
+			%>
+			<a
+				href="ItemSearchServlet?category=<%=category%>&page=<%=currentPage - 1%>">前のページ</a>
+			<%
+			}
+			%>
 
-            <% for (int i = 1; i <= Math.ceil((double)itemsList.size() / itemsPerPage); i++) { %>
-                <% if (i == currentPage) { %>
-                    <%= i %>
-                <% } else { %>
-                    <a href="ItemSearchServlet?category=<%= category %>&page=<%=i%>"><%=i%></a>
-                <% } %>
-            <% } %>
+			<%
+			for (int i = 1; i <= Math.ceil((double) itemsList.size() / itemsPerPage); i++) {
+			%>
+			<%
+			if (i == currentPage) {
+			%>
+			<%=i%>
+			<%
+			} else {
+			%>
+			<a href="ItemSearchServlet?category=<%=category%>&page=<%=i%>"><%=i%></a>
+			<%
+			}
+			%>
+			<%
+			}
+			%>
 
-            <% if (currentPage < Math.ceil((double)itemsList.size() / itemsPerPage)) { %>
-                <a href="ItemSearchServlet?category=<%= category %>&page=<%=currentPage + 1%>">次のページ</a>
-            <% } %>
-        </div>
+			<%
+			if (currentPage < Math.ceil((double) itemsList.size() / itemsPerPage)) {
+			%>
+			<a
+				href="ItemSearchServlet?category=<%=category%>&page=<%=currentPage + 1%>">次のページ</a>
+			<%
+			}
+			%>
+		</div>
 
 		<p class="link-text">
 			<a href="WelcomeServlet" class="b">TOPへ</a>

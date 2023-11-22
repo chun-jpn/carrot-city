@@ -11,7 +11,7 @@ public class ItemsDAOTest {
 	public static void main(String[] args) {
 		
 		ItemsDAO itemsDAO = new ItemsDAO();
-		List<Items> itemsList = itemsDAO.findAll();
+		List<Items> itemsList = itemsDAO.search(null);
 		
 		
 		for(Items items : itemsList) {
