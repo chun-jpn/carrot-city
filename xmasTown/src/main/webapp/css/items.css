@@ -204,6 +204,7 @@ table tr .table_box{
   	width: 320px; 
   	height: auto;
   	object-fit: contain;
+  	margin: 0 auto;
 }
 
 #img22 {
