@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String mail = (String) session.getAttribute("mail"); %>
+<% String header_mail = (String) session.getAttribute("mail"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +28,7 @@
 			</form>
 			<nav class="nav"> 
 			<ul> 
-				<% if(mail == null){ %>
+				<% if(header_mail == null){ %>
 					<li id="login"><a href="LoginServlet">ログイン</a></li>
 				<% }else{ %>
 					<li id="logout"><a href="LogoutServlet">ログアウト</a></li>
