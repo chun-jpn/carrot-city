@@ -3,7 +3,7 @@
 
 /*すべてのページに適用される設定 */
 html{
-    font-size: 14px;
+
     font-family: 'Zen Maru Gothic', sans-serif;
 }
 * {
@@ -245,13 +245,17 @@ h1{
 	font-family: 'Noto Sans JP', sans-serif;
 	letter-spacing:0.2em;
 	margin:0 0 40px 0;
-	font-size: 2.5rem;
+	font-size: 3.5rem;
 }
 .maincopy p{
 	font-size: 1.1em;
 	letter-spacing:0.05em;
 	line-height: 1.8em;
 }
+.font {
+	font-size: 22px;
+}
+
 /*ランキングとおすすめ*/
 h2{
 	text-align: center;
@@ -493,6 +497,7 @@ footer{
 	text-align: center;	
 	padding: 18px 0;
 	width: 100%;
+	top:10px;
 }
 
 #footer-image{
@@ -542,13 +547,13 @@ footer a:visited,footer a:hover,.footer a:active {
   align-items:center;
   background:#942D2F;
   border-radius: 5px;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   color: #fff;
   text-align: center;
   text-transform: uppercase; 
   text-decoration: none;
-  font-size:0.6rem;
+  font-size:1rem;
   transition:all 0.3s;
 }
 
