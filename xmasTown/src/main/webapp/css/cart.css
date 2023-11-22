@@ -13,6 +13,7 @@ h1 {
 table{
   border-collapse: collapse;
   box-shadow: 0 0 50px -3px #00000073;
+  margin: 0 auto;
 }
 
 table tr{
@@ -95,7 +96,6 @@ hr {
 }
 
 .space {
-	width: 14%;
 	display: block;
 	margin: 0 auto;
 }

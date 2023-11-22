@@ -41,7 +41,7 @@ main {
 	<div class="footerFixed">
 	<%@ include file="header.jsp"%>
 	<main>
-		<h1>検索結果一覧</h1>
+		<h1 class="change_h1" style="margin: 0;">検索結果一覧</h1>
 		<br>
 <!--    <p style="font-size: 24px;">商品一覧</p> -->
 		<%-- 	
