@@ -332,7 +332,7 @@ public class ItemsDAO {
 
       String sql = "SELECT * FROM items  WHERE release_flag = 0 ORDER BY RAND() LIMIT 4 ";
       PreparedStatement pStmt = conn.prepareStatement(sql);
-      // pStmt.setInt();
+   
       // SELECTを実行
       ResultSet rs = pStmt.executeQuery();
 
