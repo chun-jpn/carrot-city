@@ -91,8 +91,8 @@ main {
 		</table>
 		<br>
 			
-			<hr width="61%" noshade>
-			<div class="space">		
+			<hr width="61%" noshade style="margin: 0 auto;">
+			<div class="space" align="center">		
 			<p>
 				合計金額: <b style="font-size: 24px;">&yen;<fmt:formatNumber 
 				 		value="<%=totalPrice%>" type="currency" currencySymbol="" maxFractionDigits="0" />

@@ -80,7 +80,7 @@
 
 	<main>
 		<div class="maincopy">
-			<h1>
+			<h1 class="font">
 				CHRISTMAS TOWNは<br>クリスマスグッズが<br class="sp_br">一年中買えるお店です
 			</h1>
 			<p>
