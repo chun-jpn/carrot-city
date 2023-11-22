@@ -3,11 +3,13 @@ package servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import dao.ItemsDAO;
 import model.Items;
 
@@ -18,18 +20,18 @@ import model.Items;
 public class ProductSearchServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     // リクエストパラメータの取得
-    request.setCharacterEncoding("UTF-8");
+ //   request.setCharacterEncoding("UTF-8");
 
     String error = "";
 
     try {
       // パラメータの取得
       String item_name = request.getParameter("item_name");
-
+      String page = request.getParameter("page");
       // 配列宣言
       List<Items> itemsList = new ArrayList<Items>();
 
@@ -41,7 +43,9 @@ public class ProductSearchServlet extends HttpServlet {
 
       // 検索結果を持ってproductSearch.jspにフォワード
       request.setAttribute("itemsList", itemsList);
-
+      request.setAttribute("item_name", item_name);
+	  request.setAttribute("page",page );
+	  
     } catch (IllegalStateException e) {
       error = "DB接続エラーの為、一覧表示はできませんでした。";
 
@@ -52,6 +56,16 @@ public class ProductSearchServlet extends HttpServlet {
       request.setAttribute("error", error);
       request.getRequestDispatcher("WEB-INF/jsp/productSearch.jsp").forward(request, response);
     }
-
   }
+
+    
+    protected void doPost(HttpServletRequest request,
+    		HttpServletResponse response)
+    		throws ServletException, IOException {
+
+    			//リクエストパラメータの取得
+    			request.setCharacterEncoding("UTF-8");
+    			
+    
+    }
 }
