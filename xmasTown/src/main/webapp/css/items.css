@@ -114,6 +114,21 @@ table tr .table_box{
   font-size: 80px;
   padding: 80px;
 }
+
+.paging {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.paging a {
+	margin: 5px;
+	text-decoration: none;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: #f2f2f2;
+}
+
 @-webkit-keyframes ani {
   0% {
     transform: translate3d(0, 0, 0);
