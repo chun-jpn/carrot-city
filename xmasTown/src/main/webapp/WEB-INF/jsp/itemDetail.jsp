@@ -18,6 +18,7 @@
 <title>CHRISTMAS TOWN</title>
 </head>
 <body>
+	<div class="footerFixed">
 	<%@ include file="header.jsp"%>
 	<main align="center">
 		<h1 class="change_h1" style="margin: 0;">商品詳細</h1>
@@ -82,5 +83,6 @@
 		</p>
 	</main>
 	<%@ include file="footer.jsp"%>
+	</div>
 </body>
 </html>
