@@ -34,7 +34,7 @@ public class ItemSearchServlet3 extends HttpServlet {
  		try{
  			//パラメータの取得
  			String item_name = request.getParameter("item_name");
- 
+ 			String page = request.getParameter("page");
  			//配列宣言
  			List<Items> itemsList = new ArrayList<Items>();
  
@@ -47,6 +47,8 @@ public class ItemSearchServlet3 extends HttpServlet {
  
  			//検索結果を持ってItemSearch.jspにフォワード
  			request.setAttribute("itemsList",itemsList );
+ 			request.setAttribute("item_name", item_name);
+ 			request.setAttribute("page",page );
  
  		}catch (IllegalStateException e) {
  			error ="DB接続エラーの為、一覧表示はできませんでした。";
