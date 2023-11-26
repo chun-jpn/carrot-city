@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,14 +25,18 @@
             <form action="LoginServlet" method="post">
                 <label for="email"><b>メールアドレス &nbsp;</b><input type="email"
                     class="input-field" id="email" name="mail"
-                    placeholder="sample@example.com"></label><br> <label
+                    placeholder="sample@example.com" required></label><br> <label
                     for="password"><b>パスワード &nbsp;</b> <%--パスワード入力チェックを行うのであればinput-hintを表示 --%>
                     <%--<span id="user-password-hint" class="input-hint">※半角英数8文字以上</span> --%>
                     <input type="password" class="input-field" id="password"
-                    name="password" placeholder="abcd1234"></label><br> <br>
+                    name="password" placeholder="abcd1234" required></label><br> <br>
                 <a class="b"><input type="submit" id="login-button" value="ログイン"></a><br>
                 <br> <a href="RegisterServlet" class="buttonBasic" class="b">新規会員登録</a>
             </form>
+            <br>
+            <c:if test="${not empty requestScope.error}">
+                <p style="color: red;" align="center">${requestScope.error}</p>
+            </c:if>
             <br>
             <p class="link-text" style="margin: 0;">
                 <a href="WelcomeServlet" class="b">TOPへ</a>

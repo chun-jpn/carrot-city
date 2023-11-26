@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,12 +21,12 @@
                     <p>
                         <label class="required" for="name"><b>名前 &nbsp;</b></label><input
                             type="text" class="input-field" id="name" name="name"
-                            placeholder="山田太郎">
+                            placeholder="山田太郎" required>
                     </p>
                     <p>
                         <label class="required" for="address"><b>住所 &nbsp;</b></label><br>
                         <input type="text" class="input-field" id="address" name="address"
-                            placeholder="岐阜県各務原市テクノプラザ1丁目1番地">
+                            placeholder="岐阜県各務原市テクノプラザ1丁目1番地" required>
                     </p>
                     <p>
                         <label class="required" for="phone-number"><b>電話番号
@@ -34,20 +35,20 @@
                         <%--<span id="user-phone-number-hint" class="input-hint">※半角で入力してください</span>
                                             --%>
                         <input type="tel" class="input-field" id="phone-number" name="tel"
-                            placeholder="080xxxxxxxx">
+                            placeholder="080xxxxxxxx" required>
                     </p>
                     <p>
                         <label class="required" for="email"><b>メールアドレス &nbsp;</b></label>
                         <br> <input type="email" class="input-field" id="email"
                             name="mail" placeholder="sample@example.com"><br> <span
-                            id="user-email-hint" class="input-hint">※登録済のメールアドレスは使用不可</span>
+                            id="user-email-hint" class="input-hint" required>※登録済のメールアドレスは使用不可</span>
                     </p>
                     <p>
                         <label class="required" for="password"><b>パスワード &nbsp;</b></label>
                         <%--パスワード入力チェックを行うのであればinput-hintを表示 --%>
                         <%--<br><span id="user-password-hint" class="input-hint">※半角英数8文字以上</span> --%>
                         <input type="password" class="input-field" id="password"
-                            name="password" placeholder="abcd1234">
+                            name="password" placeholder="abcd1234" required>
                     </p>
                     <input type="submit" name="success" value="決定" id="button_solid017">
                     <br>
