@@ -43,7 +43,7 @@ main {
 				totalPrice += cartItem.getPrice() * cartItem.getQuantity();
 			%>
 			<tr class="line">
-				<td data-label="商品画像:" width="200">
+				<td width="200">
 					<img src="itemImage/<%=cartItem.getPicture()%>" alt="商品画像"
 					width="150px" height="150px">
 				</td>
