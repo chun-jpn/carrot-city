@@ -230,7 +230,7 @@ public class ItemsDAO {
     return items;
   }
 
-  // ユーザー商品名検索
+  // ユーザー用商品名検索
   public List<Items> search(String item_name) {
     List<Items> itemsList = new ArrayList<Items>();
 
@@ -275,7 +275,7 @@ public class ItemsDAO {
     return itemsList;
   }
   
-  // ユーザー商品名検索
+  // 管理者用商品名検索
   public List<Items> productSearch(String item_name) {
     List<Items> itemsList = new ArrayList<Items>();
 
