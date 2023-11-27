@@ -39,7 +39,7 @@ public class ProductSearchServlet extends HttpServlet {
       ItemsDAO objDao = new ItemsDAO();
 
       // 全検索メソッドを呼び出し
-      itemsList = objDao.search(item_name);
+      itemsList = objDao.productSearch(item_name);
 
       // 検索結果を持ってproductSearch.jspにフォワード
       request.setAttribute("itemsList", itemsList);

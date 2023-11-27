@@ -230,7 +230,7 @@ public class ItemsDAO {
     return items;
   }
 
-  // 商品名検索
+  // ユーザー用商品名検索
   public List<Items> search(String item_name) {
     List<Items> itemsList = new ArrayList<Items>();
 
@@ -246,6 +246,51 @@ public class ItemsDAO {
 
       // SELECT文の準備
       String sql = "SELECT * FROM items WHERE item_name LIKE ? and release_flag = 0 and stock > 0";
+      PreparedStatement pStmt = conn.prepareStatement(sql);
+      pStmt.setString(1, "%" + item_name + "%");
+
+      // SELECTを実行
+      ResultSet rs = pStmt.executeQuery();
+
+      // SELECT文の結果をArrayListに格納
+      while (rs.next()) {
+        int itemId = rs.getInt("item_id");
+        String category = rs.getString("category");
+        String itemName = rs.getString("item_name");
+        int price = rs.getInt("price");
+        String comment = rs.getString("comment");
+        int stock = rs.getInt("stock");
+        int releaseFlag = rs.getInt("release_flag");
+        String addDate = rs.getString("add_date");
+        String rewriteDate = rs.getString("rewrite_date");
+        String picture = rs.getString("picture");
+        Items items = new Items(itemId, category, itemName, price, comment, stock, releaseFlag,
+            addDate, rewriteDate, picture);
+        itemsList.add(items);
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+      return null;
+    }
+    return itemsList;
+  }
+  
+  // 管理者用商品名検索
+  public List<Items> productSearch(String item_name) {
+    List<Items> itemsList = new ArrayList<Items>();
+
+    // JDBCドライバを読み込む
+    try {
+      String drivername = "com.mysql.jdbc.Driver";
+      Class.forName(drivername);
+    } catch (ClassNotFoundException e) {
+      throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+    }
+    // データベース接続
+    try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+
+      // SELECT文の準備
+      String sql = "SELECT * FROM items WHERE item_name LIKE ?";
       PreparedStatement pStmt = conn.prepareStatement(sql);
       pStmt.setString(1, "%" + item_name + "%");
 
